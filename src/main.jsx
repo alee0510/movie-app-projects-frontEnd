@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 
 // import components
 import Navbar from './components/navbar'
+import Banner from './components/banner'
 
 // import pages
 import Home from './pages/home'
@@ -17,6 +18,7 @@ class Main extends React.Component {
         return (
             <div>
                 <Navbar/>
+                <Banner/>
                 <Route path = '/' component = {Home} exact />
                 <Route path = '/login' component = {Login} />
                 <Route path = '/register' component = {Register} />

@@ -86,7 +86,7 @@ class StoreManager extends React.Component {
     
     TabBody = () => {
         let {page, rowsPerPage, movies} = this.state
-        const emptyRows = rowsPerPage - Math.min(rowsPerPage, movies.length - page * rowsPerPage)
+        // const emptyRows = rowsPerPage - Math.min(rowsPerPage, movies.length - page * rowsPerPage)
         return (
             <TableBody>
                 {

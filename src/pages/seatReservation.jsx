@@ -13,7 +13,7 @@ import '../style/seat.css'
 var seats = 100
 
 function Seat (props) {
-    const red = '#F50057'
+    // const red = '#F50057'
     const blue = '#2979ff'
     const white = '#f2f2f2'
     const style = {
@@ -24,13 +24,13 @@ function Seat (props) {
     // console.log(style.color)
     return (
         <Cell onClick ={() => props.handleClick(props.row, props.col)}>
-            <EventSeatIcon style = {style} fontSize = 'small'/>
+            <EventSeatIcon style = {style} fontSize = 'large'/>
         </Cell>
     )
 }
 
 function SeatRows (props) { // 20 seats
-    var cells = []
+    let cells = []
     for (let i = 0; i < seats/5; i++) {
         cells.push(
         <Seat key = {i} 
@@ -42,10 +42,17 @@ function SeatRows (props) { // 20 seats
     }
     return cells
 }
+function NumCell (props) {
+    let num = []
+    for(let i = 0; i < seats/5; i++){
+        num.push(<Cell key = {i}>{i+1}</Cell>)
+    }
+    return num
+}
 
 function SeatBoard (props) {
-    var rows = []
-    var str = 'ABCDE'
+    let rows = []
+    let str = 'ABCDE'
     for (let i = 0; i < seats/20; i++) {
         rows.push(
             <Row key = {i}>
@@ -56,7 +63,6 @@ function SeatBoard (props) {
                     handleClick = {props.handleClick}/>
             </Row>)
     }
-    // console.log(rows[0].unshift(<Cell>1</Cell>))
     return (
         <Table>
             <TableHead>
@@ -64,7 +70,8 @@ function SeatBoard (props) {
             </TableHead>
             <TableBody>
                 <Row>
-                    <Cell>1</Cell>
+                    <Cell></Cell>
+                    <NumCell/>
                 </Row>
             </TableBody>
         </Table>
@@ -75,8 +82,9 @@ function SeatBoard (props) {
 const Cell = withStyles ({
     root : {
         color : 'white',
-        border : '1px solid white',
-        textAlign : 'right'
+        border : 'none',
+        textAlign : 'center',
+        padding : 7
     }
 })(TableCell)
 
@@ -118,7 +126,7 @@ class SeatReservation extends React.Component {
         let {choosenSeat} = this.state
         // initial index of previous selected seat in choosenSeat
         
-        var temp = []
+        let temp = []
         console.info('selected row : ', row, 'selected cell : ', col)
         for(let i = 0; i < seats/20; i++) {
             temp.push(this.state.cells[i].slice())
@@ -141,7 +149,7 @@ class SeatReservation extends React.Component {
     }
     
     render () {
-        console.table(this.state.cells)
+        // console.table(this.state.cells)
         return (
             <div>
                 <h1 style = {{color : 'white'}}>Choose your seats : </h1>
