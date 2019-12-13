@@ -1,0 +1,54 @@
+#reg {
+    display: flex;
+    flex-direction: column;
+    height: 65vh;
+    width: 45vw;
+    background-color: #263238;
+    color: white;
+    margin: 5% auto;
+    border-radius: 35px;
+    position: relative;
+}
+
+#reg h1 {
+    text-align: center;
+    padding-top: 5vh;
+    padding-bottom : 2%;
+}
+
+#reg #inputGrid {
+    position: relative;
+    /* width: 100%; */
+    /* left: calc(50% - 170px); */
+    margin: 2% auto 2% auto;
+}
+
+#reg #inputGrid #grid {
+    margin-bottom: 20px;
+}
+
+#btn-cancel {
+    height: 45px !important;
+    width: 150px;
+    border-radius: 50px;
+    color: white;
+}
+
+#btn-register {
+    height: 45px !important;
+    width: 150px;
+    border-radius: 50px;
+    margin-left: 5%;
+    background-color: #bb002f;
+    color: white;
+}
+
+.btn-reg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 27vw;
+    /* display: inline-flex; */
+    /* width: 300px; */
+    margin: 10px auto !important;
+}

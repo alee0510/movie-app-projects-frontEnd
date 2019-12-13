@@ -1,0 +1,15 @@
+.seat-container {
+    width: 50vw;
+    height: 50vh !important;
+    /* background-color: wheat; */
+    position: relative;
+    /* margin: auto; */
+}
+/* 
+.seats {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left : 75px
+    /* background-color: violet; */

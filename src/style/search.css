@@ -1,0 +1,25 @@
+.search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#searchIcon {
+    position: absolute;
+    padding-top: 3px;
+    padding-left: 8px;
+    margin-right: 10px;
+    z-index: 1;
+}
+
+#input {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    padding-left: 38px;
+    background-color: white;
+    border-radius: 50px;
+    height : 25px;
+}

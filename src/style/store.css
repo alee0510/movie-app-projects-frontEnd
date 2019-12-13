@@ -1,0 +1,46 @@
+.main-container {
+    width: 90%;
+    margin: auto;
+}
+.table-container {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.table-wrapper {
+    height: 68vh;
+    overflow: auto !important;
+}
+
+#btn-add-menu {
+    display: flex;
+    margin: auto 0% auto auto;
+    border-radius: 50px;
+}
+
+#btn-edit-store, #btn-delete-store, #btn-cancel-store, #btn-done-store {
+    width: 100px;
+    border-radius: 50px;
+    height: 40px !important;
+    color: white;
+}
+
+#btn-delete-store, #btn-done-store {
+    margin-left: 10px;
+}
+
+#btn-edit-store {
+    background-color: #c77c02;
+}
+
+#btn-delete-store {
+    background-color: #bb002f;
+}
+
+#btn-done-store {
+    background-color: #0064b7;
+}
+
+#btn-cancel-store {
+    background-color: #009624;
+}

@@ -1,0 +1,388 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "username": "admin",
+      "pass": "admin",
+      "email": "admin@gmail.com",
+      "role": "admin",
+      "avatar": "",
+      "cart": []
+    },
+    {
+      "id": 2,
+      "username": "alee",
+      "pass": "alee0510",
+      "email": "alee0510@gmail.com",
+      "role": "user",
+      "avatar": "http://localhost:3000/assets/alee.jpg",
+      "cart": []
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "title": "Rampant (창궐)",
+      "genre": [
+        "Action",
+        "History",
+        "Korea"
+      ],
+      "poster": "http://asianwiki.com/images/f/f1/Rampant-p111.jpg",
+      "director": "Kim Sung-Hoon",
+      "casts": [
+        "Hyun-Bin",
+        "Jang Dong-Gun",
+        "Joo Woo-Jin",
+        "Jeong Man-Sik",
+        "Lee Sun-Bin",
+        "Kim Eui-Sung",
+        "Jo Dal-Hwan",
+        "Kong Jung-Hwan"
+      ],
+      "plot": "Lee Chung (Hyun-Bin) is a Prince of Joseon, but he has been taken hostage to the Qing Dynasty. He enjoys boozing, womanizing and gambling. He is also an excellent swordsman. His older brother Lee Young will succeed to the throne and brings Lee Chung to Joseon. He returns after more than 10 years. Soon, Lee Chung faces monsters that run rampant in the night.",
+      "youtubeID": "XvH4t7pvDc0",
+      "booked": []
+    },
+    {
+      "id": 2,
+      "title": "Money (돈)",
+      "genre": [
+        "Crime",
+        "Social",
+        "Stock Market",
+        "Korea"
+      ],
+      "director": "Park Noo-Ri",
+      "casts": [
+        "Ryoo Joon-Yeol",
+        "Yoo Ji-Tae",
+        "Jo Woo-Jin",
+        "Kim Jae-Young",
+        "Kim Min-Jae",
+        "Jeong Man-Sik",
+        "Won Jin-A",
+        "Kim Jong-Soo",
+        "Jin Seon-Kyu",
+        "Daniel Henney"
+      ],
+      "poster": "http://asianwiki.com/images/d/de/Money_%28Korean_Movie%29-TP1.jpeg",
+      "plot": "Il-Hyun (Ryoo Joon-Yeol) begins to work as a stock broker. His dream is to become rich. Il-Hyun meets a stock market scammer known as Beonhopyo (Yoo Ji-Tae). He asks Il-Hyun to help in a stock market scam. Meanwhile Han Ji-Cheol (Jo Woo-Jin) works for Financial Supervisory Service and has chased Beonhopyo for a long time. He senses something suspicious with Il-Hyun.",
+      "youtubeID": "zuMI_NaMxwg",
+      "booked": []
+    },
+    {
+      "id": 3,
+      "title": "Detective K: Secret of the Bloodsucking Demon",
+      "genre": [
+        "Adventure",
+        "Comedy",
+        "Mistery",
+        "Detective",
+        "18th Century"
+      ],
+      "director": "Kim Suk-Yoon",
+      "casts": [
+        "Kim Myung-Min",
+        "Oh Dal-Su",
+        "Kim Ji-Won",
+        "Lee Min-Ki",
+        "Kim Beom",
+        "Kim Jung-Hwa",
+        "Park Geun-Hyung",
+        "Yoon Sang-Hoon",
+        "Oh Jae-Mi"
+      ],
+      "poster": "http://asianwiki.com/images/6/61/Detective_K-_Secret_of_the_Living_Dead-p01.jpg",
+      "plot": "In 18th century Joseon, a complicated political situation exists under King Jeongjo. Citizens who read commercial novels by Cheong Woon Mong are killed. Kim Min (Kim Myung-Min) and Seo-Pil (Oh Dal-Su) investigate the killings.",
+      "youtubeID": "6N7trw1_ZWs",
+      "booked": []
+    },
+    {
+      "id": 4,
+      "title": "Inseparable Bros (나의 특별한 형제)",
+      "genre": [
+        "Comedy",
+        "Family",
+        "Korea"
+      ],
+      "director": "Yook Sang-Hyo",
+      "casts": [
+        "Shin Ha-Kyun",
+        "Lee Kwang-Soo",
+        "Esom",
+        "Park Chul-Min",
+        "Kwon Hae-Hyo",
+        "Gil Hae-Yeon",
+        "Ahn Ji-Ho",
+        "Kim Hyun-Bin"
+      ],
+      "poster": "http://asianwiki.com/images/7/74/Inseparable_Bros-p03.jpg",
+      "plot": "Se-Ha (Shin Ha-Kyun) and Dong-Goo (Lee Kwang-Soo) are not blood related brothers, but they have been like brothers for the past 20 years. Se-Ha is smart, but he has a physical disability. Dong-Goo is not very smart, but he is in excellent physical condition. These two men meet Mi-Hyun (Esom). She is the only person to treat them without prejudice. Mi-Hyun helps them get out into the world.",
+      "youtubeID": "LiK4OFMazGs",
+      "booked": []
+    },
+    {
+      "id": 5,
+      "title": "On Your Wedding Day",
+      "genre": [
+        "Romance"
+      ],
+      "director": " Lee Seok-Geun",
+      "casts": [
+        "Park Bo-Young",
+        "Kim Young-Kwang",
+        "Kang Ki-Young",
+        "Ko Kyu-Pil",
+        "Jang Sung-Bum",
+        "Seo Eun-Su",
+        "Shin So-Yul",
+        "Song Jae-Rim",
+        "Lim Hyung-Joon",
+        "Kim Hyun-Sook"
+      ],
+      "poster": "http://asianwiki.com/images/d/de/On_Your_Wedding_Day-mp2.jpg",
+      "plot": "Seung-Hee (Park Bo-Young) and Woo-Yeon (Kim Young-Kwang) meet for the first time as high school students. Woo-Yeon likes her, but he does not know whether she feels the same. After graduating from college, they start their careers.",
+      "youtubeID": "L8s2c86_9cY",
+      "booked": []
+    },
+    {
+      "id": 6,
+      "title": "The Great Battle (안시성)",
+      "genre": [
+        "Action",
+        "History",
+        "17th Century"
+      ],
+      "director": "Kim Kwang-Sik",
+      "casts": [
+        "Zo In-Sung",
+        "Nam Joo-Hyuk",
+        "Park Sung-Woong",
+        "Bae Sung-Woo",
+        "Um Tae-Goo",
+        "Seol Hyun",
+        "Park Byung-Eun",
+        "Oh Dae-Hwan",
+        "Jung Eun-Chae"
+      ],
+      "poster": "http://asianwiki.com/images/f/f3/The_Great_Battle-p001.jpg",
+      "plot": "In 645, Yang Man-Chun (Zo In-Sung) and Goguryeo soldiers defend Ansi Fortress against a half million invading Tang force.",
+      "youtubeID": "tp7lK5oCmjA",
+      "booked": []
+    },
+    {
+      "id": 7,
+      "title": "Mourning Grave (소녀괴담)",
+      "genre": [
+        "Horror",
+        "Romance",
+        "Thriller"
+      ],
+      "director": "Oh In-Chun",
+      "casts": [
+        "Kang Ha-Neul",
+        "Kim So-Eun",
+        "Kim Jung-Tae",
+        "Han Hye-Rin",
+        "Park Doo-Sik"
+      ],
+      "poster": "http://asianwiki.com/images/5/58/Mourning_Grave-p2.jpg",
+      "plot": "In-Soo (Kang Ha-Neul) has a special gift to see ghosts and has become isolated from other students because of this. He transfers to a high school in a rural area outside of Seoul. There, In-Soo meets a female ghost (Kim So-Eun) at the high school and forms a friendship with her.",
+      "youtubeID": "RWsY8XjCGEc",
+      "booked": []
+    },
+    {
+      "id": 8,
+      "title": "The Battleship Island (군함도)",
+      "genre": [
+        "Action",
+        "Island",
+        "History"
+      ],
+      "director": "Ryoo Seung-Wan",
+      "casts": [
+        "Hwang Jung-Min",
+        "So Ji-Sub",
+        "Song Joong-Ki",
+        "Lee Jung-Hyun",
+        "Kim Soo-Ahn",
+        "Kim In-Woo",
+        "Kim Joong-Hee"
+      ],
+      "poster": "http://asianwiki.com/images/9/9c/The_Battleship_Island-p1.jpg",
+      "plot": "During the Japanese colonial era, roughly 400 Korean people, who were forced onto Battleship Island to mine for coal, attempt to escape. Lee Kang-Ok (Hwang Jung-Min) is a bandmaster at Kyungsung Hotel. He decides to go to Japan to protect his daughter, but he is drafted into Battleship Island by force, being deceived by talk to send him to Japan. On Battleship Island, he does anything to protect his daughter. Choi Chil-Sung (So Ji-Sub) is the top fighter in Kyungsung (old name of “Seoul”). He makes troubles on Battleship Island, but he has a warm heart. Park Moo-Young (Song Joong-Ki) belongs to the Korean Independence group. He sneaks onto Battleship Island to rescue a member of the independence group.",
+      "youtubeID": "ixe6g9hy3SA",
+      "booked": []
+    },
+    {
+      "id": 9,
+      "title": "Forbidden Dream (천문: 하늘에 묻는다)",
+      "genre": [
+        "History",
+        "15th Century"
+      ],
+      "director": "Hur Jin-Ho",
+      "casts": [
+        "Choi Min-Sik",
+        "Han Suk-Kyu",
+        "Shin Goo",
+        "Kim Hong-Fa",
+        "Heo Jun-Ho",
+        "Kim Tae-Woo",
+        "Kim Won-Hae",
+        "Lim Won-Hee",
+        "Oh Gwang-Rok",
+        "Park Sung-Hoon",
+        "Jeon Yeo-Bin"
+      ],
+      "poster": "http://asianwiki.com/images/a/ab/Forbidden_Dream-P1.jpg",
+      "plot": "A 20 year relationship exists between King Sejong (Han Suk-Kyu) and Jang Yeong-Sil (Choi Min-Sik). They invent various devices for astronomical observation. Due to a case, Jang Yeong-Sil is discharged from office and he disappears completely.",
+      "youtubeID": "pkoynRu42pk",
+      "booked": []
+    },
+    {
+      "id": 10,
+      "title": "Memories of The Sword (협녀 : 칼의 기억)",
+      "genre": [
+        "Action"
+      ],
+      "director": "Park Heung-Sik",
+      "casts": [
+        "Lee Byung-Hun",
+        "Jeon Do-Yeon",
+        "Kim Go-Eun",
+        "Lee Joon-Ho",
+        "Lee Kyoung-Young",
+        "Kim Tae-Woo",
+        "Bae Soo-Bin",
+        "Kim Soo-Ahn",
+        "Moon Sung-Geun"
+      ],
+      "poster": "http://asianwiki.com/images/d/d6/Memories_of_the_Sword-p1.jpg",
+      "plot": "3 warriors from the Goryo Dynasty lead a riot. Due to the betrayal of Deok-Ki (Lee Byung-Hun), Poong-Chun (Bae Soo-Bin) dies. Deok-Ki then tries to persuade Seol-Rang (Jeon Do-Yeon) to join his side, but she refuses. She then flees with Poong-Chun's sword and his infant daughter. 18 years later, the female warrior is now blind and she trains the young woman (Kim Go-Eun) to use the sword for revenge. Meanwhile, Deok-Ki is the most powerful man in the country. Soon blood will be shed.",
+      "youtubeID": "85Ax1DS0QKs",
+      "booked": []
+    },
+    {
+      "id": 11,
+      "title": "Parasite (기생충)",
+      "genre": [
+        "Drama",
+        "Family"
+      ],
+      "director": "Bong Joon-Ho",
+      "casts": [
+        "Song Kang-Ho",
+        "Jang Hye-Jin",
+        "Choi Woo-Sik",
+        "Park So-Dam",
+        "Lee Sun-Kyun",
+        "Cho Yeo-Jeong",
+        "Jung Ji-So",
+        "Jeong Hyun-Jun"
+      ],
+      "poster": "http://asianwiki.com/images/b/b2/Parasite-2019-p01.jpg",
+      "plot": "Movie shows how people in the present days live through two families who resemble each other and look different.",
+      "youtubeID": "DXlz3EpUlIw",
+      "booked": []
+    },
+    {
+      "id": 12,
+      "title": "Tazza: One Eyed Jack (타짜: 원 아이드 잭)",
+      "genre": [
+        "Crime",
+        "Gambling ",
+        "Crime Team"
+      ],
+      "director": "Kwon Oh-Kwang",
+      "casts": [
+        "Park Jung-Min",
+        "Ryoo Seung-Bum",
+        "Choi Yu-Hwa",
+        "Woo Hyeon",
+        "Yoon Je-Moon",
+        "Lee Kwang-Soo",
+        "Lim Ji-Yeon",
+        "Kwon Hae-Hyo"
+      ],
+      "poster": "http://asianwiki.com/images/c/c5/Tazza-One_Eyed_Jack-mp01.jpg",
+      "plot": "Do Il-Chool (Park Jung-Min) has a talent for playing poker and he is the son of Jjakgwi. His father was a gambler and had one ear cut off after he was caught cheating. Il-Chool meets mysterious gambler Aekku (Ryoo Seung-Bum) and gets involved in the master gambling world. ",
+      "youtubeID": "jlabOLXyxUM",
+      "booked": []
+    },
+    {
+      "id": 13,
+      "title": "Along with the Gods: The Last 49 Days (신과함께-인과 연)",
+      "genre": [
+        "Fantasy",
+        "Drama",
+        "Afterlife"
+      ],
+      "director": "Kim Yong-Hwa",
+      "casts": [
+        "Ha Jung-Woo",
+        "Ju Ji-Hoon",
+        "Kim Hyang-Gi",
+        "Ma Dong-Seok",
+        "Kim Dong-Wook",
+        "Lee Jung-Jae"
+      ],
+      "poster": "http://asianwiki.com/images/d/d0/Along_With_the_Gods-_The_Last_49_Days-P1.jpg",
+      "plot": "Angels of death Gang Rim (Ha Jung-Woo), Hae Won Maek (Ju Ji-Hoon) and Duk Choon (Kim Hyang-Gi) are about to take part in Soo-Hong’s (Kim Dong-Wook) trial. The 3 angels of death meet God of House (Ma Dong-Seok). He remembers their past which stretches over 1,000 years ago. Traveling between this world and the next world and the past, the angels of death try to find their secret relationship. ",
+      "youtubeID": "IfzZYija-wM",
+      "booked": []
+    },
+    {
+      "id": 14,
+      "title": "Hotel Del Luna",
+      "genre": [
+        "Drama",
+        "Fantacy",
+        "Romance"
+      ],
+      "director": "Oh Choong-Hwan",
+      "casts": [
+        "IU",
+        "Yeo Jin-Goo",
+        "Cho Hyun-Chul",
+        "Park Yoo-Na",
+        "Shin Jung-Keun",
+        "Bae Hae-Sun",
+        "P.O"
+      ],
+      "poster": "http://asianwiki.com/images/4/4c/Hotel_Del_Luna-GP.jpg",
+      "plot": "Jang Man-Wol (IU) is the CEO of Hotel del Luna. The hotel is situated in downtown in Seoul and has a very old appearance. She made a big error many years ago and, because of this, she has been stuck at Hotel del Luna. She is beautiful, but she is fickle, suspicious and greedy. Koo Chan-Sung (Yeo Jin-Goo) worked as the youngest assistant manager ever at a multinational hotel corporation. He is a sincere perfectionist. He looks level-headed, but he actually has a soft disposition. Due to an unexpected case, he begins to work as a manager at Hotel del Luna. The hotel's clientele consists of ghosts.",
+      "youtubeID": "arcoS89uGLA",
+      "booked": []
+    },
+    {
+      "id": 15,
+      "title": "Ashfall ",
+      "genre": [
+        " Action",
+        "Disaster"
+      ],
+      "poster": "http://asianwiki.com/images/8/8b/Ashfall-KM-mp01.jpg",
+      "director": "Lee Hae-Jun",
+      "casts": ["Lee Byung-Hun", "Ha Jung-Woo", "Ma Dong-Seok", "Jeon Hye-Jin", "Bae Suzy"],
+      "plot": "A volcano on Baekdu Mountain suddenly erupts. Pandemonium ensues on the Korean peninsula, with more eruptions predicted in the area.  To prevent another disaster, Jeon Yoo-Kyung (Jeon Hye-Jin) plans an operation based on a theory by Professor Kang Bong-Rae (Ma Dong-Seok). He had has studied Baekdu Mountain and its possible eruptions.  Jo In-Chang (Ha Jung-Woo) is the captain of a special forces team. He is tasked to take part in the operation, which holds the fates of South and North Korea in the balance. Jo In-Chang contacts Lee Joon-Pyeong (Lee Byung-Hun) who is part of the Ministry of People's Armed Forces of North Korea. Meanwhile, Jo In-Chang's wife Choi Ji-Young (Bae Suzy) is alone in Seoul. She struggles to survives against the disaster. ",
+      "youtubeID": "MumttfFid_w"
+    }
+  ],
+  "banners": [
+    "http://localhost:3000/assets/banners/dsn.jpg",
+    "http://localhost:3000/assets/banners/21_zps440rro2o.jpg",
+    "http://localhost:3000/assets/banners/exitbanner.jpg",
+    "http://localhost:3000/assets/banners/extraordinary.jpeg",
+    "http://localhost:3000/assets/banners/fightfmy.jpg",
+    "http://localhost:3000/assets/banners/goblinbanner.jpg",
+    "http://localhost:3000/assets/banners/hwarangbanner.jpg",
+    "http://localhost:3000/assets/banners/On_Your_Wedding_Day_banner.jpg",
+    "http://localhost:3000/assets/banners/parasite-2019.jpg",
+    "http://localhost:3000/assets/banners/unaskedfamily.jpg",
+    "http://localhost:3000/assets/banners/On_Your_Wedding_Day_banner_2.jpg",
+    "http://localhost:3000/assets/banners/when-the-camellia-blooms.jpg",
+    "http://localhost:3000/assets/banners/wsk_banner.jpg"
+  ]
+}

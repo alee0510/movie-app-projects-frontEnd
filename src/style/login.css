@@ -1,0 +1,36 @@
+#login {
+    color: white !important;
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    width: 45vw;
+    background-color: #263238;
+    margin: 5% auto;
+    border-radius: 35px;
+    position: relative;
+}
+
+#login h1 {
+    text-align: center;
+    padding-top: 10%;
+    padding-bottom : 2%;
+    color: white;
+}
+
+#login #inputGrid {
+    position: relative;
+    /* width: 100%;
+    left: calc(50% - 170px); */
+    margin: 5% auto 5% auto;
+}
+
+#login #inputGrid #grid {
+    margin-bottom: 20px;
+}
+
+#login #btnLg {
+    margin: 0px 30%;
+    height: 50px !important;
+    border-radius: 50px;
+    background-color: #bb002f;
+}
