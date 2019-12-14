@@ -372,15 +372,9 @@
   ],
   "banners": [
     "http://localhost:3000/assets/banners/dsn.jpg",
-    "http://localhost:3000/assets/banners/21_zps440rro2o.jpg",
     "http://localhost:3000/assets/banners/exitbanner.jpg",
-    "http://localhost:3000/assets/banners/extraordinary.jpeg",
     "http://localhost:3000/assets/banners/fightfmy.jpg",
-    "http://localhost:3000/assets/banners/goblinbanner.jpg",
-    "http://localhost:3000/assets/banners/hwarangbanner.jpg",
     "http://localhost:3000/assets/banners/On_Your_Wedding_Day_banner.jpg",
-    "http://localhost:3000/assets/banners/parasite-2019.jpg",
-    "http://localhost:3000/assets/banners/unaskedfamily.jpg",
     "http://localhost:3000/assets/banners/On_Your_Wedding_Day_banner_2.jpg",
     "http://localhost:3000/assets/banners/when-the-camellia-blooms.jpg",
     "http://localhost:3000/assets/banners/wsk_banner.jpg"
