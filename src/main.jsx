@@ -4,6 +4,8 @@ import { Route } from 'react-router-dom'
 // import components
 import Navbar from './components/navbar'
 import Banner from './components/banner'
+// import HomeGrid from './components/movieGrid'
+import Footer from './components/footer'
 
 // import pages
 import Home from './pages/home'
@@ -18,13 +20,15 @@ class Main extends React.Component {
         return (
             <div>
                 <Navbar/>
-                {/* <Banner/> */}
+                {/* <HomeGrid/> */}
+                <Banner/>
                 <Route path = '/' component = {Home} exact />
                 <Route path = '/login' component = {Login} />
                 <Route path = '/register' component = {Register} />
                 <Route path = '/storeManager' component = {StoreManager} />
                 <Route path = '/movieDetails' component = {MovieDetail} />
                 <Route path = '/seatReservation' component = {SeatReservation} />
+                <Footer/>
             </div>
         )
     }

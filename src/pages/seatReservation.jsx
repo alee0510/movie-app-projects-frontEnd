@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
+// import Button from '@material-ui/core/Button'
 import EventSeatIcon from '@material-ui/icons/EventSeat'
 import LocalMallIcon from '@material-ui/icons/LocalMall'
 import Fab from '@material-ui/core/Fab'
@@ -168,12 +168,12 @@ class SeatReservation extends React.Component {
     }
 
     AddToCart = () => {
-        let username = localStorage.getItem('username')
+        // let username = localStorage.getItem('username')
         let userID = localStorage.getItem('id')
         let {bookedSeat, chossenSeat, count, price, seatsCode} = this.state
         let moviesDeatils = this.props.location.state
         let userCart = {
-            name : moviesDeatils.title,
+            title : moviesDeatils.title,
             totalPrice : price,
             seatsCor : chossenSeat, // seat coordinates
             seatsCode : seatsCode,
@@ -215,8 +215,9 @@ class SeatReservation extends React.Component {
                         />   
                     </div>
                 </div>
-                <Fab>
+                <Fab variant="extended">
                     <LocalMallIcon/>
+                    Buy Now
                 </Fab>
                 {/* <Button
                     variant="contained"

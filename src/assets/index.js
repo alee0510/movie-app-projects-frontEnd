@@ -1,1 +1,8 @@
 export const user = require ('./user.png')
+export const imax = require ('./logo/imax-2-logo.svg')
+export const playstore = require('./logo/google-play-badge.png')
+export const applestore1 = require('./logo/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg')
+export const applestore2 = require('./logo/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg')
+export const dolby = require('./logo/Logo_Dolby_Atmos.svg')
+export const fourdx = require('./logo/4dx.svg')
+export const cj = require('./logo/1024px-CJ_logo.png')
