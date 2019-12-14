@@ -1,14 +1,20 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
 import EventSeatIcon from '@material-ui/icons/EventSeat'
-// import Icon from '@material-ui/core/Icon'
 import LocalMallIcon from '@material-ui/icons/LocalMall'
+import Fab from '@material-ui/core/Fab'
 
 // import table
 import {Table, TableBody, TableCell, TableHead, TableRow, withStyles} from '@material-ui/core';
 
 // style
 import '../style/seat.css'
+
+// redux
+import { connect } from 'react-redux'
+import { logIn } from '../actions'
+import API_URL from '../supports';
+import Axios from 'axios'
 
 var seats = 100
 
@@ -107,52 +113,99 @@ class SeatReservation extends React.Component {
             bookedSeat : [],
             choosenSeat : [],
             price : 0,
-            count : 0
+            count : 0,
+            seatsCode : [],
         }
     }
     
     findIndexPreviousSeat = (row, col) => {
         let {choosenSeat} = this.state
         for (let i = 0; i < choosenSeat.length; i ++) {
-            let indexCol = 0
             if (choosenSeat[i][0] === row && choosenSeat[i][1] === col) {
                 console.log('previous index : ' + i)
-                return indexCol = i
+                return i
             }
         }
     }
 
     handleClick = (row, col) => {
-        let {choosenSeat} = this.state
-        // initial index of previous selected seat in choosenSeat
-        
+        let {cells, choosenSeat, price, count, seatsCode} = this.state
         let temp = []
+        let str = 'ABCDE'
         console.info('selected row : ', row, 'selected cell : ', col)
+        
         for(let i = 0; i < seats/20; i++) {
-            temp.push(this.state.cells[i].slice())
+            temp.push(cells[i].slice())
         }
+
         if (temp[row][col] === 2) {
             temp[row][col] = 1
             // find index of previous selected seat
             let item = this.findIndexPreviousSeat(row, col)
             console.log('item index to delete : ' + item)
+            
             choosenSeat.splice(item, 1)
-            this.setState({cells: temp, choosenSeat: choosenSeat}, () => {
-                console.table(this.state.choosenSeat)
-            })
+            seatsCode.splice(item, 1)
+            this.setState({
+                cells: temp, 
+                choosenSeat: choosenSeat,
+                price : price - 5000,
+                count : count - 1,
+                seatsCode : seatsCode} 
+                // () => {console.table(choosenSeat)}
+            )
         } else {
             temp[row][col] = 2
-            this.setState({cells: temp, choosenSeat : [...this.state.choosenSeat, [row, col]]}, () => {
-                console.table(this.state.choosenSeat)
-            })
+            this.setState({
+                cells: temp, 
+                choosenSeat : [...choosenSeat, [row, col]],
+                price : price + 5000,
+                count : count + 1,
+                seatsCode : [...seatsCode, [str.charAt(row)+(col+1)]]}
+                // () => {console.table(choosenSeat)}
+            )
         }
+    }
+
+    AddToCart = () => {
+        let username = localStorage.getItem('username')
+        let userID = localStorage.getItem('id')
+        let {bookedSeat, chossenSeat, count, price, seatsCode} = this.state
+        let moviesDeatils = this.props.location.state
+        let userCart = {
+            name : moviesDeatils.title,
+            totalPrice : price,
+            seatsCor : chossenSeat, // seat coordinates
+            seatsCode : seatsCode,
+            ticketAmount : count
+        }
+        Axios.patch(API_URL + `login/${userID}`, {cart : userCart})
+        .then((res) => {
+            Axios.get(API_URL + `login/${userID}`)
+            .then((res) => {
+                this.props.logIn(res.data)
+                Axios.patch(API_URL + `movies/${moviesDeatils.id}`, {booked : bookedSeat})
+                .then((res) => console.log(res.data))
+                .catch((err) => console.log(err))
+            })
+            .catch((err) => console.log(err))
+        })
+        .catch((err) => console.log(err))
     }
     
     render () {
         // console.table(this.state.cells)
+        let moviesDeatils = this.props.location.state
+        let {count, price, seatsCode} = this.state
+
+        // console.table(moviesDeatils)
+        console.table(this.state.choosenSeat)
+        console.info('price : ', price, 'count : ', count)
+        console.table(seatsCode)
+
         return (
             <div>
-                <h1 style = {{color : 'white'}}>Choose your seats : </h1>
+                <h1 style = {{color : 'white'}}>Choose your seats : {moviesDeatils.title}</h1>
                 <div className = 'seat-container'>
                     <div className = 'seats'>
                         <SeatBoard 
@@ -162,17 +215,25 @@ class SeatReservation extends React.Component {
                         />   
                     </div>
                 </div>
-                <Button
+                <Fab>
+                    <LocalMallIcon/>
+                </Fab>
+                {/* <Button
                     variant="contained"
                     color="default"
-                    // className={classes.button}
+                    onClick={this.AddToCart}
                     startIcon={<LocalMallIcon/>}
                 >
-                    Book Now
-                </Button>
+                </Button> */}
             </div>
         )
     }
 }
 
-export default SeatReservation
+const mapStore = (state) => {
+    return {
+        cart : state.login.cart
+    }
+}
+
+export default connect(mapStore, {logIn})(SeatReservation)

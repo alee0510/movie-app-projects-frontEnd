@@ -40,7 +40,10 @@
 
 #movie-details-text {
     width: 90%;
+    height: 45%;
     margin: 2% auto;
+    position: relative;
+    /* background-color: violet; */
 }
 
 #text-container {
@@ -55,11 +58,11 @@ h1, h3, h4 {
 
 .btn-container {
     display: inline-flex;
-    justify-content: flex-end;
-    position: relative;
+    position: absolute;
     align-items: center;
+    justify-content: flex-end;
     width: 100%;
-    padding-top: 20px;
+    bottom : 0px;
 }
 
 #btn-detail-cancel, #btn-buy-now {

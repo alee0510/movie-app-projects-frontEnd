@@ -9,17 +9,16 @@ import Search from './search'
 // imort style
 import '../style/navbar.css'
 
-const Menu = () => {
-    const [click, navClick] = React.useState(false)
+function Menu (props) {
     return (
         <div className = 'menu' >
-            <Link to ='/'>
+            <Link to ='/' style = {{textDecoration : 'none'}}>
                 <Button id = 'home' style = {{color : 'white'}}>Home</Button>
             </Link>
-            <Link to ='/movies'>
+            <Link to ='/movies' style = {{textDecoration : 'none'}}>
                 <Button id = 'movies' style = {{color : 'white'}}>Movies</Button>
             </Link>
-            <Link to ='/cinemas'>
+            <Link to ='/cinemas' style = {{textDecoration : 'none'}}>
                 <Button id = 'cinemas' style = {{color : 'white'}}>Cinemas</Button>
             </Link>
         </div>

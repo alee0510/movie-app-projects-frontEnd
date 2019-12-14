@@ -72,6 +72,7 @@ class Login extends React.Component {
                 // assign it value to local storage and our global state
                 localStorage.setItem('username', username)
                 localStorage.setItem('role', res.data[0].role)
+                localStorage.setItem('id', res.data[0].id)
                 this.props.logIn(res.data[0])
             }
             // clear input value
@@ -106,13 +107,13 @@ class Login extends React.Component {
                                 <FormControl style = {{padding : '5px 0px 5px 0px'}} id = 'form'>
                                     <InputLabel htmlFor="adornment-amount" style = {{color : 'white'}}>Username</InputLabel>
                                     <InputStyle
-                                        id="adornment-amount"
+                                        // id="adornment-amount"
                                         inputRef = {text => this.text = text}
                                     />
                                 </FormControl>  
                             </Grid>
                     </Grid>
-                    <Grid container spacing={2} alignItems="flex-end" id = 'grid'>
+                    <Grid container spacing={2} alignItems="flex-end" id = 'grid2'>
                             <Grid item>
                                 <LockIcon/>
                             </Grid>
@@ -120,7 +121,7 @@ class Login extends React.Component {
                                 <FormControl style ={{padding : '5px 0px 5px 0px'}} >
                                     <InputLabel htmlFor="adornment-amount" style = {{color : 'white'}}>Password</InputLabel>
                                     <InputStyle
-                                        id="adornment-amount"
+                                        // id="adornment-amount"
                                         type = {show ? 'text' : 'password'}
                                         inputRef = {pass => this.pass = pass}
                                         endAdornment={

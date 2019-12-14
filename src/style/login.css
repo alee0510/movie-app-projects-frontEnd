@@ -24,7 +24,7 @@
     margin: 5% auto 5% auto;
 }
 
-#login #inputGrid #grid {
+#login #inputGrid #grid, #login #inputGrid #grid2 {
     margin-bottom: 20px;
 }
 

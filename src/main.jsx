@@ -18,7 +18,7 @@ class Main extends React.Component {
         return (
             <div>
                 <Navbar/>
-                <Banner/>
+                {/* <Banner/> */}
                 <Route path = '/' component = {Home} exact />
                 <Route path = '/login' component = {Login} />
                 <Route path = '/register' component = {Register} />

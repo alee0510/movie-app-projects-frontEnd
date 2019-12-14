@@ -3,7 +3,8 @@ const INITIAL_STATE = {
     pass : '',
     email : '',
     role : '',
-    avatar : ''
+    avatar : '',
+    cart : ''
 }
 
 const logReducer = (state = INITIAL_STATE, action) => {
@@ -15,7 +16,8 @@ const logReducer = (state = INITIAL_STATE, action) => {
                 pass : action.payload.pass,
                 email : action.payload.email,
                 role : action.payload.role,
-                avatar : action.payload.avatar
+                avatar : action.payload.avatar,
+                cart : action.payload.cart
             }
         case 'LOG_OUT' :
             return INITIAL_STATE
