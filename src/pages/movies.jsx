@@ -4,33 +4,16 @@ import Axios from 'axios'
 import API_URL from '../supports'
 
 // style
-// import Grid from '@material-ui/core/Grid'
+import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import GridList from '@material-ui/core/GridList'
-import GridListTile from '@material-ui/core/GridListTile'
-import { withStyles } from '@material-ui/core/styles'
-import '../style/home.css'
+import '../style/movies.css'
 
 // redux
 import { Movie, selectMovie } from '../actions'
 import { connect } from 'react-redux'
 
-// import banner
-import Banner from '../components/banner'
-
-
-const GridListStyled = withStyles({
-    root : {
-        width: '100%',
-        height: 'auto',
-        paddingBottom : '2%',
-        overflow : 'visible'
-    }
-})(GridList)
-
-
-class Home extends React.Component {
+class Movies extends React.Component {
 
     componentDidMount () {
         Axios.get(API_URL + 'movies')
@@ -48,13 +31,16 @@ class Home extends React.Component {
         return this.props.movies.map( (item, index) => {
             return (
                 <Link to = {`/movieDetails?id=${item.id}`} key = {item.id}>
-                    <GridListTile key = {item.id} col = {1} id = 'home-grid'>
-                        <Card id = 'home-card'>
-                            <img src = {item.poster} alt = 'poster-img' id = 'home-img'/>
-                            <div id = 'home-overlay'></div>
-                            <div id = 'home-title' > {item.title}</div>
+                    <Grid item 
+                    className = 'all-grid' 
+                    id = {item.id} 
+                    >
+                        <Card id = 'all-card' onClick = { ()=> this.cardClick(item.id)}>
+                            <img src = {item.poster} alt = 'poster-img' id = 'all-img'/>
+                            <div id = 'all-overlay'></div>
+                            <div id = 'all-title' > {item.title}</div>
                         </Card>
-                    </GridListTile>
+                    </Grid>
                 </Link>
             )
     })}
@@ -68,18 +54,15 @@ class Home extends React.Component {
             )
         }
         return (
-            <div className = 'home-container' >
-                <Banner/>
-                <h1 style = {{color : 'white'}}>Latest Movies</h1>
-                <GridListStyled 
-                cols = {5}
-                cellHeight = {'45vh'}
-                >
-                    {/* <GridListTile cols={2} rows = {3}>
-
-                    </GridListTile> */}
-                    {this.renderCard()}
-                </GridListStyled>
+            <div >
+                <Grid container spacing={2} id = 'all-movie-container'>
+                    <Grid item>
+                        <h1 style = {{margin : '0px', padding : '0px'}}>All Movies</h1>
+                    </Grid>
+                    <Grid container spacing={2} id = 'all-movie-card-container'>
+                        {this.renderCard()}
+                    </Grid>
+                </Grid>
             </div>
         )
     }
@@ -96,4 +79,4 @@ const mapDispatch = () => {
     return {Movie, selectMovie}
 }
 
-export default connect(mapStore, mapDispatch())(Home)
+export default connect(mapStore, mapDispatch())(Movies)

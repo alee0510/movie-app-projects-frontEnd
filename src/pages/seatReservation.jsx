@@ -20,11 +20,12 @@ var seats = 100
 
 function Seat (props) {
     const red = '#F50057'
-    const blue = '#2979ff'
+    const blue = '#304ffe'
     const white = '#f2f2f2'
     const style = {
         color : props.cell === 3 ? red : props.cell === 2 ? blue : white,
-        cursor : 'pointer'
+        cursor : 'pointer',
+        fontSize : '18pt',
     }
     // console.log('cell ' + props.cell)
     // console.log(style.color)
@@ -32,13 +33,13 @@ function Seat (props) {
     if (props.cell === 3) {
         return (
             <Cell>
-                <EventSeatIcon style ={style} fontSize = 'large'/>
+                <EventSeatIcon style ={style} fontSize = 'small'/>
             </Cell>
         )
     } else {
         return (
             <Cell onClick ={() => props.handleClick(props.row, props.col)}>
-                <EventSeatIcon style = {style} fontSize = 'large'/>
+                <EventSeatIcon style = {style} fontSize = 'small'/>
             </Cell>
         )
     }
@@ -99,7 +100,7 @@ const Cell = withStyles ({
         color : 'white',
         border : 'none',
         textAlign : 'center',
-        padding : 7
+        padding : 3
     }
 })(TableCell)
 
@@ -235,32 +236,44 @@ class SeatReservation extends React.Component {
         console.table(seatsCode)
 
         return (
-            <div>
-                <h1 style = {{color : 'white'}}>Choose your seats : {moviesDeatils.title}</h1>
-                <div className = 'seat-container'>
-                    <div className = 'seats'>
+            <div className = 'booked-seat-container'>
+                <div className = 'booked-movies-detail'>
+                    <div className = 'booked-img-container'>
+                        <img src = {moviesDeatils.poster} alt = 'movie-poster' id = 'booked-img-poster'/>
+                    </div>
+                    <div className = 'booked-info'>
+                        <h3>Title : {moviesDeatils.title}</h3>
+                        <h4>Director : {moviesDeatils.director}</h4>
+                        <h4>Casts : {moviesDeatils.casts.join(', ')}</h4>
+                    </div>
+                </div>
+                <div className = 'booked-seat'>
+                    <h1 style = {{color : 'white'}}>Choosen seats : {seatsCode.join(' , ')}</h1>
+                    <div id = 'screen'>
+                        screen
+                    </div>
+                    <div className = 'seat-container'>
                         <SeatBoard 
                         cells = {this.state.cells} 
                         handleClick = {this.handleClick}
                         booked = {this.state.booked}
                         />   
                     </div>
+                    <div id = 'booked-info'>
+                        <Button id = 'avaiable' variant="contained" startIcon={<EventSeatIcon/>}>Avaiable</Button>
+                        <Button id = 'booked' variant="contained" startIcon={<EventSeatIcon/>}>Booked</Button>
+                        <Button id = 'choosen' variant="contained" startIcon={<EventSeatIcon/>}>Choosen</Button>
+                    </div>
+                    <Button
+                        variant="contained"
+                        color="default"
+                        onClick={this.AddToCart}
+                        startIcon={<LocalMallIcon/>}
+                        id = 'booked-btn'
+                    >
+                        Buy Now
+                    </Button>
                 </div>
-                {/* <Fab 
-                variant="extended"
-                onClick = {this.AddToCart}
-                >
-                    <LocalMallIcon/>
-                    Buy Now
-                </Fab> */}
-                <Button
-                    variant="contained"
-                    color="default"
-                    onClick={this.AddToCart}
-                    startIcon={<LocalMallIcon/>}
-                >
-                    Buy Now
-                </Button>
             </div>
         )
     }

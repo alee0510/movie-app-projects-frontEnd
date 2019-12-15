@@ -1,73 +1,64 @@
-
 /* CONTAINER */
-#gridContainer {
-    color: white;
-    width: 89%;
-    margin: 0px auto;
+.home-container {
+    width: 90%;
+    height: 100%;
+    /* background-color: white; */
+    margin: 30px auto;
 }
 
-#card-container {
+#home-grid {
     width: 100%;
-    justify-content: space-between;
-    margin-top: 0px;
-}
-.gridItems {
-    padding-top: 7% !important;
-}
-/* CARD  */
-#card {
-    /* max-width: 30vw !important; */
-    position: relative;
-    height: 45vh;
-    background-color: #263238;
-    color: white;
-    overflow: hidden !important;
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 35px;
-    /* box-shadow: 0 5px 5px rgba(126, 111, 111, 0.39); */
-    /* -webkit-transition: all 600ms cubic-bezier(0.200, 0.965, 0.000, 1.005) !important;
-    transition: all 600ms cubic-bezier(0.200, 0.965, 0.000, 1.005) !important; */
+    margin-top: 8%;
 }
 
-/* IMG */ 
-#img {
+#home-card {
+    height: 45vh;
     width: 16vw;
+    /* overflow: hidden; */
+    border-radius: 35px;
+    border: none;
+    position: relative;
+    color: white;
+}
+
+#home-img {
+    border: none;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-/* HOVER */
-#card:hover {
-    scale: 1.05;
-}
-
-#card:hover #overlay {
-    scale: 1.05;
-    opacity: 0.8;
-}
-
-#card:hover #title {
-    scale: 1.05;
-    opacity: 0.8;
-}
-
-#overlay {
+#home-overlay {
     position: absolute;
     bottom: 0px;
-    width: 16vw;
-    height : 40vh;
+    width: 100%;
+    height : 100%;
     background: rgb(2,0,36);
     background: linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(245,0,87,0.66) 36%, rgba(255,0,92,1) 90%); 
     opacity: 0.0;
 }
 
-#title {
+#home-title {
     position: absolute;
     bottom : 10%;
-    width: 16vw;
+    width: 100%;
     padding: 0 10%;
     text-align: center;
     font-size: 15pt;
     font-weight: bold;
     opacity: 0;
+}
+
+/* HOVER */
+#home-grid:hover {
+    scale: 1.1;
+}
+#home-grid:hover #home-overlay {
+    scale: 1.05;
+    opacity: 0.8;
+}
+
+#home-grid:hover #home-title {
+    scale: 1.05;
+    opacity: 0.8;
 }

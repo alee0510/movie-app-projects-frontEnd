@@ -16,19 +16,19 @@ class Footer extends React.Component {
         return (
             <div className = 'footer-container'>
                 <div className = 'logo-container'>
-                    <img src ={cj} height = '60px' alt ='cj' style ={{color : 'white'}}/>
-                    <img src ={fourdx} height = '60px' alt ='4dx' style ={{color : 'white'}}/>
-                    <img src ={imax} height = '45px' alt ='imax'/>
-                    <img src ={dolby} height = '45px' alt ='dolby' style ={{color : 'white'}}/>
-                    <img src ={playstore} height = '80px' alt ='playstore'/>
-                    <img src ={applestore2} height = '55px' alt ='applestore'/>
+                    <img src ={cj} height = '50%' alt ='cj' style ={{color : 'white'}}/>
+                    <img src ={fourdx} height = '50%' alt ='4dx' style ={{color : 'white'}}/>
+                    <img src ={imax} height = '45%' alt ='imax'/>
+                    <img src ={dolby} height = '45%' alt ='dolby' style ={{color : 'white'}}/>
+                    <img src ={playstore} height = '55%' alt ='playstore' style = {{cursor : 'pointer'}}/>
+                    <img src ={applestore2} height = '55%' alt ='applestore' style = {{cursor : 'pointer'}}/>
                 </div>
                 <div id = 'footer-contents'>
                     <div id = 'social-icons'>
-                        <FacebookIcon style ={{color : 'white', fontSize : '20pt', cursor : 'pointer'}}/>
-                        <InstagramIcon style ={{color : 'white', fontSize : '20pt', cursor : 'pointer'}}/>
-                        <TwitterIcon style ={{color : 'white', fontSize : '20pt', cursor : 'pointer'}}/>
-                        <GitHubIcon style ={{color : 'white', fontSize : '18pt', cursor : 'pointer'}}/>
+                        <FacebookIcon style ={{color : 'white', fontSize : '18pt', cursor : 'pointer'}}/>
+                        <InstagramIcon style ={{color : 'white', fontSize : '18pt', cursor : 'pointer'}}/>
+                        <TwitterIcon style ={{color : 'white', fontSize : '18pt', cursor : 'pointer'}}/>
+                        <GitHubIcon style ={{color : 'white', fontSize : '16pt', cursor : 'pointer'}}/>
                         <div id = 'copyright'>
                             <CopyrightIcon style ={{color : 'white', fontSize : '15pt', marginRight : '5px'}}/>
                             <h4 style ={{color : 'white', fontSize : '12pt'}}>Copyright by alee0510 | 2019</h4>
