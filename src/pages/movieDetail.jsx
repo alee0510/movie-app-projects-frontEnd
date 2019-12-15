@@ -6,6 +6,7 @@ import '../style/movieDetails.css'
 
 import Axios from 'axios'
 import API_URL from '../supports'
+import { connect } from 'react-redux'
 
 class MovieDetail extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class MovieDetail extends React.Component {
     }
 
     BuyNow = () => {
-        if (localStorage.getItem('username')) {
+        if (this.props.username) {
             this.setState({isLogin : true})
         } else {
             this.setState({toLogin : true})
@@ -91,4 +92,9 @@ class MovieDetail extends React.Component {
     }
 }
 
-export default MovieDetail
+const mapStore = (state) => {
+    return {
+        username : state.login.username
+    }
+}
+export default connect(mapStore) (MovieDetail)

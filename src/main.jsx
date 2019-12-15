@@ -21,7 +21,7 @@ class Main extends React.Component {
             <div>
                 <Navbar/>
                 {/* <HomeGrid/> */}
-                <Banner/>
+                {/* <Banner/> */}
                 <Route path = '/' component = {Home} exact />
                 <Route path = '/login' component = {Login} />
                 <Route path = '/register' component = {Register} />

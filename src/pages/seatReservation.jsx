@@ -1,5 +1,5 @@
 import React from 'react'
-// import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button'
 import EventSeatIcon from '@material-ui/icons/EventSeat'
 import LocalMallIcon from '@material-ui/icons/LocalMall'
 import Fab from '@material-ui/core/Fab'
@@ -19,20 +19,29 @@ import Axios from 'axios'
 var seats = 100
 
 function Seat (props) {
-    // const red = '#F50057'
+    const red = '#F50057'
     const blue = '#2979ff'
     const white = '#f2f2f2'
     const style = {
-        color : props.cell === 2 ? blue : white,
+        color : props.cell === 3 ? red : props.cell === 2 ? blue : white,
         cursor : 'pointer'
     }
     // console.log('cell ' + props.cell)
     // console.log(style.color)
-    return (
-        <Cell onClick ={() => props.handleClick(props.row, props.col)}>
-            <EventSeatIcon style = {style} fontSize = 'large'/>
-        </Cell>
-    )
+
+    if (props.cell === 3) {
+        return (
+            <Cell>
+                <EventSeatIcon style ={style} fontSize = 'large'/>
+            </Cell>
+        )
+    } else {
+        return (
+            <Cell onClick ={() => props.handleClick(props.row, props.col)}>
+                <EventSeatIcon style = {style} fontSize = 'large'/>
+            </Cell>
+        )
+    }
 }
 
 function SeatRows (props) { // 20 seats
@@ -118,6 +127,21 @@ class SeatReservation extends React.Component {
         }
     }
     
+    componentDidMount () {
+        Axios.get(API_URL + `movies/${this.props.location.state.id}`)
+        .then((res) => {
+            this.setState({bookedSeat : res.data.booked})
+            let temp  = []
+            for (let i = 0; i < seats/20; i++){
+                temp.push(new Array(seats/5).fill(1))
+            }
+            for (let i = 0; i < res.data.booked.length; i++){
+                temp[res.data.booked[i][0]][res.data.booked[i][1]] = 3
+            }
+            this.setState({cells : temp})
+        })
+    }
+
     findIndexPreviousSeat = (row, col) => {
         let {choosenSeat} = this.state
         for (let i = 0; i < choosenSeat.length; i ++) {
@@ -168,25 +192,32 @@ class SeatReservation extends React.Component {
     }
 
     AddToCart = () => {
-        // let username = localStorage.getItem('username')
+        let cart = this.props.cart
         let userID = localStorage.getItem('id')
-        let {bookedSeat, chossenSeat, count, price, seatsCode} = this.state
+        let {bookedSeat, choosenSeat, count, price, seatsCode} = this.state
         let moviesDeatils = this.props.location.state
         let userCart = {
             title : moviesDeatils.title,
             totalPrice : price,
-            seatsCor : chossenSeat, // seat coordinates
+            seatsCor : choosenSeat, // seat coordinates
             seatsCode : seatsCode,
             ticketAmount : count
         }
-        Axios.patch(API_URL + `login/${userID}`, {cart : userCart})
+
+        cart.push(userCart)
+        bookedSeat.push(...choosenSeat)
+
+        console.table(cart)
+        console.table(bookedSeat)
+
+        Axios.patch(API_URL + `user/${userID}`, {cart : cart})
         .then((res) => {
-            Axios.get(API_URL + `login/${userID}`)
+            Axios.get(API_URL + `user/${userID}`)
             .then((res) => {
-                this.props.logIn(res.data)
                 Axios.patch(API_URL + `movies/${moviesDeatils.id}`, {booked : bookedSeat})
                 .then((res) => console.log(res.data))
                 .catch((err) => console.log(err))
+                this.props.logIn(res.data)
             })
             .catch((err) => console.log(err))
         })
@@ -194,7 +225,7 @@ class SeatReservation extends React.Component {
     }
     
     render () {
-        // console.table(this.state.cells)
+        console.table(this.state.cells)
         let moviesDeatils = this.props.location.state
         let {count, price, seatsCode} = this.state
 
@@ -215,17 +246,21 @@ class SeatReservation extends React.Component {
                         />   
                     </div>
                 </div>
-                <Fab variant="extended">
+                {/* <Fab 
+                variant="extended"
+                onClick = {this.AddToCart}
+                >
                     <LocalMallIcon/>
                     Buy Now
-                </Fab>
-                {/* <Button
+                </Fab> */}
+                <Button
                     variant="contained"
                     color="default"
                     onClick={this.AddToCart}
                     startIcon={<LocalMallIcon/>}
                 >
-                </Button> */}
+                    Buy Now
+                </Button>
             </div>
         )
     }

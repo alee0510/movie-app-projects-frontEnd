@@ -17,7 +17,7 @@
 #social-icons {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-content: center;
     margin: auto;
 }
 
@@ -28,7 +28,7 @@
 
 #copyright {
     display: inline-flex;
-    align-items: center;
+    align-content: center !important;
 }
 
 /* LOGO CONTAINER */
@@ -42,4 +42,5 @@
     width: 100%;
     margin: 20px auto;
     padding: 0px 10%;
+    overflow: hidden;
 }

@@ -31,7 +31,7 @@ class Footer extends React.Component {
                         <GitHubIcon style ={{color : 'white', fontSize : '18pt', cursor : 'pointer'}}/>
                         <div id = 'copyright'>
                             <CopyrightIcon style ={{color : 'white', fontSize : '15pt', marginRight : '5px'}}/>
-                            <h7 style ={{color : 'white'}}>Copyright by alee0510 | 2019</h7>
+                            <h4 style ={{color : 'white', fontSize : '12pt'}}>Copyright by alee0510 | 2019</h4>
                         </div>
                     </div>
                 </div>
