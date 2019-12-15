@@ -1,0 +1,43 @@
+.user-container {
+    width: 50%;
+    height: 50vh;
+    background-color: #263238;
+    border-radius: 35px;
+    margin : 5% auto;
+    padding: 5%;
+    display: flex;
+    color: white;
+}
+
+.user-data {
+    width: 75%;
+    /* background-color: white; */
+    position: relative;
+}
+
+
+/* BUTTON */
+.user-btn {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+#user-avatar {
+    margin-right : 30px
+}
+
+#user-edit-btn, #change-pass-btn {
+    height: 40px;
+    border-radius: 50px;
+    color: white;
+}
+
+#change-pass-btn {
+    margin-left: 20px;
+    background-color: #ff1744;
+}
+
+#user-edit-btn {
+    width: 100px;
+    background-color: #3d5afe;
+}

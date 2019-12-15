@@ -25,14 +25,14 @@ class Footer extends React.Component {
                 </div>
                 <div id = 'footer-contents'>
                     <div id = 'social-icons'>
-                        <FacebookIcon style ={{color : 'white', fontSize : '18pt', cursor : 'pointer'}}/>
-                        <InstagramIcon style ={{color : 'white', fontSize : '18pt', cursor : 'pointer'}}/>
-                        <TwitterIcon style ={{color : 'white', fontSize : '18pt', cursor : 'pointer'}}/>
-                        <GitHubIcon style ={{color : 'white', fontSize : '16pt', cursor : 'pointer'}}/>
-                        <div id = 'copyright'>
-                            <CopyrightIcon style ={{color : 'white', fontSize : '15pt', marginRight : '5px'}}/>
-                            <h4 style ={{color : 'white', fontSize : '12pt'}}>Copyright by alee0510 | 2019</h4>
-                        </div>
+                        <FacebookIcon  id = 'facebook'/>
+                        <InstagramIcon id = 'insta'/>
+                        <TwitterIcon  id = 'twit'/>
+                        <GitHubIcon id = 'git'/>
+                    </div>
+                    <div id = 'copyright'>
+                        <CopyrightIcon style ={{fontSize : '15pt', marginRight : '5px'}}/>
+                        <h4 style ={{fontSize : '12pt'}}>Copyright by alee0510 | 2019</h4>
                     </div>
                 </div>
             </div>

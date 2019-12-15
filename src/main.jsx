@@ -3,8 +3,6 @@ import { Route } from 'react-router-dom'
 
 // import components
 import Navbar from './components/navbar'
-import Banner from './components/banner'
-// import HomeGrid from './components/movieGrid'
 import Footer from './components/footer'
 
 // import pages
@@ -15,14 +13,13 @@ import StoreManager from './pages/storeManager'
 import MovieDetail from './pages/movieDetail'
 import SeatReservation from './pages/seatReservation'
 import Movies from './pages/movies'
+import UserProfil from './pages/userProfil'
 
 class Main extends React.Component {
     render () {
         return (
             <div>
                 <Navbar/>
-                {/* <HomeGrid/> */}
-                {/* <Banner/> */}
                 <Route path = '/' component = {Home} exact />
                 <Route path = '/login' component = {Login} />
                 <Route path = '/register' component = {Register} />
@@ -30,6 +27,7 @@ class Main extends React.Component {
                 <Route path = '/movieDetails' component = {MovieDetail} />
                 <Route path = '/seatReservation' component = {SeatReservation} />
                 <Route path = '/movies' component = {Movies} />
+                <Route path = '/userProfil' component = {UserProfil} />
                 <Footer/>
             </div>
         )

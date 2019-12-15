@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
 import API_URL from '../supports'
+// import Slider from "react-slick"
 
 // style
 // import Grid from '@material-ui/core/Grid'
@@ -22,8 +23,8 @@ import Banner from '../components/banner'
 
 const GridListStyled = withStyles({
     root : {
-        width: '100%',
-        height: 'auto',
+        width: '102%',
+        // height: 'auto',
         paddingBottom : '2%',
         overflow : 'visible'
     }
@@ -48,7 +49,7 @@ class Home extends React.Component {
         return this.props.movies.map( (item, index) => {
             return (
                 <Link to = {`/movieDetails?id=${item.id}`} key = {item.id}>
-                    <GridListTile key = {item.id} col = {1} id = 'home-grid'>
+                    <GridListTile col = {1} id = 'home-grid'>
                         <Card id = 'home-card'>
                             <img src = {item.poster} alt = 'poster-img' id = 'home-img'/>
                             <div id = 'home-overlay'></div>
@@ -60,6 +61,7 @@ class Home extends React.Component {
     })}
 
     render () {
+
         if (this.props.movies.length === 0) {
             return (
                 <div style = {{width : '50%', margin : 'auto'}}>
@@ -67,17 +69,17 @@ class Home extends React.Component {
                 </div>
             )
         }
+
         return (
             <div className = 'home-container' >
                 <Banner/>
                 <h1 style = {{color : 'white'}}>Latest Movies</h1>
                 <GridListStyled 
                 cols = {5}
-                cellHeight = {'45vh'}
+                rows = {1}
+                cellHeight = {450}
+                wrap = 'wrap'
                 >
-                    {/* <GridListTile cols={2} rows = {3}>
-
-                    </GridListTile> */}
                     {this.renderCard()}
                 </GridListStyled>
             </div>

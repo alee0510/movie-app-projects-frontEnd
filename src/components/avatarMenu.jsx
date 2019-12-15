@@ -149,7 +149,7 @@ class AvaMenu extends React.Component {
                         </div>
                         :
                         <div>
-                            <Link to = '/myprofil' onClick = {this.handleClose} style = {{textDecoration : 'none', color : 'white'}}> 
+                            <Link to = '/userProfil' onClick = {this.handleClose} style = {{textDecoration : 'none', color : 'white'}}> 
                                 <StyledMenuItem>
                                     <ListItemIcon>
                                         <AccountCircleIcon fontSize="small" style ={{color : 'white'}}/>

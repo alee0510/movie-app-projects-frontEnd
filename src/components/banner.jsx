@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Card } from '@material-ui/core'
+// import { Card } from '@material-ui/core'
 import Slider from "react-slick"
 
 import Axios from 'axios'
@@ -24,7 +24,7 @@ class Banner extends Component {
     RenderBanner = () => {
         return this.state.banner.map( (item, index) => {
             return (
-                <div className = 'banner-img-container'>
+                <div className = 'banner-img-container' key  = {index}>
                     <img src = {item} alt = 'banner-img' id = 'banner-img'/>
                 </div>
             )
