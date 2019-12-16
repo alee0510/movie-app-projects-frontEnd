@@ -7,45 +7,7 @@
       "email": "admin@gmail.com",
       "role": "admin",
       "avatar": "",
-      "cart": [
-        {
-          "title": "Money (돈)",
-          "totalPrice": 15000,
-          "seatsCor": [
-            [
-              0,
-              1
-            ],
-            [
-              2,
-              2
-            ],
-            [
-              3,
-              1
-            ]
-          ],
-          "seatsCode": [
-            [
-              "A2"
-            ],
-            [
-              "C3"
-            ],
-            [
-              "D2"
-            ]
-          ],
-          "ticketAmount": 3
-        },
-        {
-          "title": "Money (돈)",
-          "totalPrice": 0,
-          "seatsCor": [],
-          "seatsCode": [],
-          "ticketAmount": 0
-        }
-      ],
+      "cart": [],
       "tikcets": []
     },
     {
@@ -109,20 +71,7 @@
       "poster": "http://asianwiki.com/images/d/de/Money_%28Korean_Movie%29-TP1.jpeg",
       "plot": "Il-Hyun (Ryoo Joon-Yeol) begins to work as a stock broker. His dream is to become rich. Il-Hyun meets a stock market scammer known as Beonhopyo (Yoo Ji-Tae). He asks Il-Hyun to help in a stock market scam. Meanwhile Han Ji-Cheol (Jo Woo-Jin) works for Financial Supervisory Service and has chased Beonhopyo for a long time. He senses something suspicious with Il-Hyun.",
       "youtubeID": "zuMI_NaMxwg",
-      "booked": [
-        [
-          0,
-          1
-        ],
-        [
-          2,
-          2
-        ],
-        [
-          3,
-          1
-        ]
-      ]
+      "booked": []
     },
     {
       "id": 3,

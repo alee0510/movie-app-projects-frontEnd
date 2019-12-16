@@ -126,6 +126,7 @@ class SeatReservation extends React.Component {
             price : 0,
             count : 0,
             seatsCode : [],
+            isBooked : false
         }
     }
     
@@ -193,46 +194,113 @@ class SeatReservation extends React.Component {
         }
     }
 
+    findIndexOfMovie = (title) => {
+        let cart = this.props.cart
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].title === title) {
+                return i
+            }
+        }
+    }
+
+    isMovieHasSameTitle = (title) => {
+        let cart = this.props.cart
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].title === title) {
+                return true
+            }
+        }
+        return false
+    }
+
     AddToCart = () => {
         let cart = this.props.cart
         let userID = localStorage.getItem('id')
         let {bookedSeat, choosenSeat, count, price, seatsCode} = this.state
-        let moviesDeatils = this.props.location.state
+        let movieDetails = this.props.location.state
         let userCart = {
-            title : moviesDeatils.title,
+            title : movieDetails.title,
             totalPrice : price,
             seatsCor : choosenSeat, // seat coordinates
             seatsCode : seatsCode,
             ticketAmount : count
         }
 
-        cart.push(userCart)
-        bookedSeat.push(...choosenSeat)
+        let same = this.isMovieHasSameTitle(movieDetails.title)
+        console.info('is cart\'s movie has same title : ', same)
+        console.info('cart length : ', cart.length)
 
-        console.table(cart)
-        console.table(bookedSeat)
-
-        Axios.patch(API_URL + `user/${userID}`, {cart : cart})
-        .then((res) => {
-            Axios.get(API_URL + `user/${userID}`)
-            .then((res) => {
-                Axios.patch(API_URL + `movies/${moviesDeatils.id}`, {booked : bookedSeat})
-                .then((res) => console.log(res.data))
+        if (count === 0) {
+            console.log('user not choose the seat yet!')
+        } else {
+            if (cart.length === 0) { // our cart is empty
+                console.log('cart is empty')
+                cart.push(userCart)
+                bookedSeat.push(...choosenSeat)
+                console.table(cart)
+                console.table(bookedSeat)
+                Axios.patch(API_URL + `user/${userID}`, {cart : cart})
+                .then((res) => {
+                    Axios.get(API_URL + `user/${userID}`)
+                    .then((res) => {
+                        Axios.patch(API_URL + `movies/${movieDetails.id}`, {booked : bookedSeat})
+                        .then((res) => console.log(res.data))
+                        .catch((err) => console.log(err))
+                        this.props.logIn(res.data)
+                    })
+                    .catch((err) => console.log(err))
+                })
                 .catch((err) => console.log(err))
-                this.props.logIn(res.data)
-            })
-            .catch((err) => console.log(err))
-        })
-        .catch((err) => console.log(err))
+            } else if (same){
+                console.log('cart is has movie with same title')
+                let index = this.findIndexOfMovie(movieDetails.title)
+                cart[index].totalPrice += price
+                cart[index].seatsCor.push(...choosenSeat)
+                cart[index].seatsCode.push(...seatsCode)
+                cart[index].ticketAmount += count
+                bookedSeat.push(...choosenSeat)
+                console.table(cart)
+                Axios.patch(API_URL + `user/${userID}`, {cart : cart})
+                .then((res) => {
+                    Axios.get(API_URL + `user/${userID}`)
+                    .then((res) => {
+                        Axios.patch(API_URL + `movies/${movieDetails.id}`, {booked : bookedSeat})
+                        .then((res) => console.log(res.data))
+                        .catch((err) => console.log(err))
+                        this.props.logIn(res.data)
+                    })
+                    .catch((err) => console.log(err))
+                })
+                .catch((err) => console.log(err))
+            } else {
+                console.log('cart has no movie with same title')
+                cart.push(userCart)
+                bookedSeat.push(...choosenSeat)
+                console.table(cart)
+                console.table(bookedSeat)
+                Axios.patch(API_URL + `user/${userID}`, {cart : cart})
+                .then((res) => {
+                    Axios.get(API_URL + `user/${userID}`)
+                    .then((res) => {
+                        Axios.patch(API_URL + `movies/${movieDetails.id}`, {booked : bookedSeat})
+                        .then((res) => console.log(res.data))
+                        .catch((err) => console.log(err))
+                        this.props.logIn(res.data)
+                    })
+                    .catch((err) => console.log(err))
+                })
+                .catch((err) => console.log(err))
+            }
+        }
     }
     
     render () {
-        console.table(this.state.cells)
-        let moviesDeatils = this.props.location.state
+        // console.table(this.state.cells)
+        let movieDetails = this.props.location.state
         let {count, price, seatsCode} = this.state
 
         // console.table(moviesDeatils)
-        console.table(this.state.choosenSeat)
+        // console.table(this.state.choosenSeat)
         console.info('price : ', price, 'count : ', count)
         console.table(seatsCode)
 
@@ -240,12 +308,12 @@ class SeatReservation extends React.Component {
             <div className = 'booked-seat-container'>
                 <div className = 'booked-movies-detail'>
                     <div className = 'booked-img-container'>
-                        <img src = {moviesDeatils.poster} alt = 'movie-poster' id = 'booked-img-poster'/>
+                        <img src = {movieDetails.poster} alt = 'movie-poster' id = 'booked-img-poster'/>
                     </div>
                     <div className = 'booked-info'>
-                        <h3>Title : {moviesDeatils.title}</h3>
-                        <h4>Director : {moviesDeatils.director}</h4>
-                        <h4>Casts : {moviesDeatils.casts.join(', ')}</h4>
+                        <h3>Title : {movieDetails.title}</h3>
+                        <h4>Director : {movieDetails.director}</h4>
+                        <h4>Casts : {movieDetails.casts.join(', ')}</h4>
                     </div>
                 </div>
                 <div className = 'booked-seat'>
@@ -267,17 +335,15 @@ class SeatReservation extends React.Component {
                         <Button id = 'booked' variant="contained" startIcon={<EventSeatIcon/>}>Booked</Button>
                         <Button id = 'choosen' variant="contained" startIcon={<EventSeatIcon/>}>Choosen</Button>
                     </div>
-                    <Link to = '/userCart'>
-                        <Button
-                            variant="contained"
-                            color="default"
-                            onClick={this.AddToCart}
-                            startIcon={<LocalMallIcon/>}
-                            id = 'booked-btn'
-                        >
-                            Buy Now
-                        </Button>
-                    </Link>
+                    <Button
+                        variant="contained"
+                        color="default"
+                        onClick={this.AddToCart}
+                        startIcon={<LocalMallIcon/>}
+                        id = 'booked-btn'
+                    >
+                        Buy Now
+                    </Button>
                 </div>
             </div>
         )
