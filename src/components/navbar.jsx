@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { AppBar, Button, Badge } from '@material-ui/core'
 import ConfirmationNumberIcon from '@material-ui/icons/ConfirmationNumber'
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 
 // import component
 import AvaMenu from './avatarMenu'
@@ -99,6 +100,9 @@ class Navbar extends React.Component {
                 <div id = 'right-navbar'>
                         <Badge badgeContent={1} color="secondary" id = 'ticket'>
                             <ConfirmationNumberIcon />
+                        </Badge>
+                        <Badge badgeContent={1} color="secondary" id = 'shop-cart'>
+                            <ShoppingCartIcon />
                         </Badge>
                         <Search/>
                 </div>

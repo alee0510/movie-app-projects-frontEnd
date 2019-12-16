@@ -5,13 +5,14 @@ import LocalMallIcon from '@material-ui/icons/LocalMall'
 // import Fab from '@material-ui/core/Fab'
 
 // import table
-import {Table, TableBody, TableCell, TableHead, TableRow, withStyles} from '@material-ui/core';
+import {Table, TableBody, TableCell, TableHead, TableRow, withStyles } from '@material-ui/core';
 
 // style
 import '../style/seat.css'
 
 // redux
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { logIn } from '../actions'
 import API_URL from '../supports';
 import Axios from 'axios'
@@ -248,7 +249,9 @@ class SeatReservation extends React.Component {
                     </div>
                 </div>
                 <div className = 'booked-seat'>
-                    <h1 style = {{color : 'white'}}>Choosen seats : {seatsCode.join(' , ')}</h1>
+                    <h1>Choosen seats : {seatsCode.sort().join(' , ')}</h1>
+                    <h3> Ticket Amount : {price}</h3>
+                    <h3> Total Ticket : {count}</h3>
                     <div id = 'screen'>
                         screen
                     </div>
@@ -264,15 +267,17 @@ class SeatReservation extends React.Component {
                         <Button id = 'booked' variant="contained" startIcon={<EventSeatIcon/>}>Booked</Button>
                         <Button id = 'choosen' variant="contained" startIcon={<EventSeatIcon/>}>Choosen</Button>
                     </div>
-                    <Button
-                        variant="contained"
-                        color="default"
-                        onClick={this.AddToCart}
-                        startIcon={<LocalMallIcon/>}
-                        id = 'booked-btn'
-                    >
-                        Buy Now
-                    </Button>
+                    <Link to = '/userCart'>
+                        <Button
+                            variant="contained"
+                            color="default"
+                            onClick={this.AddToCart}
+                            startIcon={<LocalMallIcon/>}
+                            id = 'booked-btn'
+                        >
+                            Buy Now
+                        </Button>
+                    </Link>
                 </div>
             </div>
         )

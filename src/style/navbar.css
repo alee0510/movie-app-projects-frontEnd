@@ -51,7 +51,7 @@
     margin-right: 8px;
 }
 
-#ticket {
+#ticket, #shop-cart {
     /* background-color: white; */
     height: 35px;
     width: 35px;

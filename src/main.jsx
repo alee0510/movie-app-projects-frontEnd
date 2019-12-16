@@ -14,6 +14,7 @@ import MovieDetail from './pages/movieDetail'
 import SeatReservation from './pages/seatReservation'
 import Movies from './pages/movies'
 import UserProfil from './pages/userProfil'
+import UserCart from './pages/userCart'
 
 class Main extends React.Component {
     render () {
@@ -28,6 +29,7 @@ class Main extends React.Component {
                 <Route path = '/seatReservation' component = {SeatReservation} />
                 <Route path = '/movies' component = {Movies} />
                 <Route path = '/userProfil' component = {UserProfil} />
+                <Route path = '/userCart' component = {UserCart} />
                 <Footer/>
             </div>
         )

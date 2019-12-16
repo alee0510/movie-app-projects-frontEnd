@@ -1,0 +1,42 @@
+.cart-container {
+    width: 60%;
+    margin: auto;
+    height: 70vh;
+    /* color: white; */
+    position: relative;
+}
+
+.cart-container h1 {
+    color: white;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+.table-user-cart {
+    width: 100%;
+    height: 80%;
+    margin: auto;
+    margin-bottom: 5%;
+    background-color: #263238;
+}
+
+#check-out-btn {
+    background-color: #F50057;
+    border-radius: 50px;
+    height: 40px;
+    width: 130px;
+    color: white;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    /* margin-top: 10%; */
+}
+
+#btn-cart-cancel {
+    background-color: #ffd600;
+    color: white;
+    height: 40px;
+    width: 120px;
+    border-radius: 50px;
+}
