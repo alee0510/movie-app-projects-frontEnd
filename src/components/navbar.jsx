@@ -4,6 +4,8 @@ import { AppBar, Button, Badge } from '@material-ui/core'
 import ConfirmationNumberIcon from '@material-ui/icons/ConfirmationNumber'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import { connect } from 'react-redux'
+import API_URL from '../supports'
+import Axios from 'axios'
 
 // import component
 import AvaMenu from './avatarMenu'
@@ -49,8 +51,21 @@ class Navbar extends React.Component {
         this.state = {
             home : true,
             movies : false, 
-            cinemas : false
+            cinemas : false,
+            userHistoryTranscation : 0
         }
+    }
+
+    componentDidMount () {
+        Axios.get(API_URL + `transactions/?userID=${localStorage.getItem('id')}`)
+        .then((res) => {
+            if (res.data[0].length === 0) { // user doesn't make transaction yet
+                this.setState({userHistoryTranscation : 0})
+            } else {
+                this.setState({userHistoryTranscation : res.data[0].transactionsHistory.length})
+            }
+        })
+        .catch((err) => console.log(err))
     }
 
     Home = () => {
@@ -83,7 +98,7 @@ class Navbar extends React.Component {
     render () {
         let {home, movies, cinemas} = this.state
         let len = this.props.cart.length
-        console.info(home, movies, cinemas)
+        console.info('home :', home, 'movies :', movies, 'cinemas :', cinemas)
         return (
             <AppBar id = "navbar" position="static">
                 <div id = 'left-navbar'>
@@ -100,7 +115,7 @@ class Navbar extends React.Component {
                         />
                 </div>
                 <div id = 'right-navbar'>
-                        <Badge badgeContent={1} color="secondary" id = 'ticket'>
+                        <Badge badgeContent={this.state.userHistoryTranscation} color="secondary" id = 'ticket'>
                             <ConfirmationNumberIcon style ={{color : 'white'}}/>
                         </Badge>
                         <Link to = '/userCart' style = {{textDecoration : 'none'}}>
