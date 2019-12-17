@@ -41,11 +41,10 @@ class UserCart extends React.Component {
         Axios.get(API_URL + `user/${localStorage.getItem('id')}`)
         .then((res) => {
             this.setState({cart : res.data.cart})
+            Axios.get(API_URL + `transactions`)
+            .then((res) => this.setState({transactions : res.data}))
+            .catch((err) => console.log(err))
         })
-        .catch((err) => console.log(err))
-
-        Axios.get(API_URL + `transactions`)
-        .then((res) => this.setState({transactions : res.data}))
         .catch((err) => console.log(err))
     }
 
@@ -146,29 +145,27 @@ class UserCart extends React.Component {
         let minutes = dateObject.getMinutes()
         let seconds = dateObject.getSeconds()
         let time = `${hours}:${minutes}:${seconds}`
-        let transactions = {
+        
+        Axios.post(API_URL + `transactions`, {
             userID : localStorage.getItem('id'),
             username : localStorage.getItem('username'),
             date : date,
             time : time,
             total : cart.length,
             history : cart
-        }
-        
-        // console.info(now, time, userID)
-        console.log(transactions)
-        
-        Axios.post(API_URL + `transactions`, {transactions}) // update our data base transaction
+        }) // update our data base transaction
         .then((res) => {
             cart = []
             this.setState({cart : cart})
             Axios.patch(API_URL + `user/${userID}`, {cart : cart}) // update our user cart ==> []
             .then((res) => {
                 Axios.get(API_URL + `user/${localStorage.getItem('id')}`) // get data to update our page
-                .then((res) => this.props.logIn(res.data))
-                .catch((err) => console.log(err))
-                Axios.get(API_URL + `transactions/?userID=${userID}`)
-                .then((res) => this.props.checkOut(res.data))
+                .then((res) => {
+                    this.props.logIn(res.data)
+                    Axios.get(API_URL + `transactions/?userID=${userID}`)
+                    .then((res) => this.props.checkOut(res.data))
+                    .catch((err) => console.log(err))
+                })
                 .catch((err) => console.log(err))
             })
             .catch((err) => console.log(err))

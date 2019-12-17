@@ -3,7 +3,6 @@ import Button from '@material-ui/core/Button'
 import EventSeatIcon from '@material-ui/icons/EventSeat'
 import LocalMallIcon from '@material-ui/icons/LocalMall'
 import RefreshIcon from '@material-ui/icons/Refresh'
-// import Fab from '@material-ui/core/Fab'
 
 // import table
 import {Table, TableBody, TableCell, TableHead, TableRow, withStyles } from '@material-ui/core';
@@ -100,7 +99,7 @@ function SeatBoard (props) {
 const Cell = withStyles ({
     root : {
         color : 'white',
-        border : 'none',
+        border : '1px solid #f2f2f2',
         textAlign : 'center',
         padding : 3
     }
@@ -275,26 +274,7 @@ class SeatReservation extends React.Component {
                     .catch((err) => console.log(err))
                 })
                 .catch((err) => console.log(err))
-            } 
-            // else {
-            //     console.log('cart has no movie with same title')
-            //     cart.push(userCart)
-            //     bookedSeat.push(...choosenSeat)
-            //     console.table(cart)
-            //     console.table(bookedSeat)
-            //     Axios.patch(API_URL + `user/${userID}`, {cart : cart})
-            //     .then((res) => {
-            //         Axios.get(API_URL + `user/${userID}`)
-            //         .then((res) => {
-            //             Axios.patch(API_URL + `movies/${movieDetails.id}`, {booked : bookedSeat})
-            //             .then((res) => console.log(res.data))
-            //             .catch((err) => console.log(err))
-            //             this.props.logIn(res.data)
-            //         })
-            //         .catch((err) => console.log(err))
-            //     })
-            //     .catch((err) => console.log(err))
-            // }
+            }
         }
     }
 
