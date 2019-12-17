@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 // import components
 import Navbar from './components/navbar'
@@ -15,21 +15,25 @@ import SeatReservation from './pages/seatReservation'
 import Movies from './pages/movies'
 import UserProfil from './pages/userProfil'
 import UserCart from './pages/userCart'
+import NotFound404 from './pages/notFound404'
 
 class Main extends React.Component {
     render () {
         return (
             <div>
                 <Navbar/>
-                <Route path = '/' component = {Home} exact />
-                <Route path = '/login' component = {Login} />
-                <Route path = '/register' component = {Register} />
-                <Route path = '/storeManager' component = {StoreManager} />
-                <Route path = '/movieDetails' component = {MovieDetail} />
-                <Route path = '/seatReservation' component = {SeatReservation} />
-                <Route path = '/movies' component = {Movies} />
-                <Route path = '/userProfil' component = {UserProfil} />
-                <Route path = '/userCart' component = {UserCart} />
+                <Switch>
+                    <Route path = '/' component = {Home} exact />
+                    <Route path = '/login' component = {Login} />
+                    <Route path = '/register' component = {Register} />
+                    <Route path = '/storeManager' component = {StoreManager} />
+                    <Route path = '/movieDetails' component = {MovieDetail} />
+                    <Route path = '/seatReservation' component = {SeatReservation} />
+                    <Route path = '/movies' component = {Movies} />
+                    <Route path = '/userProfil' component = {UserProfil} />
+                    <Route path = '/userCart' component = {UserCart} />
+                    <Route path = '*' component = {NotFound404}/>
+                </Switch>
                 <Footer/>
             </div>
         )
