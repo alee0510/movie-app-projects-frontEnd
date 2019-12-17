@@ -71,7 +71,7 @@ class Login extends React.Component {
                 console.table(res.data[0]) // output will be object
                 // assign it value to local storage and our global state
                 localStorage.setItem('username', username)
-                localStorage.setItem('role', res.data[0].role)
+                // localStorage.setItem('role', res.data[0].role)
                 localStorage.setItem('id', res.data[0].id)
                 this.props.logIn(res.data[0])
             }

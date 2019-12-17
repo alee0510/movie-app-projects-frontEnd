@@ -174,7 +174,7 @@ class UserCart extends React.Component {
     }
 
     render () {
-        // if (this.props.username) {
+        if (this.props.username) {
             return (
                 <div className = 'cart-container'>
                     <h1>Hello : {localStorage.getItem('username') + '!'}</h1>
@@ -184,16 +184,16 @@ class UserCart extends React.Component {
                     <Button variant = 'contained' id = 'check-out-btn' onClick = {this.CheckOut}>Check Out</Button>
                 </div>
             )
-        // } else {
-        //     return (
-        //         <div className = 'cart-user-not-found'>
-        //             <div className = 'cart-user-not-found-contents'>
-        //                 <SentimentVeryDissatisfiedIcon fontSize='large'/>
-        //                 <p>Sorry, please login to see your chart . . . </p>
-        //             </div>
-        //         </div>
-        //     )
-        // }
+        } else {
+            return (
+                <div className = 'cart-user-not-found'>
+                    <div className = 'cart-user-not-found-contents'>
+                        <SentimentVeryDissatisfiedIcon fontSize='large'/>
+                        <p>Sorry, please login to see your chart . . . </p>
+                    </div>
+                </div>
+            )
+        }
     }
 }
 

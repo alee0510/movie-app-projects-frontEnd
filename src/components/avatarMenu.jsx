@@ -83,7 +83,7 @@ class AvaMenu extends React.Component {
         const avaImg = {
             height : '35px',
             width : '35px',
-            backgroundColor : localStorage.getItem('role') === 'admin' ? '#F44336' : '#2196F3'
+            backgroundColor : this.props.role === 'admin' ? '#F44336' : '#2196F3'
         }
 
         return (
@@ -91,8 +91,8 @@ class AvaMenu extends React.Component {
                 <div className = 'avatar' style = {avatar} onClick={this.handleClick} id = 'av'>
                     {
                         this.props.profil ? <Avatar alt = 'user' src = {this.props.profil} style = {avaImg} ></Avatar>
-                        : localStorage.getItem('role') === 'admin' ? <Avatar style = {avaImg}>A</Avatar> 
-                        : localStorage.getItem('role') === 'user' ? <Avatar style = {avaImg}>{localStorage.getItem('username').charAt(0).toUpperCase()}</Avatar>
+                        : this.props.role === 'admin' ? <Avatar style = {avaImg}>A</Avatar> 
+                        : this.props.role === 'user' ? <Avatar style = {avaImg}>{localStorage.getItem('username').charAt(0).toUpperCase()}</Avatar>
                         : <Avatar src = {user} style = {avaImg}></Avatar>
                     }
                     <Typography style = {{ marginLeft : '10px' }}> {this.props.username || localStorage.getItem('username') ? `Hi! ${localStorage.getItem('username')}` : 'Login'} </Typography>
@@ -177,7 +177,8 @@ class AvaMenu extends React.Component {
 const MapStore = (state) => {
     return {
         username : state.login.username,
-        profil : state.login.avatar
+        profil : state.login.avatar,
+        role : state.login.role
     }
 }
 
