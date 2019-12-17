@@ -8,6 +8,7 @@
     margin: 5% auto;
     border-radius: 35px;
     position: relative;
+    overflow: hidden;
 }
 
 #reg h1 {
@@ -50,5 +51,15 @@
     width: 27vw;
     /* display: inline-flex; */
     /* width: 300px; */
-    margin: 10px auto !important;
+    margin: 20px auto !important;
+}
+
+#progress {
+    margin: 10px 0px;
+    height: 10px;
+}
+
+#alert-pass-msg {
+    text-align: center;
+    font-size: 11pt;
 }

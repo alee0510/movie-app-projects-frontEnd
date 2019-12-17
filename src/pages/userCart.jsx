@@ -149,7 +149,7 @@ class UserCart extends React.Component {
         Axios.post(API_URL + `transactions`, {
             userID : localStorage.getItem('id'),
             username : localStorage.getItem('username'),
-            date : date,
+            date : now,
             time : time,
             total : cart.length,
             history : cart

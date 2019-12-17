@@ -8,7 +8,8 @@ import { Menu, MenuItem, ListItemIcon, ListItemText, Avatar, Typography } from '
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import PersonAddIcon from '@material-ui/icons/PersonAdd'
-import StoreIcon from '@material-ui/icons/Store';
+import StoreIcon from '@material-ui/icons/Store'
+import HistoryIcon from '@material-ui/icons/History'
 
 
 // import color pallete
@@ -23,7 +24,7 @@ const StyledMenu = withStyles({
         border: '1px solid #263238',
         borderRadius : '25px',
         backgroundColor : theme.palette.primary.main,
-        width : '220px'
+        width : '250px'
     }
 })(props => (
     <Menu
@@ -127,7 +128,7 @@ class AvaMenu extends React.Component {
                                 </StyledMenuItem>
                             </Link>
                         </div>
-                        : localStorage.getItem('username') === 'admin' ?
+                        : this.props.role === 'admin' ?
                         <div>
                             <Link to ='/storeManager' onClick = {this.handleClose} style = {{textDecoration : 'none', color : 'white'}}> 
                                 <StyledMenuItem>
@@ -136,6 +137,15 @@ class AvaMenu extends React.Component {
                                     </ListItemIcon>
                                     <ListItemText id = 'text' primary="Store Manager" />
                                 </StyledMenuItem>
+                            </Link>
+                            <Link to = '/' 
+                            style = {{textDecoration : 'none', color : 'white'}}> 
+                            <StyledMenuItem >
+                                <ListItemIcon>
+                                    <HistoryIcon fontSize="small" style ={{color : 'white'}}/>
+                                </ListItemIcon>
+                                <ListItemText id = 'text' primary="History Transactions" />
+                            </StyledMenuItem>
                             </Link>
                             <Link to = '/' onClick={(event) => { this.logOutUser(); this.props.logOut(); this.handleClose()}} 
                             style = {{textDecoration : 'none', color : 'white'}}> 
