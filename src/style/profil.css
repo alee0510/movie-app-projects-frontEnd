@@ -6,6 +6,7 @@
     margin : 5% auto;
     padding: 5%;
     display: flex;
+    color: white;
 }
 
 .user-data {
@@ -25,7 +26,13 @@
     margin-right : 30px
 }
 
-#user-edit-btn, #change-pass-btn {
+#user-edit-btn, 
+#change-pass-btn, 
+#user-cancel-btn, 
+#user-done-btn,
+#pass-cancel-btn,
+#pass-done-btn
+{
     height: 40px;
     border-radius: 50px;
     color: white;
@@ -40,3 +47,15 @@
     width: 100px;
     background-color: #3d5afe;
 }
+
+#user-cancel-btn, #pass-cancel-btn {
+    margin-left: 20px;
+    background-color: #3d5afe;
+    width: 100px;
+}
+
+#user-done-btn, #pass-done-btn {
+    background-color: #64dd17;
+    width: 100px;
+}
+

@@ -1,4 +1,5 @@
 const INITIAL_STATE = {
+    id : '',
     username : '',
     pass : '',
     email : '',
@@ -12,6 +13,7 @@ const logReducer = (state = INITIAL_STATE, action) => {
         case 'LOG_IN' :
             return {
                 ...state,
+                id : action.payload.id,
                 username : action.payload.username,
                 pass : action.payload.pass,
                 email : action.payload.email,

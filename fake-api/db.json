@@ -7,110 +7,19 @@
       "email": "admin@gmail.com",
       "role": "admin",
       "avatar": "",
-      "cart": [
-        {
-          "title": "On Your Wedding Day",
-          "totalPrice": 10,
-          "seatsCor": [
-            [
-              2,
-              2
-            ],
-            [
-              2,
-              2
-            ]
-          ],
-          "seatsCode": [
-            [
-              "C3"
-            ],
-            [
-              "C3"
-            ]
-          ],
-          "ticketAmount": 2
-        }
-      ]
+      "cart": []
     },
     {
       "id": 2,
-      "username": "alee",
-      "pass": "alee0510",
-      "email": "alee0510@gmail.com",
+      "username": "aleo",
+      "pass": "aleo",
+      "email": "aleo@gmail.com",
       "role": "user",
       "avatar": "http://localhost:3000/assets/alee.jpg",
       "cart": []
     }
   ],
-  "transactions": [
-    {
-      "userID": "2",
-      "username": "alee",
-      "date": 17,
-      "time": "21:19:28",
-      "total": 1,
-      "history": [
-        {
-          "title": "Money (돈)",
-          "totalPrice": 10,
-          "seatsCor": [
-            [
-              0,
-              1
-            ],
-            [
-              1,
-              1
-            ]
-          ],
-          "seatsCode": [
-            [
-              "A2"
-            ],
-            [
-              "B2"
-            ]
-          ],
-          "ticketAmount": 2
-        }
-      ],
-      "id": 1
-    },
-    {
-      "userID": "2",
-      "username": "alee",
-      "date": 17,
-      "time": "21:21:52",
-      "total": 1,
-      "history": [
-        {
-          "title": "Mourning Grave (소녀괴담)",
-          "totalPrice": 10,
-          "seatsCor": [
-            [
-              3,
-              0
-            ],
-            [
-              4,
-              1
-            ]
-          ],
-          "seatsCode": [
-            [
-              "D1"
-            ],
-            [
-              "E2"
-            ]
-          ],
-          "ticketAmount": 2
-        }
-      ],
-      "id": 2
-    }
-  ],
+  "transactions": [],
   "movies": [
     {
       "id": 1,
@@ -161,16 +70,7 @@
       "poster": "http://asianwiki.com/images/d/de/Money_%28Korean_Movie%29-TP1.jpeg",
       "plot": "Il-Hyun (Ryoo Joon-Yeol) begins to work as a stock broker. His dream is to become rich. Il-Hyun meets a stock market scammer known as Beonhopyo (Yoo Ji-Tae). He asks Il-Hyun to help in a stock market scam. Meanwhile Han Ji-Cheol (Jo Woo-Jin) works for Financial Supervisory Service and has chased Beonhopyo for a long time. He senses something suspicious with Il-Hyun.",
       "youtubeID": "zuMI_NaMxwg",
-      "booked": [
-        [
-          0,
-          1
-        ],
-        [
-          1,
-          1
-        ]
-      ]
+      "booked": []
     },
     {
       "id": 3,
@@ -245,16 +145,7 @@
       "poster": "http://asianwiki.com/images/d/de/On_Your_Wedding_Day-mp2.jpg",
       "plot": "Seung-Hee (Park Bo-Young) and Woo-Yeon (Kim Young-Kwang) meet for the first time as high school students. Woo-Yeon likes her, but he does not know whether she feels the same. After graduating from college, they start their careers.",
       "youtubeID": "L8s2c86_9cY",
-      "booked": [
-        [
-          2,
-          2
-        ],
-        [
-          2,
-          2
-        ]
-      ]
+      "booked": []
     },
     {
       "id": 6,
@@ -300,16 +191,7 @@
       "poster": "http://asianwiki.com/images/5/58/Mourning_Grave-p2.jpg",
       "plot": "In-Soo (Kang Ha-Neul) has a special gift to see ghosts and has become isolated from other students because of this. He transfers to a high school in a rural area outside of Seoul. There, In-Soo meets a female ghost (Kim So-Eun) at the high school and forms a friendship with her.",
       "youtubeID": "RWsY8XjCGEc",
-      "booked": [
-        [
-          3,
-          0
-        ],
-        [
-          4,
-          1
-        ]
-      ]
+      "booked": []
     },
     {
       "id": 8,

@@ -73,7 +73,6 @@ class Login extends React.Component {
                 localStorage.setItem('username', username)
                 localStorage.setItem('role', res.data[0].role)
                 localStorage.setItem('id', res.data[0].id)
-                localStorage.setItem('cart', res.data[0].cart)
                 this.props.logIn(res.data[0])
             }
             // clear input value

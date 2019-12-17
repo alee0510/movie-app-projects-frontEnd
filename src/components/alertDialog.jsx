@@ -45,7 +45,7 @@ export default function AlertDialog(props) {
                     onClick={props.hanldeButtonOne} 
                     variant  = 'contained' 
                     color="primary"
-                    style = {{borderRadius : '50px'}}
+                    style = {{borderRadius : '50px', display : props.displayOne}}
                     >
                         {props.ButtonOneName}
                     </Button>
@@ -54,7 +54,7 @@ export default function AlertDialog(props) {
                     variant  = 'contained' 
                     color="secondary" 
                     autoFocus
-                    style = {{borderRadius : '50px'}}
+                    style = {{borderRadius : '50px', display : props.displayTwo}}
                     >
                         {props.ButtonTwoName}
                     </Button>
