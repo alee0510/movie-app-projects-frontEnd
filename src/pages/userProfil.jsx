@@ -174,20 +174,24 @@ class UserProfil extends React.Component {
         let newUsername = this.editUsername.value
         let newUserEmail = this.editUserEmail.value
         let id = this.state.user.id
-        Axios.patch(API_URL + `user/${id}`, {
-            username : newUsername, 
-            email : newUserEmail
-        })
-        .then((res) => {
-            localStorage.setItem('username', newUsername)
-            Axios.get((API_URL + `user/${id}`))
+        if (newUsername === '' || newUserEmail === '') {
+            this.setState({edit : false})
+        } else {
+            Axios.patch(API_URL + `user/${id}`, {
+                username : newUsername, 
+                email : newUserEmail
+            })
             .then((res) => {
-                this.setState({user : res.data, edit : false})
-                this.props.logIn(res.data)
+                localStorage.setItem('username', newUsername)
+                Axios.get((API_URL + `user/${id}`))
+                .then((res) => {
+                    this.setState({user : res.data, edit : false})
+                    this.props.logIn(res.data)
+                })
+                .catch((err) => console.log(err))
             })
             .catch((err) => console.log(err))
-        })
-        .catch((err) => console.log(err))
+        }
     }
 
     UserChangePass = () => {
@@ -202,17 +206,21 @@ class UserProfil extends React.Component {
         let oldPass = this.oldPass.value
         let newPass = this.newPass.value
         let id = this.state.user.id
-        Axios.get(API_URL + `user/${id}`)
-        .then((res) => {
-            if (res.data.pass !== oldPass) {
-                this.setState({alert : true})
-            } else {
-                Axios.patch(API_URL + `user/${id}`, {pass : newPass})
-                .then((res) => this.setState({successs : true, pass : false}))
-                .catch((err) => console.log(err))
-            }
-        })
-        .catch((err) => console.log(err))
+        if (oldPass === '' || newPass === '') {
+            this.setState({pass : false})
+        } else {
+            Axios.get(API_URL + `user/${id}`)
+            .then((res) => {
+                if (res.data.pass !== oldPass) {
+                    this.setState({alert : true})
+                } else {
+                    Axios.patch(API_URL + `user/${id}`, {pass : newPass})
+                    .then((res) => this.setState({successs : true, pass : false}))
+                    .catch((err) => console.log(err))
+                }
+            })
+            .catch((err) => console.log(err))
+        }
     }
 
     handleShow = () => {
@@ -228,7 +236,10 @@ class UserProfil extends React.Component {
         // console.table(user)
         return (
             <div className = 'user-container'>
-                <Avatar alt='user-avatar' src={user.avatar} style ={{width : '100px', height : '100px'}} id = 'user-avatar'/>
+                {
+                    user.avatar !== '' ? <Avatar alt='user-avatar' src={user.avatar} style ={{width : '100px', height : '100px'}} id = 'user-avatar'/> 
+                    : <Avatar alt='user-avatar' style ={{width : '100px', height : '100px', backgroundColor : '#2196F3'}} id = 'user-avatar'> {user.username.charAt(0).toUpperCase()}</Avatar>
+                }
                 <div className = 'user-data'>
                     <Table className = 'profil-table'>
                         {this.renderUserTable()}
