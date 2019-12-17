@@ -58,20 +58,24 @@ class Navbar extends React.Component {
     }
 
     componentDidMount () {
-        Axios.get(API_URL + `user/${localStorage.getItem('id')}`)
-        .then((res) => {
-            this.props.logIn(res.data)
-            Axios.get(API_URL + `transactions/?userID=${localStorage.getItem('id')}`)
+        if (localStorage.getItem('id') === null) {
+            return null
+        } else {
+            Axios.get(API_URL + `user/${localStorage.getItem('id')}`)
             .then((res) => {
-                if (res.data[0].length === 0) { // user doesn't make transaction yet
-                    this.setState({userHistoryTranscation : 0})
-                } else {
-                    this.setState({userHistoryTranscation : res.data[0].transactionsHistory.length})
-                }
+                this.props.logIn(res.data)
+                Axios.get(API_URL + `transactions/?userID=${localStorage.getItem('id')}`)
+                .then((res) => {
+                    if (res.data.length === 0) { // user doesn't make transaction yet
+                        this.setState({userHistoryTranscation : 0})
+                    } else {
+                        this.setState({userHistoryTranscation : res.data[0].transactionsHistory.length})
+                    }
+                })
+                .catch((err) => console.log(err))
             })
             .catch((err) => console.log(err))
-        })
-        .catch((err) => console.log(err))
+        }
     }
 
     Home = () => {
