@@ -6,6 +6,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import { connect } from 'react-redux'
 import API_URL from '../supports'
 import Axios from 'axios'
+import { logIn } from '../actions'
 
 // import component
 import AvaMenu from './avatarMenu'
@@ -57,13 +58,18 @@ class Navbar extends React.Component {
     }
 
     componentDidMount () {
-        Axios.get(API_URL + `transactions/?userID=${localStorage.getItem('id')}`)
+        Axios.get(API_URL + `user/${localStorage.getItem('id')}`)
         .then((res) => {
-            if (res.data[0].length === 0) { // user doesn't make transaction yet
-                this.setState({userHistoryTranscation : 0})
-            } else {
-                this.setState({userHistoryTranscation : res.data[0].transactionsHistory.length})
-            }
+            this.props.logIn(res.data)
+            Axios.get(API_URL + `transactions/?userID=${localStorage.getItem('id')}`)
+            .then((res) => {
+                if (res.data[0].length === 0) { // user doesn't make transaction yet
+                    this.setState({userHistoryTranscation : 0})
+                } else {
+                    this.setState({userHistoryTranscation : res.data[0].transactionsHistory.length})
+                }
+            })
+            .catch((err) => console.log(err))
         })
         .catch((err) => console.log(err))
     }
@@ -136,4 +142,4 @@ const mapStore = (state) => {
     }
 }
 
-export default connect(mapStore) (Navbar)
+export default connect(mapStore, {logIn}) (Navbar)

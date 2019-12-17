@@ -387,7 +387,7 @@ class SeatReservation extends React.Component {
                         ButtonOneName = 'No'
                         handleButtonTwo = {this.Booked}
                         ButtonTwoName = 'Yes, Proccess'
-                        displayOne = 'none'
+                        displayOne = 'block'
                         displayTwo = 'block'
                         />
                     </div>
