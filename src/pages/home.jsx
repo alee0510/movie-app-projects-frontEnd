@@ -5,13 +5,9 @@ import API_URL from '../supports'
 // import Slider from "react-slick"
 
 // style
-// import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import Grid from '@material-ui/core/Grid'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import GridList from '@material-ui/core/GridList'
-import GridListTile from '@material-ui/core/GridListTile'
-import { withStyles } from '@material-ui/core/styles'
 import '../style/home.css'
 
 // redux
@@ -20,17 +16,6 @@ import { connect } from 'react-redux'
 
 // import banner
 import Banner from '../components/banner'
-
-
-const GridListStyled = withStyles({
-    root : {
-        width: '102%',
-        // height: 'auto',
-        paddingBottom : '2%',
-        overflow : 'visible'
-    }
-})(GridList)
-
 
 class Home extends React.Component {
 
@@ -85,13 +70,6 @@ class Home extends React.Component {
                         {this.renderCard()}
                     </Grid>
                 </Grid>
-                {/* <GridListStyled 
-                cols = {5}
-                rows = {1}
-                cellHeight = {450}
-                wrap = 'wrap'
-                >
-                </GridListStyled> */}
             </div>
         )
     }

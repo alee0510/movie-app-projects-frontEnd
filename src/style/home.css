@@ -40,12 +40,12 @@
     scale: 1.05;
 }
 
-#home-card:hover #all-overlay {
+#home-card:hover #home-overlay {
     scale: 1.05;
     opacity: 0.8;
 }
 
-#home-card:hover #all-title {
+#home-card:hover #home-title {
     scale: 1.05;
     opacity: 0.8;
 }

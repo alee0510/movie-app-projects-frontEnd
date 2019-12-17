@@ -3,8 +3,10 @@ import { Table, TableBody, TableHead, TableRow, TableCell, Button } from '@mater
 import { withStyles } from '@material-ui/core/styles'
 import { theme } from '../style/theme'
 import Axios from 'axios'
+import { connect } from 'react-redux'
 import API_URL from '../supports'
 import '../style/cart.css'
+import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied'
 
 const Cell = withStyles({
     root : {
@@ -64,9 +66,9 @@ class UserCart extends React.Component {
                     <BodyCell>{item.title}</BodyCell>
                     <BodyCell>{item.seatsCode.join(' , ')}</BodyCell>
                     <BodyCell>{item.ticketAmount}</BodyCell>
-                    <BodyCell>{item.totalPrice}</BodyCell>
+                    <BodyCell>$ {item.totalPrice}.00</BodyCell>
                     <BodyCell style ={{textAlign : "center"}}>
-                        <Button variant = 'contained' id = 'btn-cart-cancel' onClick = {() => this.cancelCart(index)}> Cancel </Button>
+                        <Button variant = 'contained' id = 'btn-cart-cancel' onClick = {() => this.CancelCart(index)}> Cancel </Button>
                     </BodyCell>
                 </TableRow>
             )
@@ -84,24 +86,70 @@ class UserCart extends React.Component {
         )
     }
 
-    cancelCart = (index) => {
+    CancelCart = (index) => {
+        console.log('index selected : ' + index)
         let cart = this.state.cart
-        cart.splice(index, 1)
-        this.setState({cart : cart})
-        
+        let seatCoordinate = cart[index].seatsCor // seat coordinate
+        // console.table(cart)
+        // console.table(seatCoordinate)
+        Axios.get(API_URL + `movies/?title=${cart[index].title}`)
+        .then((res) => {
+            let tempBooked = res.data[0].booked
+            cart.splice(index, 1)
+            this.setState({cart : cart})
+            let movID = res.data[0].id
+
+            // // filter booked seat at data base movie to macth with seat coordinate
+            for (let i = 0 ; i < seatCoordinate.length; i++){
+                tempBooked = tempBooked.filter((item) => item.join('') !== seatCoordinate[i].join(''))
+                console.log('iterate at ' +  i + 'th')
+                console.log(seatCoordinate[i].join(''))
+                console.log(tempBooked)
+            }
+            Axios.patch(API_URL + `user/${localStorage.getItem('id')}`, {cart : cart}) // update our database cart
+            .then((res) => {
+                Axios.patch(API_URL + `movies/${movID}`, {booked : tempBooked}) // update our movie's booked seat data base
+                .then((res) => console.log('delete booke success'))
+                .catch((err) => console.log(err))
+            })
+            .catch((err) => console.log(err))
+        })
+        .catch((err) => console.log(err))
+    }
+
+    CheckOut = () => {
+        return console.log('checkout')
     }
 
     render () {
-        return (
-            <div className = 'cart-container'>
-                <h1>Hello : {localStorage.getItem('username') + '!'}</h1>
-                <div className = 'table-user-cart'>
-                    {this.RenderTable()}
+        // if (this.props.username) {
+            return (
+                <div className = 'cart-container'>
+                    <h1>Hello : {localStorage.getItem('username') + '!'}</h1>
+                    <div className = 'table-user-cart'>
+                        {this.RenderTable()}
+                    </div>
+                    <Button variant = 'contained' id = 'check-out-btn' onClick = {this.CheckOut}>Check Out</Button>
                 </div>
-                <Button variant = 'contained' id = 'check-out-btn'>Check Out</Button>
-            </div>
-        )
+            // )
+        // } else {
+        //     return (
+        //         <div className = 'cart-user-not-found'>
+        //             <div className = 'cart-user-not-found-contents'>
+        //                 <SentimentVeryDissatisfiedIcon fontSize='large'/>
+        //                 <p>Sorry, please login to see your chart . . . </p>
+        //             </div>
+        //         </div>
+        //     )
+        // }
+            )
     }
 }
 
-export default UserCart
+const mapStore = (state) => {
+    return {
+        username : state.login.username
+    }
+}
+
+export default connect(mapStore)(UserCart)

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { AppBar, Button, Badge } from '@material-ui/core'
 import ConfirmationNumberIcon from '@material-ui/icons/ConfirmationNumber'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
+import { connect } from 'react-redux'
 
 // import component
 import AvaMenu from './avatarMenu'
@@ -81,6 +82,7 @@ class Navbar extends React.Component {
 
     render () {
         let {home, movies, cinemas} = this.state
+        let len = this.props.cart.length
         console.info(home, movies, cinemas)
         return (
             <AppBar id = "navbar" position="static">
@@ -99,11 +101,13 @@ class Navbar extends React.Component {
                 </div>
                 <div id = 'right-navbar'>
                         <Badge badgeContent={1} color="secondary" id = 'ticket'>
-                            <ConfirmationNumberIcon />
+                            <ConfirmationNumberIcon style ={{color : 'white'}}/>
                         </Badge>
-                        <Badge badgeContent={1} color="secondary" id = 'shop-cart'>
-                            <ShoppingCartIcon />
-                        </Badge>
+                        <Link to = '/userCart' style = {{textDecoration : 'none'}}>
+                            <Badge badgeContent={len} color="secondary" id = 'shop-cart'>
+                                <ShoppingCartIcon style ={{color : 'white'}}/>
+                            </Badge>
+                        </Link>
                         <Search/>
                 </div>
             </AppBar>
@@ -111,4 +115,10 @@ class Navbar extends React.Component {
     }
 }
 
-export default Navbar
+const mapStore = (state) => {
+    return {
+        cart : state.login.cart
+    }
+}
+
+export default connect(mapStore) (Navbar)

@@ -13,7 +13,7 @@ import '../style/seat.css'
 
 // redux
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { logIn } from '../actions'
 import API_URL from '../supports';
 import Axios from 'axios'
@@ -177,7 +177,7 @@ class SeatReservation extends React.Component {
             this.setState({
                 cells: temp, 
                 choosenSeat: choosenSeat,
-                price : price - 5000,
+                price : price - 5,
                 count : count - 1,
                 seatsCode : seatsCode} 
                 // () => {console.table(choosenSeat)}
@@ -187,7 +187,7 @@ class SeatReservation extends React.Component {
             this.setState({
                 cells: temp, 
                 choosenSeat : [...choosenSeat, [row, col]],
-                price : price + 5000,
+                price : price + 5,
                 count : count + 1,
                 seatsCode : [...seatsCode, [str.charAt(row)+(col+1)]]}
                 // () => {console.table(choosenSeat)}
@@ -234,8 +234,8 @@ class SeatReservation extends React.Component {
         if (count === 0) {
             console.log('user not choose the seat yet!')
         } else {
-            if (cart.length === 0) { // our cart is empty
-                console.log('cart is empty')
+            if (cart.length === 0 || !same) { // our cart is empty
+                console.log('cart is empty or cart has no movies with same title')
                 cart.push(userCart)
                 bookedSeat.push(...choosenSeat)
                 console.table(cart)
@@ -247,7 +247,8 @@ class SeatReservation extends React.Component {
                         Axios.patch(API_URL + `movies/${movieDetails.id}`, {booked : bookedSeat})
                         .then((res) => console.log(res.data))
                         .catch((err) => console.log(err))
-                        this.props.logIn(res.data)
+                        this.props.logIn(res.data) // update our global state user cart
+                        this.setState({isBooked : true})
                     })
                     .catch((err) => console.log(err))
                 })
@@ -269,29 +270,31 @@ class SeatReservation extends React.Component {
                         .then((res) => console.log(res.data))
                         .catch((err) => console.log(err))
                         this.props.logIn(res.data)
+                        this.setState({isBooked : true})
                     })
                     .catch((err) => console.log(err))
                 })
                 .catch((err) => console.log(err))
-            } else {
-                console.log('cart has no movie with same title')
-                cart.push(userCart)
-                bookedSeat.push(...choosenSeat)
-                console.table(cart)
-                console.table(bookedSeat)
-                Axios.patch(API_URL + `user/${userID}`, {cart : cart})
-                .then((res) => {
-                    Axios.get(API_URL + `user/${userID}`)
-                    .then((res) => {
-                        Axios.patch(API_URL + `movies/${movieDetails.id}`, {booked : bookedSeat})
-                        .then((res) => console.log(res.data))
-                        .catch((err) => console.log(err))
-                        this.props.logIn(res.data)
-                    })
-                    .catch((err) => console.log(err))
-                })
-                .catch((err) => console.log(err))
-            }
+            } 
+            // else {
+            //     console.log('cart has no movie with same title')
+            //     cart.push(userCart)
+            //     bookedSeat.push(...choosenSeat)
+            //     console.table(cart)
+            //     console.table(bookedSeat)
+            //     Axios.patch(API_URL + `user/${userID}`, {cart : cart})
+            //     .then((res) => {
+            //         Axios.get(API_URL + `user/${userID}`)
+            //         .then((res) => {
+            //             Axios.patch(API_URL + `movies/${movieDetails.id}`, {booked : bookedSeat})
+            //             .then((res) => console.log(res.data))
+            //             .catch((err) => console.log(err))
+            //             this.props.logIn(res.data)
+            //         })
+            //         .catch((err) => console.log(err))
+            //     })
+            //     .catch((err) => console.log(err))
+            // }
         }
     }
 
@@ -308,12 +311,20 @@ class SeatReservation extends React.Component {
     render () {
         // console.table(this.state.cells)
         let movieDetails = this.props.location.state
-        let {count, price, seatsCode} = this.state
+        let {count, price, seatsCode, isBooked} = this.state
 
         // console.table(moviesDeatils)
         // console.table(this.state.choosenSeat)
         console.info('price : ', price, 'count : ', count)
         console.table(seatsCode)
+
+        if (isBooked) {
+            this.setState({isBooked : false})
+            console.log('isBooked value is : ' + isBooked)
+            return (
+                <Redirect to = '/userCart'></Redirect>
+            )
+        }
 
         return (
             <div className = 'booked-seat-container'>
@@ -329,8 +340,8 @@ class SeatReservation extends React.Component {
                 </div>
                 <div className = 'booked-seat'>
                     <h1>Choosen seats : {seatsCode.sort().join(' , ')}</h1>
-                    <h3> Ticket Amount : {price}</h3>
-                    <h3> Total Ticket : {count}</h3>
+                    <h3> Ticket Price : $ {price}.00</h3>
+                    <h3> Total Amount : {count}</h3>
                     <div id = 'screen'>
                         screen
                     </div>

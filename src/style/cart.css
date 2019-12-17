@@ -40,3 +40,23 @@
     width: 120px;
     border-radius: 50px;
 }
+
+/* USER NOT FOUND */
+.cart-user-not-found {
+    width: 90%;
+    height: 40vh;
+    /* background-color: white; */
+    margin: auto;
+    text-align: center;
+    color: white;
+    padding: 15% 35%;
+}
+
+.cart-user-not-found-contents {
+    display: flex;
+    align-items: center;
+}
+
+.cart-user-not-found-contents p {
+    margin-left: 10px;
+}
