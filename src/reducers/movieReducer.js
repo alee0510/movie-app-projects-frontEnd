@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
     movie : [],
-    selectMovieID : null
+    selectMovieID : null,
+    transcation : []
 }
 
 const movieReducer = (state = INITIAL_STATE, action) => {
@@ -13,6 +14,11 @@ const movieReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 selectMovieID : action.payload
+            }
+        case 'CHECK_OUT' :
+            return {
+                ...state,
+                transcation : action.payload
             }
         default :
             return INITIAL_STATE

@@ -21,7 +21,7 @@ import "slick-carousel/slick/slick-theme.css"
 const store = createStore (allReducers, 
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-    // Display it to console 
+// Display it to console 
 store.subscribe( () => console.warn(store.getState()))
 
 ReactDOM.render(

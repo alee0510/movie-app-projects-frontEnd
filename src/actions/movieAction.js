@@ -11,3 +11,10 @@ export const selectMovie = (data) => {
         payload : data
     }
 }
+
+export const checkOut = (data) => {
+    return {
+        type : 'CHECK_OUT',
+        payload : data
+    }
+}

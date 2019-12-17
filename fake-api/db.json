@@ -7,8 +7,7 @@
       "email": "admin@gmail.com",
       "role": "admin",
       "avatar": "",
-      "cart": [],
-      "tikcets": []
+      "cart": []
     },
     {
       "id": 2,
@@ -17,8 +16,7 @@
       "email": "alee0510@gmail.com",
       "role": "user",
       "avatar": "http://localhost:3000/assets/alee.jpg",
-      "cart": [],
-      "tikcets": []
+      "cart": []
     }
   ],
   "transactions": [],

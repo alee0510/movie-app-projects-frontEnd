@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import API_URL from '../supports'
 import '../style/cart.css'
 import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied'
-import { logIn } from '../actions'
+import { logIn, checkOut } from '../actions'
 
 const Cell = withStyles({
     root : {
@@ -32,7 +32,8 @@ class UserCart extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-            cart : []
+            cart : [],
+            transactions : []
         }
     }
 
@@ -41,6 +42,10 @@ class UserCart extends React.Component {
         .then((res) => {
             this.setState({cart : res.data.cart})
         })
+        .catch((err) => console.log(err))
+
+        Axios.get(API_URL + `transactions`)
+        .then((res) => this.setState({transactions : res.data}))
         .catch((err) => console.log(err))
     }
 
@@ -126,11 +131,53 @@ class UserCart extends React.Component {
     }
 
     CheckOut = () => {
-        return console.log('checkout')
+        console.log('checkout')
+        let cart = this.state.cart
+        let userID = localStorage.getItem('id')
+
+        // set date and time
+        let dateObject = new Date()
+        let date = dateObject.getDate()
+        let month = dateObject.getMonth()
+        let year = dateObject.getFullYear()
+        let now = `${date}/${month+1}/${year}`
+
+        let hours = dateObject.getHours()
+        let minutes = dateObject.getMinutes()
+        let seconds = dateObject.getSeconds()
+        let time = `${hours}:${minutes}:${seconds}`
+        let transactions = {
+            userID : localStorage.getItem('id'),
+            username : localStorage.getItem('username'),
+            date : date,
+            time : time,
+            total : cart.length,
+            history : cart
+        }
+        
+        // console.info(now, time, userID)
+        console.log(transactions)
+        
+        Axios.post(API_URL + `transactions`, {transactions}) // update our data base transaction
+        .then((res) => {
+            cart = []
+            this.setState({cart : cart})
+            Axios.patch(API_URL + `user/${userID}`, {cart : cart}) // update our user cart ==> []
+            .then((res) => {
+                Axios.get(API_URL + `user/${localStorage.getItem('id')}`) // get data to update our page
+                .then((res) => this.props.logIn(res.data))
+                .catch((err) => console.log(err))
+                Axios.get(API_URL + `transactions/?userID=${userID}`)
+                .then((res) => this.props.checkOut(res.data))
+                .catch((err) => console.log(err))
+            })
+            .catch((err) => console.log(err))
+        })
+        .catch((err) => console.log(err))
     }
 
     render () {
-        if (this.props.username) {
+        // if (this.props.username) {
             return (
                 <div className = 'cart-container'>
                     <h1>Hello : {localStorage.getItem('username') + '!'}</h1>
@@ -140,16 +187,16 @@ class UserCart extends React.Component {
                     <Button variant = 'contained' id = 'check-out-btn' onClick = {this.CheckOut}>Check Out</Button>
                 </div>
             )
-        } else {
-            return (
-                <div className = 'cart-user-not-found'>
-                    <div className = 'cart-user-not-found-contents'>
-                        <SentimentVeryDissatisfiedIcon fontSize='large'/>
-                        <p>Sorry, please login to see your chart . . . </p>
-                    </div>
-                </div>
-            )
-        }
+        // } else {
+        //     return (
+        //         <div className = 'cart-user-not-found'>
+        //             <div className = 'cart-user-not-found-contents'>
+        //                 <SentimentVeryDissatisfiedIcon fontSize='large'/>
+        //                 <p>Sorry, please login to see your chart . . . </p>
+        //             </div>
+        //         </div>
+        //     )
+        // }
     }
 }
 
@@ -159,4 +206,4 @@ const mapStore = (state) => {
     }
 }
 
-export default connect(mapStore, { logIn })(UserCart)
+export default connect(mapStore, { logIn, checkOut })(UserCart)
