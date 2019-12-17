@@ -66,7 +66,7 @@ class UserCart extends React.Component {
                     <BodyCell>{item.ticketAmount}</BodyCell>
                     <BodyCell>{item.totalPrice}</BodyCell>
                     <BodyCell style ={{textAlign : "center"}}>
-                        <Button variant = 'contained' id = 'btn-cart-cancel'> Cancel </Button>
+                        <Button variant = 'contained' id = 'btn-cart-cancel' onClick = {() => this.cancelCart(index)}> Cancel </Button>
                     </BodyCell>
                 </TableRow>
             )
@@ -82,6 +82,13 @@ class UserCart extends React.Component {
                 </TableBody>
             </Table>
         )
+    }
+
+    cancelCart = (index) => {
+        let cart = this.state.cart
+        cart.splice(index, 1)
+        this.setState({cart : cart})
+        
     }
 
     render () {

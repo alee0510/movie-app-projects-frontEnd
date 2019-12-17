@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '@material-ui/core/Button'
 import EventSeatIcon from '@material-ui/icons/EventSeat'
 import LocalMallIcon from '@material-ui/icons/LocalMall'
+import RefreshIcon from '@material-ui/icons/Refresh'
 // import Fab from '@material-ui/core/Fab'
 
 // import table
@@ -293,6 +294,16 @@ class SeatReservation extends React.Component {
             }
         }
     }
+
+    Refresh = () => {
+        let choosenSeat = this.state.choosenSeat
+        let cells = this.state.cells
+        for (let i = 0; i < choosenSeat.length; i++) {
+            cells[choosenSeat[i][0]][choosenSeat[i][1]] = 1
+        }
+        this.setState({cells : cells, count : 0, price : 0, seatsCode : []})
+        
+    }
     
     render () {
         // console.table(this.state.cells)
@@ -331,19 +342,39 @@ class SeatReservation extends React.Component {
                         />   
                     </div>
                     <div id = 'booked-info'>
-                        <Button id = 'avaiable' variant="contained" startIcon={<EventSeatIcon/>}>Avaiable</Button>
-                        <Button id = 'booked' variant="contained" startIcon={<EventSeatIcon/>}>Booked</Button>
-                        <Button id = 'choosen' variant="contained" startIcon={<EventSeatIcon/>}>Choosen</Button>
+                        <div id = 'avaiable'>
+                            <EventSeatIcon id = 'seat-icon'/>
+                            <span>Avaiable</span>
+                        </div>
+                        <div id = 'booked'>
+                            <EventSeatIcon id = 'seat-icon'/>
+                            <span>Booked</span>
+                        </div>
+                        <div id = 'choosen'>
+                            <EventSeatIcon id = 'seat-icon'/>
+                            <span>Choosen</span>
+                        </div>
                     </div>
-                    <Button
-                        variant="contained"
-                        color="default"
-                        onClick={this.AddToCart}
-                        startIcon={<LocalMallIcon/>}
-                        id = 'booked-btn'
-                    >
-                        Buy Now
-                    </Button>
+                    <div id = 'btn-booked-container'>
+                        <Button
+                            variant="contained"
+                            color="default"
+                            onClick={this.Refresh}
+                            startIcon={<RefreshIcon/>}
+                            id = 'refresh-btn'
+                        >
+                            Refresh
+                        </Button>
+                        <Button
+                            variant="contained"
+                            color="default"
+                            onClick={this.AddToCart}
+                            startIcon={<LocalMallIcon/>}
+                            id = 'booked-btn'
+                        >
+                            Buy Now
+                        </Button>
+                    </div>
                 </div>
             </div>
         )
