@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button'
 import EventSeatIcon from '@material-ui/icons/EventSeat'
 import LocalMallIcon from '@material-ui/icons/LocalMall'
 import RefreshIcon from '@material-ui/icons/Refresh'
+import AlertDialog from '../components/alertDialog'
 
 // import table
 import {Table, TableBody, TableCell, TableHead, TableRow, withStyles } from '@material-ui/core';
@@ -99,7 +100,7 @@ function SeatBoard (props) {
 const Cell = withStyles ({
     root : {
         color : 'white',
-        border : '1px solid #f2f2f2',
+        border : 'none',
         textAlign : 'center',
         padding : 3
     }
@@ -125,7 +126,8 @@ class SeatReservation extends React.Component {
             choosenSeat : [],
             price : 0,
             count : 0,
-            seatsCode : [],
+            seatsCode : [], 
+            open : false,
             isBooked : false
         }
     }
@@ -247,7 +249,6 @@ class SeatReservation extends React.Component {
                         .then((res) => console.log(res.data))
                         .catch((err) => console.log(err))
                         this.props.logIn(res.data) // update our global state user cart
-                        this.setState({isBooked : true})
                     })
                     .catch((err) => console.log(err))
                 })
@@ -269,7 +270,6 @@ class SeatReservation extends React.Component {
                         .then((res) => console.log(res.data))
                         .catch((err) => console.log(err))
                         this.props.logIn(res.data)
-                        this.setState({isBooked : true})
                     })
                     .catch((err) => console.log(err))
                 })
@@ -287,11 +287,28 @@ class SeatReservation extends React.Component {
         this.setState({cells : cells, count : 0, price : 0, seatsCode : []})
         
     }
+
+    handelDialogOpen = () => {
+        if (this.state.count === 0) {
+            return null
+        } else {
+            this.setState({open : true})
+        }
+    }
+
+    handleDialogClose = () => {
+        this.setState({open : false})
+        window.location.reload()
+    }
+
+    Booked = () => {
+        this.setState({isBooked : true})
+    }
     
     render () {
         // console.table(this.state.cells)
         let movieDetails = this.props.location.state
-        let {count, price, seatsCode, isBooked} = this.state
+        let {count, price, seatsCode, isBooked, open} = this.state
 
         // console.table(moviesDeatils)
         // console.table(this.state.choosenSeat)
@@ -299,10 +316,7 @@ class SeatReservation extends React.Component {
         console.table(seatsCode)
 
         if (isBooked) {
-            // this.setState({isBooked : false}, () => console.log('isBooked value is : ' + isBooked))
-            return (
-                <Redirect to = '/userCart'></Redirect>
-            )
+            return <Redirect to = '/userCart'></Redirect>
         }
 
         return (
@@ -358,12 +372,22 @@ class SeatReservation extends React.Component {
                         <Button
                             variant="contained"
                             color="default"
-                            onClick={this.AddToCart}
+                            onClick={(event) => {this.AddToCart(); this.handelDialogOpen();}}
                             startIcon={<LocalMallIcon/>}
                             id = 'booked-btn'
                         >
                             Buy Now
                         </Button>
+                        <AlertDialog
+                        open = {open}
+                        close = {this.handleDialogClose}
+                        title = 'Your booked is success'
+                        contents = 'Plese select yes to see your cart and payment process and no if you want to select seat again'
+                        hanldeButtonOne = {this.handleDialogClose}
+                        ButtonOneName = 'No'
+                        handleButtonTwo = {this.Booked}
+                        ButtonTwoName = 'Yes, Proccess'
+                        />
                     </div>
                 </div>
             </div>
