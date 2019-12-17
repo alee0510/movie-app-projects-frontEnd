@@ -319,8 +319,7 @@ class SeatReservation extends React.Component {
         console.table(seatsCode)
 
         if (isBooked) {
-            this.setState({isBooked : false})
-            console.log('isBooked value is : ' + isBooked)
+            // this.setState({isBooked : false}, () => console.log('isBooked value is : ' + isBooked))
             return (
                 <Redirect to = '/userCart'></Redirect>
             )

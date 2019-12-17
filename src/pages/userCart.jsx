@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import API_URL from '../supports'
 import '../style/cart.css'
 import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied'
+import { logIn } from '../actions'
 
 const Cell = withStyles({
     root : {
@@ -109,7 +110,14 @@ class UserCart extends React.Component {
             Axios.patch(API_URL + `user/${localStorage.getItem('id')}`, {cart : cart}) // update our database cart
             .then((res) => {
                 Axios.patch(API_URL + `movies/${movID}`, {booked : tempBooked}) // update our movie's booked seat data base
-                .then((res) => console.log('delete booke success'))
+                .then((res) => {
+                    Axios.get(API_URL + `user/${localStorage.getItem('id')}`)
+                    .then((res) => {
+                        this.props.logIn(res.data)
+                        console.log('delete booke success')
+                    })
+                    .catch((err) => console.log(err))
+                })
                 .catch((err) => console.log(err))
             })
             .catch((err) => console.log(err))
@@ -122,7 +130,7 @@ class UserCart extends React.Component {
     }
 
     render () {
-        // if (this.props.username) {
+        if (this.props.username) {
             return (
                 <div className = 'cart-container'>
                     <h1>Hello : {localStorage.getItem('username') + '!'}</h1>
@@ -131,18 +139,17 @@ class UserCart extends React.Component {
                     </div>
                     <Button variant = 'contained' id = 'check-out-btn' onClick = {this.CheckOut}>Check Out</Button>
                 </div>
-            // )
-        // } else {
-        //     return (
-        //         <div className = 'cart-user-not-found'>
-        //             <div className = 'cart-user-not-found-contents'>
-        //                 <SentimentVeryDissatisfiedIcon fontSize='large'/>
-        //                 <p>Sorry, please login to see your chart . . . </p>
-        //             </div>
-        //         </div>
-        //     )
-        // }
             )
+        } else {
+            return (
+                <div className = 'cart-user-not-found'>
+                    <div className = 'cart-user-not-found-contents'>
+                        <SentimentVeryDissatisfiedIcon fontSize='large'/>
+                        <p>Sorry, please login to see your chart . . . </p>
+                    </div>
+                </div>
+            )
+        }
     }
 }
 
@@ -152,4 +159,4 @@ const mapStore = (state) => {
     }
 }
 
-export default connect(mapStore)(UserCart)
+export default connect(mapStore, { logIn })(UserCart)
