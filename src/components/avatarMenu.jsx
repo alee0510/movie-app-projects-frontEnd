@@ -11,13 +11,14 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd'
 import StoreIcon from '@material-ui/icons/Store'
 import HistoryIcon from '@material-ui/icons/History'
 
-
 // import color pallete
 import { theme } from '../style/theme'
 import { user } from '../assets'
 
 import { connect } from 'react-redux'
 import { logOut } from '../actions'
+import Axios from 'axios'
+import API_URL from '../supports'
 
 const StyledMenu = withStyles({
     paper: {
@@ -72,7 +73,10 @@ class AvaMenu extends React.Component {
 
     logOutUser = () => {
         localStorage.clear()
-        window.location.reload()
+        Axios.get(API_URL + 'movies') // store movies data base to global state
+        .then ((res) => {this.props.Movie(res.data)})
+        .catch ((err) => console.log(err))
+        // window.location.reload()
     }
     
     render () {

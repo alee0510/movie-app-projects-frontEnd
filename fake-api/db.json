@@ -11,9 +11,9 @@
     },
     {
       "id": 2,
-      "username": "alee",
-      "pass": "alee0510",
-      "email": "alee0510@gmail.com",
+      "username": "eloa",
+      "pass": "eloa",
+      "email": "eloa9656@gamail.com",
       "role": "user",
       "avatar": "http://localhost:3000/assets/alee.jpg",
       "cart": []
@@ -54,6 +54,15 @@
       "total": 0,
       "history": [],
       "id": 2
+    },
+    {
+      "userID": "2",
+      "username": "eloa",
+      "date": "18/12/2019",
+      "time": "16:37:31",
+      "total": 0,
+      "history": [],
+      "id": 3
     }
   ],
   "movies": [
