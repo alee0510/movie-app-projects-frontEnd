@@ -74,9 +74,9 @@ class Login extends React.Component {
                 // localStorage.setItem('role', res.data[0].role)
                 localStorage.setItem('id', res.data[0].id)
                 this.props.logIn(res.data[0])
-                Axios.get(API_URL + 'movies') // store movies data base to global state
-                .then ((res) => {this.props.Movie(res.data)})
-                .catch ((err) => console.log(err))
+                // Axios.get(API_URL + 'movies') // store movies data base to global state
+                // .then ((res) => {this.props.Movie(res.data)})
+                // .catch ((err) => console.log(err))
             }
             // clear input value
             this.text.value = ''

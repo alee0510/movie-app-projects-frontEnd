@@ -19,11 +19,11 @@ import Banner from '../components/banner'
 class Home extends React.Component {
 
     componentDidMount () {
-        Axios.get(API_URL + 'movies') // store movies data base to global state
-        .then ((res) => {
-            this.props.Movie(res.data)
-        })
-        .catch ((err) => console.log(err))
+        // Axios.get(API_URL + 'movies') // store movies data base to global state
+        // .then ((res) => {
+        //     this.props.Movie(res.data)
+        // })
+        // .catch ((err) => console.log(err))
         Axios.get(API_URL + 'banners')
         .then((res) => {this.props.storeBanner(res.data)})
         .catch((err) => console.log(err))
@@ -79,4 +79,4 @@ const mapStore = (state) => { // reducer
     }
 }
 
-export default connect(mapStore, {Movie, storeBanner})(Home)
+export default connect(mapStore, { storeBanner})(Home)

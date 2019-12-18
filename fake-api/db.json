@@ -63,6 +63,32 @@
       "total": 0,
       "history": [],
       "id": 3
+    },
+    {
+      "userID": "2",
+      "username": "alee",
+      "date": "18/12/2019",
+      "time": "18:3:3",
+      "total": 1,
+      "history": [
+        {
+          "title": "Money (돈)",
+          "totalPrice": 5,
+          "seatsCor": [
+            [
+              0,
+              6
+            ]
+          ],
+          "seatsCode": [
+            [
+              "A7"
+            ]
+          ],
+          "ticketAmount": 1
+        }
+      ],
+      "id": 4
     }
   ],
   "movies": [
@@ -119,6 +145,10 @@
         [
           0,
           3
+        ],
+        [
+          0,
+          6
         ]
       ]
     },
