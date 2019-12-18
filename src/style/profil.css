@@ -4,15 +4,21 @@
     background-color: #263238;
     border-radius: 35px;
     margin : 5% auto;
-    padding: 5%;
+    /* padding: 3%; */
     display: flex;
     color: white;
+    position: relative;
+    overflow: hidden;
 }
 
 .user-data {
-    width: 75%;
     /* background-color: white; */
-    position: relative;
+    position: absolute;
+    top : 13%;
+    left: 25%;
+    width: 65%;
+    height: 73%;
+    margin: auto;
 }
 
 
@@ -22,8 +28,12 @@
     right: 0px;
     bottom: 0px;
 }
+
 #user-avatar {
-    margin-right : 30px
+    position : absolute;
+    left : 8%;
+    top : 18%;
+    margin-right: 20px;
 }
 
 #user-edit-btn, 
@@ -59,3 +69,18 @@
     width: 100px;
 }
 
+#user-progress {
+    height: 10px;
+    width: 100% !important;
+    position: absolute;
+    bottom: 40px;
+    left: 0px;
+}
+
+#user-alert-pass-msg {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 10px;
+    font-size: 11pt;
+}

@@ -105,6 +105,40 @@
         }
       ],
       "id": 2
+    },
+    {
+      "userID": "2",
+      "username": "alee",
+      "date": "19/12/2019",
+      "time": "0:46:49",
+      "total": 2,
+      "price": 10,
+      "details": [
+        {
+          "title": "The Battleship Island (군함도)",
+          "totalPrice": 10,
+          "seatsCor": [
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              7
+            ]
+          ],
+          "seatsCode": [
+            [
+              "C8"
+            ],
+            [
+              "C9"
+            ]
+          ],
+          "ticketAmount": 2
+        }
+      ],
+      "id": 3
     }
   ],
   "movies": [
@@ -321,7 +355,16 @@
       "poster": "http://asianwiki.com/images/9/9c/The_Battleship_Island-p1.jpg",
       "plot": "During the Japanese colonial era, roughly 400 Korean people, who were forced onto Battleship Island to mine for coal, attempt to escape. Lee Kang-Ok (Hwang Jung-Min) is a bandmaster at Kyungsung Hotel. He decides to go to Japan to protect his daughter, but he is drafted into Battleship Island by force, being deceived by talk to send him to Japan. On Battleship Island, he does anything to protect his daughter. Choi Chil-Sung (So Ji-Sub) is the top fighter in Kyungsung (old name of “Seoul”). He makes troubles on Battleship Island, but he has a warm heart. Park Moo-Young (Song Joong-Ki) belongs to the Korean Independence group. He sneaks onto Battleship Island to rescue a member of the independence group.",
       "youtubeID": "ixe6g9hy3SA",
-      "booked": []
+      "booked": [
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          7
+        ]
+      ]
     },
     {
       "id": 9,

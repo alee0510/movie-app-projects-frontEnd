@@ -1,17 +1,19 @@
 import React from 'react'
 import { Button, Avatar, Table, TableRow, TableCell, TableBody, TextField, TableHead, Input, InputAdornment, IconButton} from '@material-ui/core'
+
 import { withStyles } from '@material-ui/core/styles'
 import { theme } from '../style/theme'
-import { connect } from 'react-redux'
-import { logIn } from '../actions'
-import Axios from 'axios'
-import API_URL from '../supports'
 import AlertDialog from '../components/alertDialog'
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
+import LinearProgress from '@material-ui/core/LinearProgress'
 
 import '../style/profil.css'
 
+import Axios from 'axios'
+import API_URL from '../supports'
+import { connect } from 'react-redux'
+import { logIn } from '../actions'
 
 const Cell = withStyles({
     root : {
@@ -71,7 +73,9 @@ class UserProfil extends React.Component {
             pass : false,
             show : false,
             alert : false, 
-            successs: false
+            successs: false,
+            value : 0,
+            specShow : false
         }
     }
 
@@ -118,6 +122,21 @@ class UserProfil extends React.Component {
         }
     }
 
+    handleChange = (event) => {
+        let pass = event.target.value
+        let numb = /[0-9]/
+        let specs = /[!@#$%^&*;]/
+
+        let num = numb.test(pass) ? 40 : 0
+        let spec = specs.test(pass) ? 30 : 0
+        let char = pass.length > 7 ? 30 : 0
+        this.setState({value : num + spec + char})
+    }
+
+    specShow = () => {
+        this.setState ( {specShow : true} )
+    }
+
     renderTableChangePass = () => {
         let {show} = this.state
         return (
@@ -126,7 +145,8 @@ class UserProfil extends React.Component {
                     <Cell>Enter old password</Cell>
                     <Cell>
                         <InputStyle
-                            type = {show ? 'text' : 'password'} inputRef = {oldPass => this.oldPass = oldPass}
+                            type = {show ? 'text' : 'password'} 
+                            inputRef = {oldPass => this.oldPass = oldPass}
                             endAdornment={
                                 <InputAdornment position="end" >
                                 <IconButton
@@ -144,7 +164,10 @@ class UserProfil extends React.Component {
                     <Cell>Enter new password</Cell>
                     <Cell>
                         <InputStyle
-                            type = {show ? 'text' : 'password'} inputRef = {newPass => this.newPass = newPass}
+                            type = {show ? 'text' : 'password'} 
+                            inputRef = {newPass => this.newPass = newPass}
+                            onChange = {this.handleChange} 
+                            onFocus = {this.specShow}
                             endAdornment={
                                 <InputAdornment position="end" >
                                 <IconButton
@@ -199,7 +222,7 @@ class UserProfil extends React.Component {
     }
 
     UserPassCancel = () => {
-        this.setState({pass : false})
+        this.setState({pass : false, value : 0, specShow : false})
     }
 
     UserPassDone = () => {
@@ -215,7 +238,7 @@ class UserProfil extends React.Component {
                     this.setState({alert : true})
                 } else {
                     Axios.patch(API_URL + `user/${id}`, {pass : newPass})
-                    .then((res) => this.setState({successs : true, pass : false}))
+                    .then((res) => this.setState({successs : true, pass : false, value : 0, specShow : false}))
                     .catch((err) => console.log(err))
                 }
             })
@@ -232,7 +255,7 @@ class UserProfil extends React.Component {
     }
 
     render () {
-        let {user, edit, pass, alert, successs} = this.state
+        let {user, edit, pass, alert, successs, value, specShow} = this.state
         // console.table(user)
         return (
             <div className = 'user-container'>
@@ -276,15 +299,13 @@ class UserProfil extends React.Component {
                     ButtonOneName = ""
                     />
                 </div>
+                <LinearProgress variant="determinate" value  = {value} color={value > 40 ? "primary" : "secondary"} id = 'user-progress'/>
+                {
+                    specShow ? <p style ={{color : value > 80 ? 'green' : 'red'}} id = 'user-alert-pass-msg'>*password length must 8 or more, include special character and number </p> : null
+                }
             </div>
         )
     }
 }
-
-// const mapStore = (state) => {
-//     return {
-//         id : state.login.id
-//     }
-// }
 
 export default connect(null, {logIn})(UserProfil)

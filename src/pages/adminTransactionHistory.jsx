@@ -93,7 +93,7 @@ class AdminHistoryTransaction extends React.Component {
                                                     <p id = 'his-title'>{val.title}</p>
                                                     <p>Price : ${val.totalPrice}.00</p>
                                                     <p>{val.ticketAmount} Tickets</p>
-                                                    <p>Seat : {val.seatsCode}</p>
+                                                    <p>Seat : {val.seatsCode.join(' , ')}</p>
                                                 </div>
                                             </div>
                                         )

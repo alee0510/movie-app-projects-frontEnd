@@ -88,15 +88,15 @@ class UserHistorTransaction extends React.Component {
                                 <Cell style = {{width : '380px'}}>
                                     {item.details.map((val, index) => {
                                         return (
-                                            <div id = 'ticket-box' key = {index}>
-                                                <div id = 'left-ticket-box'>
-                                                    <img src = {barcode} alt = 'barcode' width = '75px'/>
+                                            <div id = 'user-ticket-box' key = {index}>
+                                                <div id = 'user-left-ticket-box'>
+                                                    <img src = {barcode} alt = 'user-barcode' width = '75px'/>
                                                 </div>
-                                                <div id = 'right-ticket-box'>
-                                                    <p id = 'his-title'>{val.title}</p>
+                                                <div id = 'user-right-ticket-box'>
+                                                    <p id = 'user-his-title'>{val.title}</p>
                                                     <p>Price : ${val.totalPrice}.00</p>
                                                     <p>{val.ticketAmount} Tickets</p>
-                                                    <p>Seat : {val.seatsCode}</p>
+                                                    <p>Seat : {val.seatsCode.join(' , ')}</p>
                                                 </div>
                                             </div>
                                         )
@@ -112,7 +112,7 @@ class UserHistorTransaction extends React.Component {
 
     renderTable = () => {
         return (
-            <div className ='table-wrapper'>
+            <div className ='user-table-wrapper'>
                 <Table stickyHeader aria-label="sticky table" className = 'table'>
                     {this.Head()}
                     {this.Body()}
@@ -134,7 +134,7 @@ class UserHistorTransaction extends React.Component {
     render () {
         let {page, rowsPerPage, transactionsHistory} = this.state
         return (
-            <div className = 'admin-transaction-history-container'>
+            <div className = 'user-transaction-history-container'>
                 <h2>My Transaction History</h2>
                 <Paper className = 'table-container' style = {{backgroundColor : theme.palette.primary.main}}>
                     <Table>
