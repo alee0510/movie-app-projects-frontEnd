@@ -5,6 +5,8 @@ import { withStyles } from '@material-ui/core/styles'
 import { theme } from '../style/theme'
 
 import '../style/adminTransaction.css'
+import {barcode} from '../assets'
+
 import API_URL from '../supports';
 import Axios from 'axios'
 
@@ -21,7 +23,8 @@ const HeadCell = withStyles({
     root : {
         backgroundColor : theme.palette.primary.main,
         color : theme.palette.secondary.text,
-        borderColor : theme.palette.primary.light
+        borderColor : theme.palette.primary.light,
+        textTransform : 'uppercase'
     }
 })(TableCell)
 
@@ -53,7 +56,7 @@ class AdminHistoryTransaction extends React.Component {
             <TableHead>
                 <TableRow>
                     <HeadCell>No</HeadCell>
-                    <HeadCell>User ID</HeadCell>
+                    <HeadCell>User ID & name</HeadCell>
                     <HeadCell>Date & Time</HeadCell>
                     <HeadCell>Total</HeadCell>
                     <HeadCell>Price</HeadCell>
@@ -75,18 +78,23 @@ class AdminHistoryTransaction extends React.Component {
                         return (
                             <TableRow key = {item.id}>
                                 <Cell>{index+1}</Cell>
-                                <Cell>{item.userID}</Cell>
+                                <Cell>ID : {item.userID} , {item.username}</Cell>
                                 <Cell>{item.date} / {item.time}</Cell>
                                 <Cell>{item.total} Tickets</Cell>
-                                <Cell>$ {item.price}.00</Cell>
-                                <Cell>
+                                <Cell>$ {item.price} .00</Cell>
+                                <Cell style = {{width : '350px'}}>
                                     {item.details.map((val, index) => {
                                         return (
                                             <div id = 'ticket-box' key = {index}>
-                                                <p id = 'his-title'>{val.title}</p>
-                                                <p>Pice : ${val.totalPrice}.00</p>
-                                                <p>{val.ticketAmount} Tickets</p>
-                                                <p>Seat : {val.seatsCode}</p>
+                                                <div id = 'left-ticket-box'>
+                                                    <img src = {barcode} alt = 'barcode' width = '75px'/>
+                                                </div>
+                                                <div id = 'right-ticket-box'>
+                                                    <p id = 'his-title'>{val.title}</p>
+                                                    <p>Price : ${val.totalPrice}.00</p>
+                                                    <p>{val.ticketAmount} Tickets</p>
+                                                    <p>Seat : {val.seatsCode}</p>
+                                                </div>
                                             </div>
                                         )
                                     })}

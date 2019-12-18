@@ -6,3 +6,4 @@ export const applestore2 = require('./logo/Download_on_the_App_Store_Badge_US-UK
 export const dolby = require('./logo/Logo_Dolby_Atmos.svg')
 export const fourdx = require('./logo/4dx.svg')
 export const cj = require('./logo/1024px-CJ_logo.png')
+export const barcode = require('./barcode.png')

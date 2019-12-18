@@ -222,7 +222,6 @@ class SeatReservation extends React.Component {
         let movieDetails = this.props.location.state
         let userCart = {
             title : movieDetails.title,
-            poster : movieDetails.poster,
             totalPrice : price,
             seatsCor : choosenSeat, // seat coordinates
             seatsCode : seatsCode,
