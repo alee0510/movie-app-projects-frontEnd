@@ -17,8 +17,6 @@ import { user } from '../assets'
 
 import { connect } from 'react-redux'
 import { logOut } from '../actions'
-import Axios from 'axios'
-import API_URL from '../supports'
 
 const StyledMenu = withStyles({
     paper: {
@@ -76,7 +74,6 @@ class AvaMenu extends React.Component {
     }
     
     render () {
-        let {isLogOut} = this.state
         const avatar = {
             cursor : 'pointer',
             display : 'inline-flex',

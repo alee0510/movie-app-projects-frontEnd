@@ -17,23 +17,26 @@ import UserProfil from './pages/userProfil'
 import UserCart from './pages/userCart'
 import NotFound404 from './pages/notFound404'
 
+// private route
+import { PrivateRoute } from './privateroute'
+
 class Main extends React.Component {
     render () {
         return (
             <div>
                 <Navbar/>
-                <Switch>
-                    <Route path = '/' component = {Home} exact />
-                    <Route path = '/login' component = {Login} />
-                    <Route path = '/register' component = {Register} />
-                    <Route path = '/storeManager' component = {StoreManager} />
-                    <Route path = '/movieDetails' component = {MovieDetail} />
-                    <Route path = '/seatReservation' component = {SeatReservation} />
-                    <Route path = '/movies' component = {Movies} />
-                    <Route path = '/userProfil' component = {UserProfil} />
-                    <Route path = '/userCart' component = {UserCart} />
-                    <Route path = '*' component = {NotFound404}/>
-                </Switch>
+                    <Switch>
+                        <Route path = '/' component = {Home} exact />
+                        <Route path = '/login' component = {Login} />
+                        <Route path = '/register' component = {Register} />
+                        <PrivateRoute path = '/storeManager' component = {StoreManager} />
+                        <Route path = '/movieDetails' component = {MovieDetail} />
+                        <Route path = '/seatReservation' component = {SeatReservation} />
+                        <Route path = '/movies' component = {Movies} />
+                        <Route path = '/userProfil' component = {UserProfil} />
+                        <Route path = '/userCart' component = {UserCart} />
+                        <Route path = '*' component = {NotFound404}/>
+                    </Switch>
                 <Footer/>
             </div>
         )
