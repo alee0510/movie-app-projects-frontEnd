@@ -221,7 +221,8 @@ class StoreManager extends React.Component {
                 director : newDirector,
                 casts : newCast.split(','),
                 plot : newSynopsis,
-                youtubeID : newTrailerUrl
+                youtubeID : newTrailerUrl,
+                booked : []
             })
             .then( (res) => {
                 Axios.get(API_URL + 'movies') // get the last data API and update out data state
