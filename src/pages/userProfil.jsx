@@ -281,10 +281,10 @@ class UserProfil extends React.Component {
     }
 }
 
-const mapStore = (state) => {
-    return {
-        id : state.login.id
-    }
-}
+// const mapStore = (state) => {
+//     return {
+//         id : state.login.id
+//     }
+// }
 
-export default connect(mapStore, {logIn})(UserProfil)
+export default connect(null, {logIn})(UserProfil)

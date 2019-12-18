@@ -110,7 +110,6 @@ class Login extends React.Component {
                                 <FormControl style = {{padding : '5px 0px 5px 0px'}} id = 'form'>
                                     <InputLabel htmlFor="adornment-amount" style = {{color : 'white'}}>Username</InputLabel>
                                     <InputStyle
-                                        // id="adornment-amount"
                                         inputRef = {text => this.text = text}
                                     />
                                 </FormControl>  
@@ -124,7 +123,6 @@ class Login extends React.Component {
                                 <FormControl style ={{padding : '5px 0px 5px 0px'}} >
                                     <InputLabel htmlFor="adornment-amount" style = {{color : 'white'}}>Password</InputLabel>
                                     <InputStyle
-                                        // id="adornment-amount"
                                         type = {show ? 'text' : 'password'}
                                         inputRef = {pass => this.pass = pass}
                                         endAdornment={

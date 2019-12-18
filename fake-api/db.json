@@ -45,6 +45,15 @@
         }
       ],
       "id": 1
+    },
+    {
+      "userID": "2",
+      "username": "alee",
+      "date": "18/12/2019",
+      "time": "15:48:48",
+      "total": 0,
+      "history": [],
+      "id": 2
     }
   ],
   "movies": [

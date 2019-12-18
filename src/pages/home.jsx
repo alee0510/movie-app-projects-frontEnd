@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import Axios from 'axios'
-// import API_URL from '../supports'
 
 // style
 import Card from '@material-ui/core/Card'
@@ -10,21 +8,12 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import '../style/home.css'
 
 // redux
-// import { Movie } from '../actions'
 import { connect } from 'react-redux'
 
 // import banner
 import Banner from '../components/banner'
 
 class Home extends React.Component {
-
-    // componentDidMount () {
-    //     Axios.get(API_URL + 'movies')
-    //     .then ((res) => {
-    //         this.props.Movie(res.data)
-    //     })
-    //     .catch ((err) => console.log(err))
-    // }
     
     renderCard = () => {
         return this.props.movies.map( (item, index) => {
@@ -75,9 +64,5 @@ const mapStore = (state) => { // reducer
         movies : state.movie.movie
     }
 }
-
-// const mapDispatch = () => {
-//     return {Movie}
-// }
 
 export default connect(mapStore)(Home)

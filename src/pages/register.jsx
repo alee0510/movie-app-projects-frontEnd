@@ -8,7 +8,6 @@ import LockIcon from '@material-ui/icons/Lock'
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import EmailIcon from '@material-ui/icons/Email'
-// import { green } from '@material-ui/core/colors'
 import '../style/register.css'
 
 // API
@@ -49,9 +48,6 @@ class Register extends React.Component {
         super(props)
         this.state = {
             vis : false,
-            // char : 0,
-            // spec : 0,
-            // num : 0,
             show : false,
             regis : false,
             value : 0
@@ -142,7 +138,6 @@ class Register extends React.Component {
                                 <FormControl style = {{padding : '5px 0px 5px 0px'}} >
                                     <InputLabel htmlFor="adornment-amount" style = {{color : 'white'}}>Username</InputLabel>
                                     <InputStyle
-                                        // id="adornment-amount"
                                         type = 'text'
                                         inputRef = {text => this.text = text}
                                     />
@@ -157,7 +152,6 @@ class Register extends React.Component {
                                 <FormControl style ={{padding : '5px 0px 5px 0px'}} >
                                     <InputLabel htmlFor="adornment-amount" style = {{color : 'white'}}>Email</InputLabel>
                                     <InputStyle
-                                        // id="adornment-amount"
                                         type = 'text'
                                         inputRef = {email => this.email = email}
                                     />
@@ -172,7 +166,6 @@ class Register extends React.Component {
                                 <FormControl style ={{padding : '5px 0px 5px 0px'}} >
                                     <InputLabel htmlFor="adornment-amount" style = {{color : 'white'}}>Password</InputLabel>
                                     <InputStyle
-                                        // id="adornment-amount"
                                         type = {vis ? 'text' : 'password'}
                                         onChange = {this.handleChange} 
                                         onFocus = {this.showReg}
@@ -201,7 +194,6 @@ class Register extends React.Component {
                                 <FormControl style ={{padding : '5px 0px 5px 0px'}} >
                                     <InputLabel htmlFor="adornment-amount" style = {{color : 'white'}}>Confirm Password</InputLabel>
                                     <InputStyle
-                                        // id="adornment-amount"
                                         type = {vis ? 'text' : 'password'}
                                         inputRef = {confirmPass => this.confirmPass = confirmPass}
                                         endAdornment={

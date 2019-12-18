@@ -4,7 +4,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 // import tileData from './tileData';
 import Axios from 'axios';
-import API_URL from '../supports';
+import API_URL from '../../supports';
 
 const GridListStyled = withStyles({
     root : {
