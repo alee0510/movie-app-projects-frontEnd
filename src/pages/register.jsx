@@ -44,31 +44,6 @@ const InputStyle = withStyles({
     error : {}
 })(Input)
 
-// // pass protect confirmation
-// function Char (props) {
-//     if (props.show) {
-//         return <div style = {{color : 'green', fontSize : '10pt'}} id ='reg-alert'> * Password length must be 8 or more Characters </div>
-//     } else {
-//         return <div style = {{color : '#bb002f', fontSize : '10pt'}} id ='reg-alert'> * Password length must be 8 or more Characters </div>
-//     }
-// }
-
-// function Spec (props) {
-//     if (props.show) {
-//         return <div style = {{color : 'green', fontSize : '10pt'}} id ='reg-alert'> * Password must include special characters </div>
-//     } else {
-//         return <div style = {{color : '#bb002f', fontSize : '10pt'}} id ='reg-alert'> * Password must include special characters </div>
-//     }
-// }
-
-// function Num (props) {
-//     if (props.show) {
-//         return <div style = {{color : 'green', fontSize : '10pt'}}> * Password must include number </div>
-//     } else {
-//         return <div style = {{color : '#bb002f', fontSize : '10pt'}}> * Password must include number </div>
-//     }
-// }
-
 class Register extends React.Component {
     constructor (props) {
         super(props)
@@ -138,12 +113,7 @@ class Register extends React.Component {
         let pass = event.target.value
         let numb = /[0-9]/
         let specs = /[!@#$%^&*;]/
-        // this.setState ( {
-        //     num : numb.test(pass) ? 40 : 0,
-        //     spec : specs.test(pass) ? 30 : 0,
-        //     char : pass.length > 7 ? 30 : 0,
-        // }, () => {
-        // })
+
         let num = numb.test(pass) ? 40 : 0
         let spec = specs.test(pass) ? 30 : 0
         let char = pass.length > 7 ? 30 : 0
@@ -249,15 +219,6 @@ class Register extends React.Component {
                             </Grid>
                     </Grid>
                 </div>
-                {/* {
-                    show ? 
-                    <div>
-                        <Char show = {char}></Char>
-                        <Spec show = {spec}></Spec>
-                        <Num show = {num}></Num>
-                    </div>
-                    : null
-                } */}
                 <div className = 'btn-reg'>
                     <Link to = '/'>
                         <Button id = 'btn-cancel' >Cancel</Button>
