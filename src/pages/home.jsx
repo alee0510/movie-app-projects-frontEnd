@@ -9,11 +9,20 @@ import '../style/home.css'
 
 // redux
 import { connect } from 'react-redux'
+import Axios from 'axios'
+import API_URL from '../supports'
+import { Movie } from '../actions'
 
 // import banner
 import Banner from '../components/banner'
 
 class Home extends React.Component {
+
+    componentDidMount () {
+        Axios.get(API_URL + 'movies') // store movies data base to global state
+        .then ((res) => {this.props.Movie(res.data)})
+        .catch ((err) => console.log(err))
+    }
     
     renderCard = () => {
         return this.props.movies.map( (item, index) => {
@@ -65,4 +74,4 @@ const mapStore = (state) => { // reducer
     }
 }
 
-export default connect(mapStore)(Home)
+export default connect(mapStore, {Movie})(Home)

@@ -73,13 +73,10 @@ class AvaMenu extends React.Component {
 
     logOutUser = () => {
         localStorage.clear()
-        Axios.get(API_URL + 'movies') // store movies data base to global state
-        .then ((res) => {this.props.Movie(res.data)})
-        .catch ((err) => console.log(err))
-        // window.location.reload()
     }
     
     render () {
+        let {isLogOut} = this.state
         const avatar = {
             cursor : 'pointer',
             display : 'inline-flex',
