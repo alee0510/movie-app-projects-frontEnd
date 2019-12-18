@@ -19,7 +19,51 @@
       "cart": []
     }
   ],
-  "transactions": [],
+  "transactions": [
+    {
+      "userID": "2",
+      "username": "alee",
+      "date": "18/12/2019",
+      "time": "19:38:28",
+      "total": 2,
+      "price": 10,
+      "details": [
+        {
+          "title": "Money (돈)",
+          "totalPrice": 5,
+          "seatsCor": [
+            [
+              0,
+              0
+            ]
+          ],
+          "seatsCode": [
+            [
+              "A1"
+            ]
+          ],
+          "ticketAmount": 1
+        },
+        {
+          "title": "Rampant (창궐)",
+          "totalPrice": 5,
+          "seatsCor": [
+            [
+              0,
+              0
+            ]
+          ],
+          "seatsCode": [
+            [
+              "A1"
+            ]
+          ],
+          "ticketAmount": 1
+        }
+      ],
+      "id": 1
+    }
+  ],
   "movies": [
     {
       "id": 1,
@@ -43,7 +87,12 @@
       ],
       "plot": "Lee Chung (Hyun-Bin) is a Prince of Joseon, but he has been taken hostage to the Qing Dynasty. He enjoys boozing, womanizing and gambling. He is also an excellent swordsman. His older brother Lee Young will succeed to the throne and brings Lee Chung to Joseon. He returns after more than 10 years. Soon, Lee Chung faces monsters that run rampant in the night.",
       "youtubeID": "XvH4t7pvDc0",
-      "booked": []
+      "booked": [
+        [
+          0,
+          0
+        ]
+      ]
     },
     {
       "id": 2,
@@ -70,7 +119,12 @@
       "poster": "http://asianwiki.com/images/d/de/Money_%28Korean_Movie%29-TP1.jpeg",
       "plot": "Il-Hyun (Ryoo Joon-Yeol) begins to work as a stock broker. His dream is to become rich. Il-Hyun meets a stock market scammer known as Beonhopyo (Yoo Ji-Tae). He asks Il-Hyun to help in a stock market scam. Meanwhile Han Ji-Cheol (Jo Woo-Jin) works for Financial Supervisory Service and has chased Beonhopyo for a long time. He senses something suspicious with Il-Hyun.",
       "youtubeID": "zuMI_NaMxwg",
-      "booked": []
+      "booked": [
+        [
+          0,
+          0
+        ]
+      ]
     },
     {
       "id": 3,

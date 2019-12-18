@@ -137,8 +137,7 @@ class AvaMenu extends React.Component {
                                     <ListItemText id = 'text' primary="Store Manager" />
                                 </StyledMenuItem>
                             </Link>
-                            <Link to = '/' 
-                            style = {{textDecoration : 'none', color : 'white'}}> 
+                            <Link to = '/historyTransactions' onClick = {this.handleClose} style = {{textDecoration : 'none', color : 'white'}}> 
                             <StyledMenuItem >
                                 <ListItemIcon>
                                     <HistoryIcon fontSize="small" style ={{color : 'white'}}/>

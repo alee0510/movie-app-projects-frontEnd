@@ -16,6 +16,7 @@ import Movies from './pages/movies'
 import UserProfil from './pages/userProfil'
 import UserCart from './pages/userCart'
 import NotFound404 from './pages/notFound404'
+import AdminHistoryTransaction from './pages/adminTransactionHistory'
 
 // private route
 import { PrivateRoute } from './privateroute'
@@ -35,6 +36,7 @@ class Main extends React.Component {
                         <Route path = '/movies' component = {Movies} />
                         <Route path = '/userProfil' component = {UserProfil} />
                         <Route path = '/userCart' component = {UserCart} />
+                        <Route path = '/historyTransactions' component = {AdminHistoryTransaction} />
                         <Route path = '*' component = {NotFound404}/>
                     </Switch>
                 <Footer/>

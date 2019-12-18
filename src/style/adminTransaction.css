@@ -1,0 +1,25 @@
+.admin-transaction-history-container {
+    width: 90%;
+    margin: auto;
+}
+
+.table-wrapper {
+    height: 68vh;
+    overflow: auto !important;
+}
+
+#ticket-box {
+    width: 100%;
+    height: 100px;
+    background-color: #263238;
+    margin-top: 5px;
+}
+
+#ticket-box p {
+    font-size: 10pt;
+}
+
+#ticket-box #his-title {
+    font-size: 12pt;
+    text-transform: uppercase;
+}

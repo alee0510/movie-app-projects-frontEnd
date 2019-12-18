@@ -1,13 +1,20 @@
 import React from 'react'
 import { Table, TableBody, TableHead, TableRow, TableCell, Button } from '@material-ui/core'
+
+// style
 import { withStyles } from '@material-ui/core/styles'
 import { theme } from '../style/theme'
+import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied'
+import '../style/cart.css'
+
+// fecth data and redux
+import API_URL from '../supports'
 import Axios from 'axios'
 import { connect } from 'react-redux'
-import API_URL from '../supports'
-import '../style/cart.css'
-import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied'
 import { logIn, checkOut } from '../actions'
+
+// alert dialog 
+import AlertDialog from '../components/alertDialog'
 
 const Cell = withStyles({
     root : {
@@ -33,7 +40,8 @@ class UserCart extends React.Component {
         super(props)
         this.state = {
             cart : [],
-            transactions : []
+            transactions : [],
+            alertOpen : false
         }
     }
 
@@ -146,6 +154,11 @@ class UserCart extends React.Component {
         let seconds = dateObject.getSeconds()
         let time = `${hours}:${minutes}:${seconds}`
 
+        let total = cart.map((item => item = item.ticketAmount)).reduce((a, b) => a + b, 0)
+        let price = cart.map((item => item = item.totalPrice)).reduce((a, b) => a + b, 0)
+        // console.log('total ticket ' + total)
+        // console.log('total price ' + price)
+
         if (cart.length === 0) {
             return null
         } else {
@@ -154,11 +167,12 @@ class UserCart extends React.Component {
                 username : localStorage.getItem('username'),
                 date : now,
                 time : time,
-                total : cart.ticketAmount,
-                price : cart.totalPrice,
+                total :total,
+                price : price,
                 details : cart
             }) // update our data base transaction
             .then((res) => {
+                console.table(res.data)
                 cart = []
                 this.setState({cart : cart})
                 Axios.patch(API_URL + `user/${userID}`, {cart : cart}) // update our user cart ==> []
@@ -167,7 +181,10 @@ class UserCart extends React.Component {
                     .then((res) => {
                         this.props.logIn(res.data)
                         Axios.get(API_URL + `transactions/?userID=${userID}`)
-                        .then((res) => this.props.checkOut(res.data))
+                        .then((res) => {
+                            this.props.checkOut(res.data)
+                            this.setState({alertOpen : true}) // add initial state to run alert dialog
+                        })
                         .catch((err) => console.log(err))
                     })
                     .catch((err) => console.log(err))
@@ -179,8 +196,13 @@ class UserCart extends React.Component {
         
     }
 
+    hanldeAlertClose = () => {
+        this.setState({alertOpen : false})
+    }
+
     render () {
         if (this.props.username) {
+            console.log(this.state.alertOpen)
             return (
                 <div className = 'cart-container'>
                     <h1>Hello : {localStorage.getItem('username') + '!'}</h1>
@@ -188,6 +210,18 @@ class UserCart extends React.Component {
                         {this.RenderTable()}
                     </div>
                     <Button variant = 'contained' id = 'check-out-btn' onClick = {this.CheckOut}>Check Out</Button>
+                    <AlertDialog
+                    open = {this.state.alertOpen}
+                    close = {this.hanldeAlertClose}
+                    title = 'Your transaction is success'
+                    contents = 'Click ticket button to see your further ticket infromation. Thank You.'
+                    displayOne = 'none'
+                    ButtonOneName = ''
+                    handleButtonOne = {null}
+                    displayTwo = 'block'
+                    ButtonTwoName = 'OK'
+                    handleButtonTwo = {this.hanldeAlertClose}
+                    />
                 </div>
             )
         } else {
