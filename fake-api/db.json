@@ -11,9 +11,9 @@
     },
     {
       "id": 2,
-      "username": "eloa",
-      "pass": "eloa",
-      "email": "eloa9656@gamail.com",
+      "username": "alee",
+      "pass": "alee0510",
+      "email": "alee0510@gmail.com",
       "role": "user",
       "avatar": "http://localhost:3000/assets/alee.jpg",
       "cart": []
