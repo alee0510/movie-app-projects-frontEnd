@@ -2,9 +2,11 @@ import React, { Component } from "react"
 // import { Card } from '@material-ui/core'
 import Slider from "react-slick"
 
-import Axios from 'axios'
-import API_URL from '../supports'
+// import Axios from 'axios'
+// import API_URL from '../supports'
 import '../style/banner.css'
+
+import { connect } from 'react-redux'
 
 class Banner extends Component {
     constructor (props) {
@@ -13,14 +15,14 @@ class Banner extends Component {
             banner : []
         }
     }
-    componentDidMount () {
-        Axios.get(API_URL + 'banners')
-        .then((res) => {this.setState({banner : res.data})})
-        .catch((err) => console.log(err))
-    }
+    // componentDidMount () {
+    //     Axios.get(API_URL + 'banners')
+    //     .then((res) => {this.setState({banner : res.data})})
+    //     .catch((err) => console.log(err))
+    // }
 
     RenderBanner = () => {
-        return this.state.banner.map( (item, index) => {
+        return this.props.banners.map( (item, index) => {
             return (
                 <div className = 'banner-img-container' key  = {index}>
                     <img src = {item} alt = 'banner-img' id = 'banner-img'/>
@@ -51,4 +53,9 @@ class Banner extends Component {
     }
 }
 
-export default Banner
+const mapStore = (state) => {
+    return {
+        banners : state.storeBanner.banner
+    }
+}
+export default connect(mapStore)(Banner)

@@ -6,10 +6,11 @@ const checkOutReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
         case 'CHECK_OUT' :
             return {
+                ...state,
                 transcation : action.payload
             }
         default :
-            return INITIAL_STATE
+            return state
     }
 }
 

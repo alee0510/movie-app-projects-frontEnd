@@ -6,10 +6,11 @@ const banerReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
         case 'STORE_BANNER' :
             return {
+                ...state,
                 banner : action.payload
             }
         default :
-            return INITIAL_STATE
+            return state
     }
 }
 

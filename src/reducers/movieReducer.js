@@ -6,10 +6,11 @@ const movieReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
         case 'MOVIE' :
             return {
+                ...state,
                 movie : action.payload
             }
         default :
-            return INITIAL_STATE
+            return state
     }
 }
 
