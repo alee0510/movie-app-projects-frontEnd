@@ -98,7 +98,7 @@ class Navbar extends React.Component {
     render () {
         let {home, movies, cinemas} = this.state
         let cartLen = this.props.cart.length
-        let transLen = localStorage.getItem('id') ? this.props.history.length : 0
+        let transLen = localStorage.getItem('id') ? this.props.history.map(item => item.total).reduce((a, b) => a + b, 0) : 0
         console.info('home :', home, 'movies :', movies, 'cinemas :', cinemas)
         console.info('cart length : ', cartLen, 'transaction length : ', transLen)
         return (

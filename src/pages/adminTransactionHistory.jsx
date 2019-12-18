@@ -60,7 +60,7 @@ class AdminHistoryTransaction extends React.Component {
                     <HeadCell>Date & Time</HeadCell>
                     <HeadCell>Total</HeadCell>
                     <HeadCell>Price</HeadCell>
-                    <HeadCell>Details</HeadCell>
+                    <HeadCell>Ticket's Details</HeadCell>
                 </TableRow>
             </TableHead>
         )
@@ -82,7 +82,7 @@ class AdminHistoryTransaction extends React.Component {
                                 <Cell>{item.date} / {item.time}</Cell>
                                 <Cell>{item.total} Tickets</Cell>
                                 <Cell>$ {item.price} .00</Cell>
-                                <Cell style = {{width : '350px'}}>
+                                <Cell style = {{width : '380px'}}>
                                     {item.details.map((val, index) => {
                                         return (
                                             <div id = 'ticket-box' key = {index}>

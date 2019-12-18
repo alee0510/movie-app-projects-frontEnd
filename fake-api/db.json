@@ -24,9 +24,9 @@
       "userID": "2",
       "username": "alee",
       "date": "18/12/2019",
-      "time": "19:38:28",
-      "total": 2,
-      "price": 10,
+      "time": "23:50:1",
+      "total": 3,
+      "price": 15,
       "details": [
         {
           "title": "Money (돈)",
@@ -45,17 +45,33 @@
           "ticketAmount": 1
         },
         {
-          "title": "Rampant (창궐)",
+          "title": "Inseparable Bros (나의 특별한 형제)",
           "totalPrice": 5,
           "seatsCor": [
             [
-              0,
-              0
+              1,
+              1
             ]
           ],
           "seatsCode": [
             [
-              "A1"
+              "B2"
+            ]
+          ],
+          "ticketAmount": 1
+        },
+        {
+          "title": "Mourning Grave (소녀괴담)",
+          "totalPrice": 5,
+          "seatsCor": [
+            [
+              1,
+              1
+            ]
+          ],
+          "seatsCode": [
+            [
+              "B2"
             ]
           ],
           "ticketAmount": 1
@@ -87,12 +103,7 @@
       ],
       "plot": "Lee Chung (Hyun-Bin) is a Prince of Joseon, but he has been taken hostage to the Qing Dynasty. He enjoys boozing, womanizing and gambling. He is also an excellent swordsman. His older brother Lee Young will succeed to the throne and brings Lee Chung to Joseon. He returns after more than 10 years. Soon, Lee Chung faces monsters that run rampant in the night.",
       "youtubeID": "XvH4t7pvDc0",
-      "booked": [
-        [
-          0,
-          0
-        ]
-      ]
+      "booked": []
     },
     {
       "id": 2,
@@ -175,7 +186,12 @@
       "poster": "http://asianwiki.com/images/7/74/Inseparable_Bros-p03.jpg",
       "plot": "Se-Ha (Shin Ha-Kyun) and Dong-Goo (Lee Kwang-Soo) are not blood related brothers, but they have been like brothers for the past 20 years. Se-Ha is smart, but he has a physical disability. Dong-Goo is not very smart, but he is in excellent physical condition. These two men meet Mi-Hyun (Esom). She is the only person to treat them without prejudice. Mi-Hyun helps them get out into the world.",
       "youtubeID": "LiK4OFMazGs",
-      "booked": []
+      "booked": [
+        [
+          1,
+          1
+        ]
+      ]
     },
     {
       "id": 5,
@@ -245,7 +261,12 @@
       "poster": "http://asianwiki.com/images/5/58/Mourning_Grave-p2.jpg",
       "plot": "In-Soo (Kang Ha-Neul) has a special gift to see ghosts and has become isolated from other students because of this. He transfers to a high school in a rural area outside of Seoul. There, In-Soo meets a female ghost (Kim So-Eun) at the high school and forms a friendship with her.",
       "youtubeID": "RWsY8XjCGEc",
-      "booked": []
+      "booked": [
+        [
+          1,
+          1
+        ]
+      ]
     },
     {
       "id": 8,

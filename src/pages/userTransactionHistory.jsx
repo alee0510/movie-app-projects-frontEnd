@@ -2,6 +2,8 @@ import React from 'react'
 import Axios from 'axios'
 import API_URL from '../supports'
 
+import '../style/userTransaction.css'
+
 class UserHistorTransaction extends React.Component {
     constructor (props) {
         super(props)

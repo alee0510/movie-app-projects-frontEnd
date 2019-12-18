@@ -27,7 +27,7 @@
 }
 
 #ticket-box #his-title {
-    font-size: 12pt;
+    font-size: 10.5pt;
     text-transform: uppercase;
     font-weight: bolder;
 }
@@ -40,6 +40,7 @@
 
 #right-ticket-box {
     padding-left: 15px;
+    padding-right: 10px;
 }
 
 #left-ticket-box {

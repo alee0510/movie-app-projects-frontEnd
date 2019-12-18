@@ -36,7 +36,7 @@ class Main extends React.Component {
                         <Route path = '/movies' component = {Movies} />
                         <Route path = '/userProfil' component = {UserProfil} />
                         <Route path = '/userCart' component = {UserCart} />
-                        <Route path = '/historyTransactions' component = {AdminHistoryTransaction} />
+                        <PrivateRoute path = '/historyTransactions' component = {AdminHistoryTransaction} />
                         <Route path = '*' component = {NotFound404}/>
                     </Switch>
                 <Footer/>
