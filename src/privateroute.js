@@ -16,6 +16,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
                 return <Redirect to = '/NotFound404'/>
             }}/>
         )
+    } else {
+        return <Redirect to = '/NotFound404'/>
     }
-    return <Redirect to = '/NotFound404'/>
 }

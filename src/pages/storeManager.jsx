@@ -99,22 +99,22 @@ class StoreManager extends React.Component {
                                 <TableRow hover key = {item.id}>
                                     <Cell>#</Cell>
                                     <Cell>
-                                        <TextField autoFocus variant= 'filled' inputRef = {editPosterUrl => this.editPosterUrl = editPosterUrl}/>
+                                        <TextField autoFocus variant= 'outlined' inputRef = {editPosterUrl => this.editPosterUrl = editPosterUrl}/>
                                     </Cell>
                                     <Cell>
-                                        <TextField autoFocus variant= 'filled' inputRef = {editTitle => this.editTitle = editTitle}/>
+                                        <TextField autoFocus variant= 'outlined' inputRef = {editTitle => this.editTitle = editTitle}/>
                                     </Cell>
                                     <Cell>
-                                        <TextField autoFocus variant= 'filled' inputRef = {editDirector => this.editDirector = editDirector}/>
+                                        <TextField autoFocus variant= 'outlined' inputRef = {editDirector => this.editDirector = editDirector}/>
                                     </Cell>
                                     <Cell>
-                                        <TextField autoFocus variant= 'filled' inputRef = {editCasts => this.editCasts = editCasts}/>
+                                        <TextField autoFocus variant= 'outlined' inputRef = {editCasts => this.editCasts = editCasts}/>
                                     </Cell>
                                     <Cell>
-                                        <TextField autoFocus variant= 'filled' inputRef = {editGenre => this.editGenre = editGenre}/>
+                                        <TextField autoFocus variant= 'outlined' inputRef = {editGenre => this.editGenre = editGenre}/>
                                     </Cell>
                                     <Cell>
-                                        <TextField autoFocus variant= 'filled' inputRef = {editSynopsis => this.editSynopsis = editSynopsis}/>
+                                        <TextField autoFocus variant= 'outlined' inputRef = {editSynopsis => this.editSynopsis = editSynopsis}/>
                                     </Cell>
                                     <Cell align = 'center'>
                                         <Button variant = 'contained' id = 'btn-cancel-store' onClick = {() => this.Cancel(item.id)}>Cancel</Button>
