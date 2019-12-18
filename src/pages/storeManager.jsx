@@ -337,7 +337,7 @@ class StoreManager extends React.Component {
                     >
                         <DialogTitle id="alert-dialog-title">{"Are you sure want to delete this movie ?"}</DialogTitle>
                         <DialogContent>
-                            <DialogContentText id="alert-dialog-description">
+                            <DialogContentText id="alert-dialog-description" style = {{color : 'black'}}>
                                 Once you delete this movie, you will no longer get access all its data and
                                 it will be disapear in data base.
                             </DialogContentText>

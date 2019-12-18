@@ -78,6 +78,33 @@
         }
       ],
       "id": 1
+    },
+    {
+      "userID": "2",
+      "username": "alee",
+      "date": "19/12/2019",
+      "time": "0:12:46",
+      "total": 1,
+      "price": 5,
+      "details": [
+        {
+          "title": "On Your Wedding Day",
+          "totalPrice": 5,
+          "seatsCor": [
+            [
+              2,
+              8
+            ]
+          ],
+          "seatsCode": [
+            [
+              "C9"
+            ]
+          ],
+          "ticketAmount": 1
+        }
+      ],
+      "id": 2
     }
   ],
   "movies": [
@@ -215,7 +242,12 @@
       "poster": "http://asianwiki.com/images/d/de/On_Your_Wedding_Day-mp2.jpg",
       "plot": "Seung-Hee (Park Bo-Young) and Woo-Yeon (Kim Young-Kwang) meet for the first time as high school students. Woo-Yeon likes her, but he does not know whether she feels the same. After graduating from college, they start their careers.",
       "youtubeID": "L8s2c86_9cY",
-      "booked": []
+      "booked": [
+        [
+          2,
+          8
+        ]
+      ]
     },
     {
       "id": 6,

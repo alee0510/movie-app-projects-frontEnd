@@ -2,6 +2,9 @@
     width: 90%;
     margin: auto;
 }
+.admin-transaction-history-container h2 {
+    color: white;
+}
 
 .table-wrapper {
     height: 68vh;

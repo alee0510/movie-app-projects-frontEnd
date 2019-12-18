@@ -117,15 +117,17 @@ class Navbar extends React.Component {
                         />
                 </div>
                 <div id = 'right-navbar'>
+                    <Link to = '/userTransaction'>
                         <Badge badgeContent={transLen} color="secondary" id = 'ticket'>
                             <ConfirmationNumberIcon style ={{color : 'white'}}/>
                         </Badge>
-                        <Link to = '/userCart' style = {{textDecoration : 'none'}}>
-                            <Badge badgeContent={cartLen} color="secondary" id = 'shop-cart'>
-                                <ShoppingCartIcon style ={{color : 'white'}}/>
-                            </Badge>
-                        </Link>
-                        <Search/>
+                    </Link>
+                    <Link to = '/userCart' style = {{textDecoration : 'none'}}>
+                        <Badge badgeContent={cartLen} color="secondary" id = 'shop-cart'>
+                            <ShoppingCartIcon style ={{color : 'white'}}/>
+                        </Badge>
+                    </Link>
+                    <Search/>
                 </div>
             </AppBar>
         )

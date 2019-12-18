@@ -15,7 +15,7 @@ const Cell = withStyles({
     root : {
         backgroundColor : theme.palette.primary.light,
         color : theme.palette.secondary.text,
-        borderColor : theme.palette.primary.light,
+        borderColor : '#f2f2f2',
     }
 })(TableCell)
 
@@ -23,7 +23,7 @@ const HeadCell = withStyles({
     root : {
         backgroundColor : theme.palette.primary.main,
         color : theme.palette.secondary.text,
-        borderColor : theme.palette.primary.light,
+        borderColor : '#f2f2f2',
         textTransform : 'uppercase'
     }
 })(TableCell)
@@ -31,7 +31,7 @@ const HeadCell = withStyles({
 const Row = withStyles({
     root : {
         backgroundColor : theme.palette.primary.main,
-        borderColor : theme.palette.primary.light
+        borderColor : '#f2f2f2',
     }
 })(TableRow)
 
@@ -132,6 +132,7 @@ class AdminHistoryTransaction extends React.Component {
         let {page, rowsPerPage, transactionsHistory} = this.state
         return (
             <div className = 'admin-transaction-history-container'>
+                <h2>Transaction History</h2>
                 <Paper className = 'table-container' style = {{backgroundColor : theme.palette.primary.main}}>
                     <Table>
                         {this.renderTable()}
