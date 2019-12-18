@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 
 
 export default function AlertDialog(props) {
-    const classes = useStyles();
+    const classes = useStyles()
     return (
         <div>
             <Dialog

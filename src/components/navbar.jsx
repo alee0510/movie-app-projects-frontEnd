@@ -65,9 +65,6 @@ class Navbar extends React.Component {
             Axios.get(API_URL + `user/${localStorage.getItem('id')}`)
             .then((res) => {this.props.logIn(res.data)})
             .catch((err) => console.log(err))
-            Axios.get(API_URL + `transactions/?userID=${localStorage.getItem('id')}`)
-            .then((res) => this.props.checkOut(res.data))
-            .catch((err) => console.log(err))
         }
     }
 
@@ -101,7 +98,7 @@ class Navbar extends React.Component {
     render () {
         let {home, movies, cinemas} = this.state
         let cartLen = this.props.cart.length
-        let transLen = this.props.history.length
+        let transLen = localStorage.getItem('id') ? this.props.history.length : 0
         console.info('home :', home, 'movies :', movies, 'cinemas :', cinemas)
         console.info('cart length : ', cartLen, 'transaction length : ', transLen)
         return (

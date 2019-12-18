@@ -211,40 +211,45 @@ class StoreManager extends React.Component {
         let newPosterUrl = this.newPosterUrl.value
         let newTrailerUrl = this.newTrailerUrl.value.split('=')[1]
         let newSynopsis = this.newSynopsis.value
-
-        Axios.post(API_URL + 'movies', {
-            title : newTitle,
-            genre: newGenre.split(','),
-            poster : newPosterUrl,
-            director : newDirector,
-            casts : newCast.split(','),
-            plot : newSynopsis,
-            youtubeID : newTrailerUrl
-        })
-        .then( (res) => {
-            Axios.get(API_URL + 'movies') // get the last data API and update out data state
-            .then ( (res) => {
-                this.setState ({ movies : res.data })
-                // update our value to ''
-                this.newTitle.value = ''
-                this.newGenre.value = ''
-                this.newPosterUrl.value = ''
-                this.newTrailerUrl.value = ''
-                this.newSynopsis.value = ''
-                this.handleClose()
+        if (newTitle === '') {
+            alert('Make sure you fill all form including movie title')
+        } else {
+            Axios.post(API_URL + 'movies', {
+                title : newTitle,
+                genre: newGenre.split(','),
+                poster : newPosterUrl,
+                director : newDirector,
+                casts : newCast.split(','),
+                plot : newSynopsis,
+                youtubeID : newTrailerUrl
             })
+            .then( (res) => {
+                Axios.get(API_URL + 'movies') // get the last data API and update out data state
+                .then ( (res) => {
+                    this.setState ({ movies : res.data })
+                    // update our value to ''
+                    this.newTitle.value = ''
+                    this.newGenre.value = ''
+                    this.newPosterUrl.value = ''
+                    this.newTrailerUrl.value = ''
+                    this.newSynopsis.value = ''
+                    this.handleClose()
+                })
+                .catch ((err) => console.log(err))
+            } )
             .catch ((err) => console.log(err))
-        } )
-        .catch ((err) => console.log(err))
+        }
     }
 
     Done = (id) => {
-        let editTitle = this.editTitle.value
-        let editDirector = this.editDirector.value
-        let editCasts = this.editCasts.value
-        let editGenre = this.editGenre.value
-        let editPosterUrl = this.editPosterUrl.value
-        let editSynopsis = this.editSynopsis.value
+        let {movies} = this.state
+        console.log(movies)
+        let editTitle = this.editTitle.value ? this.editTitle.value : movies[id-1].title
+        let editDirector = this.editDirector.value ? this.editDirector.value : movies[id-1].director
+        let editCasts = this.editCasts.value ? this.editCasts.value : movies[id-1].casts.join(',')
+        let editGenre = this.editGenre.value ? this.editGenre.value : movies[id-1].genre.join(',')
+        let editPosterUrl = this.editPosterUrl.value ? this.editPosterUrl.value : movies[id-1].poster
+        let editSynopsis = this.editSynopsis.value ? this.editSynopsis.value : movies[id-1].plot
         Axios.patch(API_URL + `movies/${id}`, { // put will only add our provided data
             id : id,
             title : editTitle,

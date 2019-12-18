@@ -11,7 +11,7 @@ import '../style/home.css'
 import { connect } from 'react-redux'
 import Axios from 'axios'
 import API_URL from '../supports'
-import { Movie, storeBanner } from '../actions'
+import { checkOut, storeBanner } from '../actions'
 
 // import banner
 import Banner from '../components/banner'
@@ -19,14 +19,14 @@ import Banner from '../components/banner'
 class Home extends React.Component {
 
     componentDidMount () {
-        // Axios.get(API_URL + 'movies') // store movies data base to global state
-        // .then ((res) => {
-        //     this.props.Movie(res.data)
-        // })
-        // .catch ((err) => console.log(err))
         Axios.get(API_URL + 'banners')
         .then((res) => {this.props.storeBanner(res.data)})
         .catch((err) => console.log(err))
+        if (localStorage.getItem('id') !== null) {
+            Axios.get(API_URL + `transactions/?userID=${localStorage.getItem('id')}`)
+            .then((res) => this.props.checkOut(res.data))
+            .catch((err) => console.log(err))
+        }
     }
     
     renderCard = () => {
@@ -79,4 +79,4 @@ const mapStore = (state) => { // reducer
     }
 }
 
-export default connect(mapStore, { storeBanner})(Home)
+export default connect(mapStore, { storeBanner, checkOut })(Home)

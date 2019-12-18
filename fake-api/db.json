@@ -19,78 +19,7 @@
       "cart": []
     }
   ],
-  "transactions": [
-    {
-      "userID": "2",
-      "username": "alee",
-      "date": "18/12/2019",
-      "time": "9:42:53",
-      "total": 1,
-      "history": [
-        {
-          "title": "Money (돈)",
-          "totalPrice": 5,
-          "seatsCor": [
-            [
-              0,
-              3
-            ]
-          ],
-          "seatsCode": [
-            [
-              "A4"
-            ]
-          ],
-          "ticketAmount": 1
-        }
-      ],
-      "id": 1
-    },
-    {
-      "userID": "2",
-      "username": "alee",
-      "date": "18/12/2019",
-      "time": "15:48:48",
-      "total": 0,
-      "history": [],
-      "id": 2
-    },
-    {
-      "userID": "2",
-      "username": "eloa",
-      "date": "18/12/2019",
-      "time": "16:37:31",
-      "total": 0,
-      "history": [],
-      "id": 3
-    },
-    {
-      "userID": "2",
-      "username": "alee",
-      "date": "18/12/2019",
-      "time": "18:3:3",
-      "total": 1,
-      "history": [
-        {
-          "title": "Money (돈)",
-          "totalPrice": 5,
-          "seatsCor": [
-            [
-              0,
-              6
-            ]
-          ],
-          "seatsCode": [
-            [
-              "A7"
-            ]
-          ],
-          "ticketAmount": 1
-        }
-      ],
-      "id": 4
-    }
-  ],
+  "transactions": [],
   "movies": [
     {
       "id": 1,
@@ -141,16 +70,7 @@
       "poster": "http://asianwiki.com/images/d/de/Money_%28Korean_Movie%29-TP1.jpeg",
       "plot": "Il-Hyun (Ryoo Joon-Yeol) begins to work as a stock broker. His dream is to become rich. Il-Hyun meets a stock market scammer known as Beonhopyo (Yoo Ji-Tae). He asks Il-Hyun to help in a stock market scam. Meanwhile Han Ji-Cheol (Jo Woo-Jin) works for Financial Supervisory Service and has chased Beonhopyo for a long time. He senses something suspicious with Il-Hyun.",
       "youtubeID": "zuMI_NaMxwg",
-      "booked": [
-        [
-          0,
-          3
-        ],
-        [
-          0,
-          6
-        ]
-      ]
+      "booked": []
     },
     {
       "id": 3,

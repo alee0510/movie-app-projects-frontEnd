@@ -154,8 +154,9 @@ class UserCart extends React.Component {
                 username : localStorage.getItem('username'),
                 date : now,
                 time : time,
-                total : cart.length,
-                history : cart
+                total : cart.ticketAmount,
+                price : cart.totalPrice,
+                details : cart
             }) // update our data base transaction
             .then((res) => {
                 cart = []
