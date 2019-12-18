@@ -10,7 +10,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import '../style/movies.css'
 
 // redux
-import { Movie, selectMovie } from '../actions'
+import { Movie } from '../actions'
 import { connect } from 'react-redux'
 
 class Movies extends React.Component {
@@ -70,13 +70,12 @@ class Movies extends React.Component {
 
 const mapStore = (state) => { // reducer
     return {
-        movies : state.movie.movie,
-        movieID : state.movie.selectMovieID
+        movies : state.movie.movie
     }
 }
 
 const mapDispatch = () => {
-    return {Movie, selectMovie}
+    return {Movie}
 }
 
 export default connect(mapStore, mapDispatch())(Movies)

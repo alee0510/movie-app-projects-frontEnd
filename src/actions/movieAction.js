@@ -5,16 +5,16 @@ export const Movie = (data) => {
     }
 }
 
-export const selectMovie = (data) => {
+export const checkOut = (data) => {
     return {
-        type : 'SELECT_MOVIE',
+        type : 'CHECK_OUT',
         payload : data
     }
 }
 
-export const checkOut = (data) => {
+export const storeBanner = (data) => {
     return {
-        type : 'CHECK_OUT',
+        type : 'STORE_BANNER',
         payload : data
     }
 }

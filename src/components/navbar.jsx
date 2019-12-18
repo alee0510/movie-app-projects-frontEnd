@@ -69,7 +69,7 @@ class Navbar extends React.Component {
                     if (res.data.length === 0) { // user doesn't make transaction yet
                         this.setState({userHistoryTranscation : 0})
                     } else {
-                        this.setState({userHistoryTranscation : res.data[0].transactionsHistory.length})
+                        this.setState({userHistoryTranscation : res.data.length})
                     }
                 })
                 .catch((err) => console.log(err))
@@ -107,8 +107,10 @@ class Navbar extends React.Component {
 
     render () {
         let {home, movies, cinemas} = this.state
-        let len = this.props.cart.length
+        let cartLen = this.props.cart.length
+        let transLen = this.state.userHistoryTranscation
         console.info('home :', home, 'movies :', movies, 'cinemas :', cinemas)
+        console.info('cart length : ', cartLen, 'transaction length : ', transLen)
         return (
             <AppBar id = "navbar" position="static">
                 <div id = 'left-navbar'>
@@ -125,11 +127,11 @@ class Navbar extends React.Component {
                         />
                 </div>
                 <div id = 'right-navbar'>
-                        <Badge badgeContent={this.state.userHistoryTranscation} color="secondary" id = 'ticket'>
+                        <Badge badgeContent={transLen} color="secondary" id = 'ticket'>
                             <ConfirmationNumberIcon style ={{color : 'white'}}/>
                         </Badge>
                         <Link to = '/userCart' style = {{textDecoration : 'none'}}>
-                            <Badge badgeContent={len} color="secondary" id = 'shop-cart'>
+                            <Badge badgeContent={cartLen} color="secondary" id = 'shop-cart'>
                                 <ShoppingCartIcon style ={{color : 'white'}}/>
                             </Badge>
                         </Link>

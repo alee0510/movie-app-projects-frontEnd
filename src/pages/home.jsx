@@ -11,7 +11,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import '../style/home.css'
 
 // redux
-import { Movie, selectMovie } from '../actions'
+import { Movie } from '../actions'
 import { connect } from 'react-redux'
 
 // import banner
@@ -25,10 +25,6 @@ class Home extends React.Component {
             this.props.Movie(res.data)
         })
         .catch ((err) => console.log(err))
-    }
-
-    cardClick = (id) => {
-        this.props.selectMovie(id)
     }
     
     renderCard = () => {
@@ -77,13 +73,12 @@ class Home extends React.Component {
 
 const mapStore = (state) => { // reducer
     return {
-        movies : state.movie.movie,
-        movieID : state.movie.selectMovieID
+        movies : state.movie.movie
     }
 }
 
 const mapDispatch = () => {
-    return {Movie, selectMovie}
+    return {Movie}
 }
 
 export default connect(mapStore, mapDispatch())(Home)
