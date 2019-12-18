@@ -23,7 +23,7 @@ class Home extends React.Component {
                     className = 'home-grid' 
                     id = {item.id} 
                     >
-                        <Card id = 'home-card' onClick = { ()=> this.cardClick(item.id)}>
+                        <Card id = 'home-card'>
                             <img src = {item.poster} alt = 'poster-img' id = 'home-img'/>
                             <div id = 'home-overlay'></div>
                             <div id = 'home-title' > {item.title}</div>

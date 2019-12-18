@@ -20,7 +20,7 @@ class Movies extends React.Component {
                     className = 'all-grid' 
                     id = {item.id} 
                     >
-                        <Card id = 'all-card' onClick = { ()=> this.cardClick(item.id)}>
+                        <Card id = 'all-card'>
                             <img src = {item.poster} alt = 'poster-img' id = 'all-img'/>
                             <div id = 'all-overlay'></div>
                             <div id = 'all-title' > {item.title}</div>
