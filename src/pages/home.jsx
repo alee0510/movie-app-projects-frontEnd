@@ -20,7 +20,8 @@ class Home extends React.Component {
 
     componentDidMount () {
         Axios.get(API_URL + 'movies') // store movies data base to global state
-        .then ((res) => {this.props.Movie(res.data)})
+        .then ((res) => {
+            this.props.Movie(res.data)})
         .catch ((err) => console.log(err))
     }
     

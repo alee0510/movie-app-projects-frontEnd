@@ -15,9 +15,7 @@ class Banner extends Component {
     }
     componentDidMount () {
         Axios.get(API_URL + 'banners')
-        .then((res) => {
-            this.setState({banner : res.data})
-        })
+        .then((res) => {this.setState({banner : res.data})})
         .catch((err) => console.log(err))
     }
 
