@@ -104,7 +104,7 @@ class UserCart extends React.Component {
             this.setState({cart : cart})
             let movID = res.data[0].id
 
-            // // filter booked seat at data base movie to macth with seat coordinate
+            // filter booked seat at data base movie to macth with seat coordinate
             for (let i = 0 ; i < seatCoordinate.length; i++){
                 tempBooked = tempBooked.filter((item) => item.join('') !== seatCoordinate[i].join(''))
                 console.log('iterate at ' +  i + 'th')

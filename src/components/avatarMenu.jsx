@@ -72,6 +72,7 @@ class AvaMenu extends React.Component {
 
     logOutUser = () => {
         localStorage.clear()
+        window.location.reload()
     }
     
     render () {

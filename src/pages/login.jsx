@@ -15,7 +15,7 @@ import Axios from 'axios'
 import API_URL from '../supports'
 
 // redux
-import { logIn } from '../actions'
+import { logIn, Movie } from '../actions'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
@@ -74,6 +74,9 @@ class Login extends React.Component {
                 // localStorage.setItem('role', res.data[0].role)
                 localStorage.setItem('id', res.data[0].id)
                 this.props.logIn(res.data[0])
+                Axios.get(API_URL + 'movies') // store movies data base to global state
+                .then ((res) => {this.props.Movie(res.data)})
+                .catch ((err) => console.log(err))
             }
             // clear input value
             this.text.value = ''
@@ -156,7 +159,7 @@ const mapStore = (state) => { // reducer
 
 // action
 const mapDispatch = () => {
-    return {logIn}
+    return {logIn, Movie}
 }
 
 export default connect(mapStore, mapDispatch())(Login)
