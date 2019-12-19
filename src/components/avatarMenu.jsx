@@ -92,7 +92,7 @@ class AvaMenu extends React.Component {
                     {
                         this.props.profil ? <Avatar alt = 'user' src = {this.props.profil} style = {avaImg} ></Avatar>
                         : this.props.role === 'admin' ? <Avatar style = {avaImg}>A</Avatar> 
-                        : this.props.role === 'user' ? <Avatar style = {avaImg}>{localStorage.getItem('username').charAt(0).toUpperCase()}</Avatar>
+                        : this.props.role === 'user' ? <Avatar style = {avaImg}>{this.props.username.charAt(0).toUpperCase()}</Avatar>
                         : <Avatar src = {user} style = {avaImg}></Avatar>
                     }
                     <Typography style = {{ marginLeft : '10px' }}> {this.props.username || localStorage.getItem('username') ? `Hi! ${localStorage.getItem('username')}` : 'Login'} </Typography>

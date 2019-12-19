@@ -50,6 +50,9 @@ class Register extends React.Component {
             vis : false,
             show : false,
             regis : false,
+            char : false, 
+            num : false,
+            spec : false,
             value : 0
         }
     }
@@ -77,7 +80,8 @@ class Register extends React.Component {
                             pass : pass,
                             email : email,
                             role : 'user',
-                            avatar : ''
+                            avatar : '',
+                            cart : []
                         })
                         .then ((res) => {
                             this.setState({regis : true}) // update regis status to true
@@ -113,7 +117,11 @@ class Register extends React.Component {
         let num = numb.test(pass) ? 40 : 0
         let spec = specs.test(pass) ? 30 : 0
         let char = pass.length > 7 ? 30 : 0
-        this.setState({value : num + spec + char})
+
+        let numBol = numb.test(pass)
+        let specsBol = specs.test(pass)
+        let charBol = pass.length > 7
+        this.setState({value : num + spec + char, num : numBol, spec : specsBol, char : charBol})
     }
 
     showReg = () => {

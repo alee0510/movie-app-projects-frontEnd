@@ -17,6 +17,15 @@
       "role": "user",
       "avatar": "http://localhost:3000/assets/alee.jpg",
       "cart": []
+    },
+    {
+      "username": "eloa",
+      "pass": "eElo@466",
+      "email": "eloa0699@gmail.com",
+      "role": "user",
+      "avatar": "",
+      "cart": [],
+      "id": 3
     }
   ],
   "transactions": [
@@ -139,6 +148,60 @@
         }
       ],
       "id": 3
+    },
+    {
+      "userID": "3",
+      "username": "eloa",
+      "date": "19/12/2019",
+      "time": "11:33:37",
+      "total": 1,
+      "price": 5,
+      "details": [
+        {
+          "title": "The Great Battle (안시성)",
+          "totalPrice": 5,
+          "seatsCor": [
+            [
+              0,
+              0
+            ]
+          ],
+          "seatsCode": [
+            [
+              "A1"
+            ]
+          ],
+          "ticketAmount": 1
+        }
+      ],
+      "id": 4
+    },
+    {
+      "userID": "3",
+      "username": "eloa",
+      "date": "19/12/2019",
+      "time": "11:35:43",
+      "total": 1,
+      "price": 5,
+      "details": [
+        {
+          "title": "Along with the Gods: The Last 49 Days (신과함께-인과 연)",
+          "totalPrice": 5,
+          "seatsCor": [
+            [
+              0,
+              4
+            ]
+          ],
+          "seatsCode": [
+            [
+              "A5"
+            ]
+          ],
+          "ticketAmount": 1
+        }
+      ],
+      "id": 5
     }
   ],
   "movies": [
@@ -306,7 +369,12 @@
       "poster": "http://asianwiki.com/images/f/f3/The_Great_Battle-p001.jpg",
       "plot": "In 645, Yang Man-Chun (Zo In-Sung) and Goguryeo soldiers defend Ansi Fortress against a half million invading Tang force.",
       "youtubeID": "tp7lK5oCmjA",
-      "booked": []
+      "booked": [
+        [
+          0,
+          0
+        ]
+      ]
     },
     {
       "id": 7,
@@ -482,7 +550,12 @@
       "poster": "http://asianwiki.com/images/d/d0/Along_With_the_Gods-_The_Last_49_Days-P1.jpg",
       "plot": "Angels of death Gang Rim (Ha Jung-Woo), Hae Won Maek (Ju Ji-Hoon) and Duk Choon (Kim Hyang-Gi) are about to take part in Soo-Hong’s (Kim Dong-Wook) trial. The 3 angels of death meet God of House (Ma Dong-Seok). He remembers their past which stretches over 1,000 years ago. Traveling between this world and the next world and the past, the angels of death try to find their secret relationship. ",
       "youtubeID": "IfzZYija-wM",
-      "booked": []
+      "booked": [
+        [
+          0,
+          4
+        ]
+      ]
     },
     {
       "id": 14,

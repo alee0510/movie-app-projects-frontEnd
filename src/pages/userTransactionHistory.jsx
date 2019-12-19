@@ -3,6 +3,7 @@ import { Paper, Table, TableBody, TableCell, TableHead, TableRow,
     TableFooter, TablePagination } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import { theme } from '../style/theme'
+import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied'
 
 import '../style/userTransaction.css'
 import { barcode } from '../assets'
@@ -133,35 +134,52 @@ class UserHistorTransaction extends React.Component {
 
     render () {
         let {page, rowsPerPage, transactionsHistory} = this.state
-        return (
-            <div className = 'user-transaction-history-container'>
-                <h2>My Transaction History</h2>
-                <Paper className = 'table-container' style = {{backgroundColor : theme.palette.primary.main}}>
-                    <Table>
-                        {this.renderTable()}
-                        <TableFooter>
-                            <Row>
-                                <TablePagination
-                                    rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-                                    // colSpan={3}
-                                    count={transactionsHistory.length}
-                                    rowsPerPage={rowsPerPage}
-                                    page={page}
-                                    SelectProps={{
-                                    inputProps: { 'aria-label': 'rows per page ', color : 'white' },
-                                    native: true,
-                                    }}
-                                    style = {{color : 'white'}}
-                                    onChangePage={this.handleChangePage}
-                                    onChangeRowsPerPage={this.handleChangeRowsPerPage}
-                                />
-                            </Row>
-                        </TableFooter>
-                    </Table>
-                </Paper>
-            </div>
-        )
+        if(this.props.username) {
+            return (
+                <div className = 'user-transaction-history-container'>
+                    <h2>My Transaction History</h2>
+                    <Paper className = 'table-container' style = {{backgroundColor : theme.palette.primary.main}}>
+                        <Table>
+                            {this.renderTable()}
+                            <TableFooter>
+                                <Row>
+                                    <TablePagination
+                                        rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                                        // colSpan={3}
+                                        count={transactionsHistory.length}
+                                        rowsPerPage={rowsPerPage}
+                                        page={page}
+                                        SelectProps={{
+                                        inputProps: { 'aria-label': 'rows per page ', color : 'white' },
+                                        native: true,
+                                        }}
+                                        style = {{color : 'white'}}
+                                        onChangePage={this.handleChangePage}
+                                        onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                                    />
+                                </Row>
+                            </TableFooter>
+                        </Table>
+                    </Paper>
+                </div>
+            )
+        } else {
+            return (
+                <div className = 'trans-user-not-found'>
+                    <div className = 'trans-user-not-found-contents'>
+                        <SentimentVeryDissatisfiedIcon fontSize='large'/>
+                        <p>Sorry, please login to see your ticket . . . </p>
+                    </div>
+                </div>
+            )
+        }
     }
 }
 
-export default connect(null, {checkOut}) (UserHistorTransaction)
+const mapStore = (state) => {
+    return {
+        username : state.login.username
+    }
+}
+
+export default connect(mapStore, {checkOut}) (UserHistorTransaction)

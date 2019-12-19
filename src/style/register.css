@@ -51,11 +51,11 @@
     width: 27vw;
     /* display: inline-flex; */
     /* width: 300px; */
-    margin: 20px auto !important;
+    margin: 10px auto 10px auto !important;
 }
 
 #progress {
-    margin: 10px 0px;
+    margin: 3% 0px 1% 0px;
     height: 10px;
 }
 

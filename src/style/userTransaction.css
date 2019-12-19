@@ -69,3 +69,23 @@
 #user-left-ticket-box::before {
     top : -5px
 }
+
+/* USER NOT FOUND */
+.trans-user-not-found {
+    width: 90%;
+    height: 40vh;
+    /* background-color: white; */
+    margin: auto;
+    text-align: center;
+    color: white;
+    padding: 15% 35%;
+}
+
+.trans-user-not-found-contents {
+    display: flex;
+    align-items: center;
+}
+
+.trans-user-not-found-contents p {
+    margin-left: 10px;
+}
