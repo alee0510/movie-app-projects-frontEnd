@@ -26,6 +26,15 @@
       "avatar": "",
       "cart": [],
       "id": 3
+    },
+    {
+      "username": "alean",
+      "pass": "@lean099",
+      "email": "aleano@gmail.com",
+      "role": "user",
+      "avatar": "",
+      "cart": [],
+      "id": 4
     }
   ],
   "transactions": [
@@ -185,7 +194,7 @@
       "price": 5,
       "details": [
         {
-          "title": "Along with the Gods: The Last 49 Days (신과함께-인과 연)",
+          "title": "Along with the Gods: The Last 49 Days",
           "totalPrice": 5,
           "seatsCor": [
             [
@@ -352,6 +361,60 @@
         }
       ],
       "id": 9
+    },
+    {
+      "userID": "2",
+      "username": "alee",
+      "date": "19/12/2019",
+      "time": "15:58:20",
+      "total": 1,
+      "price": 5,
+      "details": [
+        {
+          "title": "Forbidden Dream (천문: 하늘에 묻는다)",
+          "totalPrice": 5,
+          "seatsCor": [
+            [
+              2,
+              10
+            ]
+          ],
+          "seatsCode": [
+            [
+              "C11"
+            ]
+          ],
+          "ticketAmount": 1
+        }
+      ],
+      "id": 10
+    },
+    {
+      "userID": "2",
+      "username": "alee",
+      "date": "19/12/2019",
+      "time": "16:0:40",
+      "total": 1,
+      "price": 5,
+      "details": [
+        {
+          "title": "Money (돈)",
+          "totalPrice": 5,
+          "seatsCor": [
+            [
+              2,
+              10
+            ]
+          ],
+          "seatsCode": [
+            [
+              "C11"
+            ]
+          ],
+          "ticketAmount": 1
+        }
+      ],
+      "id": 11
     }
   ],
   "movies": [
@@ -428,6 +491,10 @@
         [
           3,
           9
+        ],
+        [
+          2,
+          10
         ]
       ]
     },
@@ -649,7 +716,12 @@
       "poster": "http://asianwiki.com/images/a/ab/Forbidden_Dream-P1.jpg",
       "plot": "A 20 year relationship exists between King Sejong (Han Suk-Kyu) and Jang Yeong-Sil (Choi Min-Sik). They invent various devices for astronomical observation. Due to a case, Jang Yeong-Sil is discharged from office and he disappears completely.",
       "youtubeID": "pkoynRu42pk",
-      "booked": []
+      "booked": [
+        [
+          2,
+          10
+        ]
+      ]
     },
     {
       "id": 10,
@@ -723,7 +795,7 @@
     },
     {
       "id": 13,
-      "title": "Along with the Gods: The Last 49 Days (신과함께-인과 연)",
+      "title": "Along with the Gods: The Last 49 Days",
       "genre": [
         "Fantasy",
         "Drama",

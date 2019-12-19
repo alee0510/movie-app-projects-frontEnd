@@ -61,7 +61,7 @@ class Login extends React.Component {
         let pass = this.pass.value
         console.warn('username or email : ', usernameOrMail, ' & password', pass)
 
-        const emailHostingData = ['gmail.com', 'gmail.co.id', 'yahoo.com', 'yahoo.co.id', 'hotmail.com', 'hotmail.co.id']
+        // const emailHostingData = ['gmail.com', 'gmail.co.id', 'yahoo.com', 'yahoo.co.id', 'hotmail.com', 'hotmail.co.id']
         let splitMail = usernameOrMail.split('@')
         if (splitMail.length === 1) {
             console.log('login using username')

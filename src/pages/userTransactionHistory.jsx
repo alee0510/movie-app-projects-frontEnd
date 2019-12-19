@@ -89,7 +89,7 @@ class UserHistorTransaction extends React.Component {
                         return (
                             <TableRow key = {item.id}>
                                 <Cell>{index+1}</Cell>
-                                <Cell>{item.date} / {item.time}</Cell>
+                                <Cell>{item.date} | {item.time}</Cell>
                                 <Cell>{item.total} Tickets</Cell>
                                 <Cell>$ {item.price} .00</Cell>
                                 <Cell>
