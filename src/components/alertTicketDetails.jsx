@@ -20,7 +20,9 @@ const useStyles = makeStyles({
     },
     button : {
         backgroundColor: '#4f5b62',
-        color : 'white !important'
+        color : 'white !important',
+        display : 'flex',
+        justifyContent : 'center'
     }
 })
 
@@ -47,7 +49,7 @@ export default function AlertTicketDetails(props) {
                     variant  = 'contained' 
                     color="secondary" 
                     autoFocus
-                    style = {{borderRadius : '50px', display : props.displayTwo}}
+                    style = {{borderRadius : '50px', width : '100px' }}
                     >
                         {props.buttonName}
                     </Button>

@@ -1,9 +1,10 @@
 .user-transaction-history-container {
-    width: 90%;
+    width: 70%;
     margin: auto;
 }
 .user-transaction-history-container h2 {
     color: white;
+    text-align: center;
 }
 
 .user-table-wrapper {

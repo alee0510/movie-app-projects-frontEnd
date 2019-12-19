@@ -21,6 +21,7 @@ const Cell = withStyles({
         backgroundColor : theme.palette.primary.light,
         color : theme.palette.secondary.text,
         borderColor : '#f2f2f2',
+        textAlign : 'center'
     }
 })(TableCell)
 
@@ -29,7 +30,8 @@ const HeadCell = withStyles({
         backgroundColor : theme.palette.primary.main,
         color : theme.palette.secondary.text,
         borderColor : '#f2f2f2',
-        textTransform : 'uppercase'
+        textTransform : 'uppercase',
+        textAlign : 'center'
     }
 })(TableCell)
 
