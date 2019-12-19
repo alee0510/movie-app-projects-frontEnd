@@ -325,6 +325,33 @@
         }
       ],
       "id": 8
+    },
+    {
+      "userID": "2",
+      "username": "alee",
+      "date": "19/12/2019",
+      "time": "15:8:40",
+      "total": 1,
+      "price": 5,
+      "details": [
+        {
+          "title": "Money (돈)",
+          "totalPrice": 5,
+          "seatsCor": [
+            [
+              3,
+              9
+            ]
+          ],
+          "seatsCode": [
+            [
+              "D10"
+            ]
+          ],
+          "ticketAmount": 1
+        }
+      ],
+      "id": 9
     }
   ],
   "movies": [
@@ -397,6 +424,10 @@
         [
           2,
           8
+        ],
+        [
+          3,
+          9
         ]
       ]
     },

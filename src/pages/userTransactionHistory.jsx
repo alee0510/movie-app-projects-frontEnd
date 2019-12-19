@@ -1,6 +1,6 @@
 import React from 'react';
 import { Paper, Table, TableBody, TableCell, TableHead, TableRow,
-    TableFooter, TablePagination } from '@material-ui/core'
+    TableFooter, TablePagination, Button } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import { theme } from '../style/theme'
 import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied'
@@ -12,6 +12,8 @@ import API_URL from '../supports';
 import Axios from 'axios'
 import { connect } from 'react-redux'
 import { checkOut } from '../actions'
+
+import AlertTicketDetails from '../components/alertTicketDetails'
 
 // styling cell and row
 const Cell = withStyles({
@@ -44,7 +46,9 @@ class UserHistorTransaction extends React.Component {
         this.state = {
             transactionsHistory : [],
             page : 0,
-            rowsPerPage : 5
+            rowsPerPage : 5,
+            seeDetails : false,
+            selectedID : null
         }
     }
 
@@ -86,22 +90,13 @@ class UserHistorTransaction extends React.Component {
                                 <Cell>{item.date} / {item.time}</Cell>
                                 <Cell>{item.total} Tickets</Cell>
                                 <Cell>$ {item.price} .00</Cell>
-                                <Cell style = {{width : '380px'}}>
-                                    {item.details.map((val, index) => {
-                                        return (
-                                            <div id = 'user-ticket-box' key = {index}>
-                                                <div id = 'user-left-ticket-box'>
-                                                    <img src = {barcode} alt = 'user-barcode' width = '75px'/>
-                                                </div>
-                                                <div id = 'user-right-ticket-box'>
-                                                    <p id = 'user-his-title'>{val.title}</p>
-                                                    <p>Price : ${val.totalPrice}.00</p>
-                                                    <p>{val.ticketAmount} Tickets</p>
-                                                    <p>Seat : {val.seatsCode.join(' , ')}</p>
-                                                </div>
-                                            </div>
-                                        )
-                                    })}
+                                <Cell>
+                                    <Button 
+                                    variant = 'contained' 
+                                    color = 'secondary' 
+                                    style = {{borderRadius : '50px', width : '100px', heigth : '40px'}}
+                                    onClick = {() => this.hanldeClickDetails(index)}
+                                    >Details</Button>
                                 </Cell>
                             </TableRow>
                         )
@@ -132,8 +127,42 @@ class UserHistorTransaction extends React.Component {
         this.setState({page : 0, rowsPerPage : parseInt(event.target.value, 10)})
     }
 
+    hanldeClickDetails = (index) => {
+        console.log('details')
+        this.setState({seeDetails : true, selectedID : index})
+    }
+
+    handleClose = () => {
+        this.setState({seeDetails : false})
+    }
+
+    renderTicketDetails = () => {
+        let {transactionsHistory, selectedID} = this.state
+        if (selectedID !== null) {
+            // console.log(transactionsHistory[selectedID])
+            return transactionsHistory[selectedID].details.map((item, index) => {
+                return (
+                    <div id = 'user-ticket-box' key = {index}>
+                        <div id = 'user-left-ticket-box'>
+                            <img src = {barcode} alt = 'user-barcode' width = '75px'/>
+                        </div>
+                        <div id = 'user-right-ticket-box'>
+                            <p id = 'user-his-title'>{item.title}</p>
+                            <p>Price : ${item.totalPrice}.00</p>
+                            <p>{item.ticketAmount} Tickets</p>
+                            <p>Seat : {item.seatsCode.join(' , ')}</p>
+                        </div>
+                    </div>
+                )
+            })
+        }
+        return <p>hello</p>
+    }
+
     render () {
-        let {page, rowsPerPage, transactionsHistory} = this.state
+        let {page, rowsPerPage, transactionsHistory, seeDetails,selectedID} = this.state
+        // console.log(transactionsHistory[0])
+        console.log('row id selected : ' + selectedID)
         if(this.props.username) {
             return (
                 <div className = 'user-transaction-history-container'>
@@ -161,6 +190,15 @@ class UserHistorTransaction extends React.Component {
                             </TableFooter>
                         </Table>
                     </Paper>
+                    <AlertTicketDetails
+                    open = {seeDetails}
+                    close = {this.handleClose}
+                    title = 'Ticket details'
+                    contents = {this.renderTicketDetails()}
+                    handleButton = {this.handleClose}
+                    buttonName = 'OK'
+
+                    />
                 </div>
             )
         } else {
