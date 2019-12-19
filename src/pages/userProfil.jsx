@@ -292,7 +292,7 @@ class UserProfil extends React.Component {
                     title = {alert ? 'Sorry' : 'Success'}
                     contents = {alert ? 'Your old password doesnt macth with our data base' : 'Your password has been changed'}
                     handleButtonTwo = {this.handleClose}
-                    handleButtonOne = ""
+                    handleButtonOne = {null}
                     displayOne = 'none'
                     displayTwo = 'block'
                     ButtonTwoName = 'OK'
