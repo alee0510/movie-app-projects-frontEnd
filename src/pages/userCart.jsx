@@ -15,6 +15,7 @@ import { logIn, checkOut } from '../actions'
 
 // alert dialog 
 import AlertDialog from '../components/alertDialog'
+import { Redirect } from 'react-router-dom'
 
 const Cell = withStyles({
     root : {
@@ -41,7 +42,9 @@ class UserCart extends React.Component {
         this.state = {
             cart : [],
             transactions : [],
-            alertOpen : false
+            alertOpen : false,
+            isCheckOut : false,
+            seeHistory : false
         }
     }
 
@@ -200,7 +203,22 @@ class UserCart extends React.Component {
         this.setState({alertOpen : false})
     }
 
+    handleClickNo = () => {
+        this.setState({isCheckOut : true})
+    }
+
+    handleClickYes = () => {
+        this.setState({seeHistory : true})
+    }
+
     render () {
+        let {isCheckOut, seeHistory} = this.state
+        console.log('isCheckOut : ' + isCheckOut + 's eeHistory : ' + seeHistory)
+        if (isCheckOut) {
+            return <Redirect to = '/' ></Redirect>
+        } else if (seeHistory) {
+            return <Redirect to = '/userTransaction' ></Redirect>
+        }
         if (this.props.username) {
             console.log(this.state.alertOpen)
             return (
@@ -214,13 +232,13 @@ class UserCart extends React.Component {
                     open = {this.state.alertOpen}
                     close = {this.hanldeAlertClose}
                     title = 'Your transaction is success'
-                    contents = 'Click ticket button to see your further ticket infromation. Thank You.'
-                    displayOne = 'none'
-                    ButtonOneName = ''
-                    handleButtonOne = {null}
+                    contents = 'Click Yes to see your ticket infromation and No to back Home. Thank You.'
+                    ButtonOneName = 'No'
+                    hanldeButtonOne = {this.handleClickNo}
+                    handleButtonTwo = {this.handleClickYes}
+                    ButtonTwoName = 'Yes'
+                    displayOne = 'block'
                     displayTwo = 'block'
-                    ButtonTwoName = 'OK'
-                    handleButtonTwo = {this.hanldeAlertClose}
                     />
                 </div>
             )

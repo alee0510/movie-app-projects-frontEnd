@@ -382,7 +382,7 @@ class SeatReservation extends React.Component {
                         open = {open}
                         close = {this.handleDialogClose}
                         title = 'Your booked is success'
-                        contents = 'Plese select yes to see your cart and payment process and no if you want to select seat again'
+                        contents = 'Plese select Yes to see your cart and payment process and No if you want to select seat again'
                         hanldeButtonOne = {this.handleDialogClose}
                         ButtonOneName = 'No'
                         handleButtonTwo = {this.Booked}
