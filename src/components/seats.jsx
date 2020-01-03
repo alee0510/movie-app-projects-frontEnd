@@ -2,8 +2,6 @@ import React from 'react'
 import { Table, TableHead, TableBody, TableRow, TableCell, withStyles } from '@material-ui/core'
 import EventSeatIcon from '@material-ui/icons/EventSeat'
 
-var seats = [20, 5]
-
 // material custom 
 const Cell = withStyles({
     root : {
@@ -45,9 +43,9 @@ function Seat (props) {
     }
 }
 
-function SeatRow (props) {
+function SeatRows (props) {
     let cells = []
-    for (let i = 0; i < seats[0]; i++) {
+    for (let i = 0; i < props.seats[0]; i++) {
         cells.push(
         <Seat key = {i} 
             cell = {props.cells[i]} 
@@ -61,7 +59,7 @@ function SeatRow (props) {
 
 function NumCell (props) {
     let num = []
-    for(let i = 0; i < seats[0]; i++){
+    for(let i = 0; i < props.seats[0]; i++){
         num.push(<Cell key = {i}>{i+1}</Cell>)
     }
     return num
@@ -70,14 +68,16 @@ function NumCell (props) {
 function SeatBoard (props) {
     let rows = []
     let str = 'ABCDE'
-    for (let i = 0; i < seats[1]; i++) {
+    for (let i = 0; i < props.seats[1]; i++) {
         rows.push(
             <Row key = {i}>
                 <Cell>{str[i]}</Cell>
                 <SeatRows   
                     row = {i} 
                     cells = {props.cells[i]} 
-                    handleClick = {props.handleClick}/>
+                    handleClick = {props.handleClick}
+                    seats = {props.seats}
+                />
             </Row>)
     }
     return (
@@ -88,7 +88,7 @@ function SeatBoard (props) {
             <TableBody>
                 <Row>
                     <Cell></Cell>
-                    <NumCell/>
+                    <NumCell seats = {props.seats}/>
                 </Row>
             </TableBody>
         </Table>

@@ -6,8 +6,8 @@ import LocalMallIcon from '@material-ui/icons/LocalMall'
 import RefreshIcon from '@material-ui/icons/Refresh'
 import AlertDialog from '../components/alertDialog'
 
-// import table
-import { Button, Table, TableBody, TableCell, TableHead, TableRow, withStyles } from '@material-ui/core';
+// import from matrial ui
+import { Button } from '@material-ui/core';
 
 // style
 import '../style/seat.css'
@@ -19,108 +19,17 @@ import { logIn } from '../actions'
 import API_URL from '../supports';
 import Axios from 'axios'
 
-var seats = 100
+// import components
+import SeatBoard from '../components/seats'
 
-function Seat (props) {
-    const red = '#F50057'
-    const blue = '#304ffe'
-    const white = '#f2f2f2'
-    const style = {
-        color : props.cell === 3 ? red : props.cell === 2 ? blue : white,
-        cursor : 'pointer',
-        fontSize : '18pt',
-    }
-    // console.log('cell ' + props.cell)
-    // console.log(style.color)
-
-    if (props.cell === 3) {
-        return (
-            <Cell>
-                <EventSeatIcon style ={style} fontSize = 'small'/>
-            </Cell>
-        )
-    } else {
-        return (
-            <Cell onClick ={() => props.handleClick(props.row, props.col)}>
-                <EventSeatIcon style = {style} fontSize = 'small'/>
-            </Cell>
-        )
-    }
-}
-
-function SeatRows (props) { // 20 seats
-    let cells = []
-    for (let i = 0; i < seats/5; i++) {
-        cells.push(
-        <Seat key = {i} 
-            cell = {props.cells[i]} 
-            row = {props.row} 
-            handleClick = {props.handleClick}
-            col = {i}
-            />)
-    }
-    return cells
-}
-
-function NumCell (props) {
-    let num = []
-    for(let i = 0; i < seats/5; i++){
-        num.push(<Cell key = {i}>{i+1}</Cell>)
-    }
-    return num
-}
-
-function SeatBoard (props) {
-    let rows = []
-    let str = 'ABCDE'
-    for (let i = 0; i < seats/20; i++) {
-        rows.push(
-            <Row key = {i}>
-                <Cell>{str[i]}</Cell>
-                <SeatRows   
-                    row = {i} 
-                    cells = {props.cells[i]} 
-                    handleClick = {props.handleClick}/>
-            </Row>)
-    }
-    return (
-        <Table>
-            <TableHead>
-                {rows}
-            </TableHead>
-            <TableBody>
-                <Row>
-                    <Cell></Cell>
-                    <NumCell/>
-                </Row>
-            </TableBody>
-        </Table>
-    )
-}
-
-
-const Cell = withStyles ({
-    root : {
-        color : 'white',
-        border : 'none',
-        textAlign : 'center',
-        padding : 3
-    }
-})(TableCell)
-
-
-const Row = withStyles ({
-    root : {
-        height : 'auto'
-    }
-})(TableRow)
+var seats = [20, 5] // col , rows
 
 class SeatReservation extends React.Component {
     constructor(props) {
         super(props)
         var cells = []
-        for (let i = 0; i < seats/20; i++){
-            cells.push(new Array(seats/5).fill(1))
+        for (let i = 0; i < seats[1]; i++){
+            cells.push(new Array(seats[0]).fill(1))
         }
         this.state = {
             cells : cells,
@@ -139,8 +48,8 @@ class SeatReservation extends React.Component {
         .then((res) => {
             this.setState({bookedSeat : res.data.booked})
             let temp  = []
-            for (let i = 0; i < seats/20; i++){
-                temp.push(new Array(seats/5).fill(1))
+            for (let i = 0; i < seats[1]; i++){
+                temp.push(new Array(seats[0]).fill(1))
             }
             for (let i = 0; i < res.data.booked.length; i++){
                 temp[res.data.booked[i][0]][res.data.booked[i][1]] = 3
@@ -165,7 +74,7 @@ class SeatReservation extends React.Component {
         let str = 'ABCDE'
         console.info('selected row : ', row, 'selected cell : ', col)
         
-        for(let i = 0; i < seats/20; i++) {
+        for(let i = 0; i < seats[1]; i++) {
             temp.push(cells[i].slice())
         }
 
@@ -255,7 +164,7 @@ class SeatReservation extends React.Component {
                     .catch((err) => console.log(err))
                 })
                 .catch((err) => console.log(err))
-            } else if (same){
+            } else if (same) {
                 console.log('cart is has movie with same title')
                 let index = this.findIndexOfMovie(movieDetails.title)
                 cart[index].totalPrice += price
@@ -345,6 +254,7 @@ class SeatReservation extends React.Component {
                         cells = {this.state.cells} 
                         handleClick = {this.handleClick}
                         booked = {this.state.booked}
+                        seats = {seats}
                         />   
                     </div>
                     <div id = 'booked-info'>
