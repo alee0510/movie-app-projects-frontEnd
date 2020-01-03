@@ -1,12 +1,13 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
+
+// Icons
 import EventSeatIcon from '@material-ui/icons/EventSeat'
 import LocalMallIcon from '@material-ui/icons/LocalMall'
 import RefreshIcon from '@material-ui/icons/Refresh'
 import AlertDialog from '../components/alertDialog'
 
 // import table
-import {Table, TableBody, TableCell, TableHead, TableRow, withStyles } from '@material-ui/core';
+import { Button, Table, TableBody, TableCell, TableHead, TableRow, withStyles } from '@material-ui/core';
 
 // style
 import '../style/seat.css'
@@ -60,6 +61,7 @@ function SeatRows (props) { // 20 seats
     }
     return cells
 }
+
 function NumCell (props) {
     let num = []
     for(let i = 0; i < seats/5; i++){
