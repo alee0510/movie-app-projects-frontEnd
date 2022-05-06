@@ -8,7 +8,7 @@ npm install -g concurrently json-server
 ```
 
 ## Start
-it will run bot client and server-side
+it will run both client and server-side
 ```npm
 npm start
 ```
