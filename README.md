@@ -2,7 +2,7 @@
 ![screenshot](/screenshot/web_capture_localhost.jpeg)
 
 ## Dependency
-install json-server and concurrently to start both client and server side
+install json-server and concurrently to start both client and server-side
 ```npm
 npm install -g concurrently json-server
 ```
